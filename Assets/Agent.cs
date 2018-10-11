@@ -24,8 +24,9 @@ public class Agent : MonoBehaviour
     {
         velocity = Vector3.zero;
         orientation = 0.0f;
-        //orientation = Mathf.Atan2(transform.position.x, transform.position.y) * Mathf.Rad2Deg; // Cambie z por y
+        //orientation = Mathf.Atan2(velocity.x, velocity.y) * Mathf.Rad2Deg; // Cambie z por y
         rotation = 0.0f;
+        transform.Rotate(Vector3.forward, orientation, Space.Self);
         steering = new Steering();
     }
 
@@ -36,10 +37,15 @@ public class Agent : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
         //float initialOrientation = orientation;
         orientation += rotation * Time.deltaTime;
-
-        //print(orientation);
-        transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation*Time.deltaTime));
+        print("Orientation");
+        print(orientation);
+        print("Rotation");
+        print(rotation);
+        //transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation*Time.deltaTime));
+        //transform.rotation = Quaternion.AngleAxis(orientation,Vector3.forward);
         //transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation));  //un trompo
+        //transform.Rotate(Vector3.forward, orientation, Space.Self);
+
 
         // Update velocity and rotation
         velocity += steering.linear * Time.deltaTime;

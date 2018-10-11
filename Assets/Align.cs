@@ -11,6 +11,7 @@ public class Align : GeneralBehaviour
     new void Start()
     {
         base.Start();
+        //character.orientation = Mathf.Atan2(character.velocity.x, character.velocity.y) * Mathf.Rad2Deg; // Cambie z por y
     }
 
     // Update is called once per frame
@@ -45,9 +46,7 @@ public class Align : GeneralBehaviour
         {
             character.steering.angular /= angularAcc;
             character.steering.angular *= character.maxAngularAcc;
-        }
-
-        
+        }   
     }
 
 }
