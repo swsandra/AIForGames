@@ -239,6 +239,8 @@
     <Compile Include="Assets\DArrive.cs" />
     <Compile Include="Assets\DFlee.cs" />
     <Compile Include="Assets\DSeek.cs" />
+    <Compile Include="Assets\Evade.cs" />
+    <Compile Include="Assets\Face.cs" />
     <Compile Include="Assets\GeneralBehaviour.cs" />
     <Compile Include="Assets\KArrive.cs" />
     <Compile Include="Assets\KFlee.cs" />
@@ -246,8 +248,7 @@
     <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\EditorPopup\EditorScripts\OpenMoreGames.cs" />
     <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\Scritps\OrderPrefabs.cs" />
     <Compile Include="Assets\MouseMovement.cs" />
-    <Compile Include="Assets\Evade.cs" />
-    <Compile Include="Assets\Face.cs" />
+    <Compile Include="Assets\Wander.cs" />
     <Compile Include="Assets\Otro.cs" />
     <Compile Include="Assets\Pursue.cs" />
     <Compile Include="Assets\Steering.cs" />

@@ -23,11 +23,11 @@ public class Agent : MonoBehaviour
     void Start()
     {
         velocity = Vector3.zero;
-        orientation = 0.0f;
-        //orientation = Mathf.Atan2(transform.position.y, transform.position.x) * Mathf.Rad2Deg; // Cambie z por y
+        //orientation = 0.0f;
+        orientation = Mathf.Atan2(-transform.position.x, transform.position.y) * Mathf.Rad2Deg; // Cambie z por y
         rotation = 0.0f;
-        //transform.Rotate(Vector3.forward, orientation, Space.Self);
         steering = new Steering();
+        Vector3 wrld = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width,0f,0f)) ;
     }
 
     // Update is called once per frame
@@ -35,18 +35,19 @@ public class Agent : MonoBehaviour
     {
         // Update postition and orientation
         transform.position += velocity * Time.deltaTime;
-        //float initialOrientation = orientation;
+        
         orientation += rotation * Time.deltaTime;
-        print("Orientation");
-        print(orientation);
-        print("Rotation");
-        print(rotation);
-        //transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation*Time.deltaTime));
-        transform.rotation = Quaternion.AngleAxis(orientation, Vector3.forward);
-        //transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation));  //un trompo
-        //transform.Rotate(Vector3.forward, orientation, Space.Self);
 
+        if (orientation < 0f)
+        {
+            orientation = orientation + 360f;
+        }
 
+        if (orientation > 360f)
+        {
+            orientation = orientation - 360f;
+        }
+        
         // Update velocity and rotation
         velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
@@ -54,6 +55,16 @@ public class Agent : MonoBehaviour
         if (velocity.magnitude > maxSpeed){
             velocity.Normalize();
             velocity *= maxSpeed;
+        }
+
+        if (steering.angular == 0f)
+        {
+            rotation = 0f;
+        }
+        else
+        {
+            //transform.rotation = Quaternion.AngleAxis(orientation*Time.deltaTime, Vector3.forward);
+            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation*Time.deltaTime));
         }
 
     }

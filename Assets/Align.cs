@@ -5,7 +5,7 @@ public class Align : GeneralBehaviour
 {
     float tRadius=0.5f, sRadius=1.5f, timeToTarget = 0.1f, angularAcc;
     float rotation, rotationSize;
-    float targetRotation;
+    float targetRotation, targetOrientation, characterOrientation;
 
     // Use this for initialization
     new void Start()
@@ -22,12 +22,17 @@ public class Align : GeneralBehaviour
 
     public override Steering GetSteering()
     {
-        rotation = target.orientation - character.orientation;
+        //rotation = target.orientation - character.orientation;
+        //Resta de vectores de posición y lo paso a grados
+        Vector3 rotacion = target.transform.position - character.transform.position;
+        rotation = Mathf.Atan2(-rotacion.x, rotacion.y) * Mathf.Rad2Deg;
+
         rotation = MapToRange(rotation);
         rotationSize = Mathf.Abs(rotation);
 
         if (rotationSize < tRadius)
         {
+            steering.angular = 0;
             return steering;
         }
 
@@ -40,18 +45,28 @@ public class Align : GeneralBehaviour
             targetRotation = character.maxRotation * rotationSize / sRadius;
         }
 
-        targetRotation *= rotation / rotationSize;
+        targetRotation = targetRotation * (rotation / rotationSize);
 
-        character.steering.angular = targetRotation - character.rotation;
-        character.steering.angular /= timeToTarget;
+        //print("St ang antes");
+        //print(steering.angular);
 
-        float angularAcc = Mathf.Abs(character.steering.angular);
+        steering.angular = targetRotation - character.rotation;
+        steering.angular /= timeToTarget;
+        
+        //print("St ang medio");
+        //print(steering.angular);
+
+        float angularAcc = Mathf.Abs(steering.angular);
 
         if (angularAcc > character.maxAngularAcc)
         {
-            character.steering.angular /= angularAcc;
-            character.steering.angular *= character.maxAngularAcc;
+            steering.angular /= angularAcc;
+            steering.angular *= character.maxAngularAcc;
         }
+
+        //print("St ang despues");
+        //print(steering.angular);
+
         return steering;
     }
 
