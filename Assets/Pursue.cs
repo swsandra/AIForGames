@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Pursue : DArrive
+public class Pursue : DSeek
 {
 
     Agent pursueTarget;
@@ -24,8 +24,8 @@ public class Pursue : DArrive
 
     public override Steering GetSteering()
     {
-        direction = pursueTarget.transform.position - character.transform.position;
-        distance = direction.magnitude;
+        Vector3 direction = pursueTarget.transform.position - character.transform.position;
+        float distance = direction.magnitude;
 
         speed = character.velocity.magnitude;
 
