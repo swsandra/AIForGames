@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Align : GeneralBehaviour
 {
-    float tRadius=0.5f, sRadius=1f, timeToTarget = 0.1f, angularAcc;
+    float tRadius=0.5f, sRadius=1.5f, timeToTarget = 0.1f, angularAcc;
     float rotation, rotationSize;
     float targetRotation;
 
@@ -11,22 +11,27 @@ public class Align : GeneralBehaviour
     new void Start()
     {
         base.Start();
-        //character.orientation = Mathf.Atan2(character.velocity.x, character.velocity.y) * Mathf.Rad2Deg; // Cambie z por y
+        //character.orientation = Mathf.Atan2(-character.transform.position.x, character.transform.position.y) * Mathf.Rad2Deg; // Cambie z por y
     }
 
     // Update is called once per frame
     void Update()
     {
+        character.steering = GetSteering();
+    }
+
+    public override Steering GetSteering()
+    {
         rotation = target.orientation - character.orientation;
         rotation = MapToRange(rotation);
         rotationSize = Mathf.Abs(rotation);
 
-        if (rotationSize<tRadius)
+        if (rotationSize < tRadius)
         {
-            return;
+            return steering;
         }
 
-        if (rotationSize>sRadius)
+        if (rotationSize > sRadius)
         {
             targetRotation = character.maxRotation;
         }
@@ -35,7 +40,7 @@ public class Align : GeneralBehaviour
             targetRotation = character.maxRotation * rotationSize / sRadius;
         }
 
-        targetRotation *= rotation/rotationSize;
+        targetRotation *= rotation / rotationSize;
 
         character.steering.angular = targetRotation - character.rotation;
         character.steering.angular /= timeToTarget;
@@ -46,7 +51,9 @@ public class Align : GeneralBehaviour
         {
             character.steering.angular /= angularAcc;
             character.steering.angular *= character.maxAngularAcc;
-        }   
+        }
+        return steering;
     }
+
 
 }

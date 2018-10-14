@@ -247,6 +247,7 @@
     <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\Scritps\OrderPrefabs.cs" />
     <Compile Include="Assets\MouseMovement.cs" />
     <Compile Include="Assets\Evade.cs" />
+    <Compile Include="Assets\Face.cs" />
     <Compile Include="Assets\Otro.cs" />
     <Compile Include="Assets\Pursue.cs" />
     <Compile Include="Assets\Steering.cs" />

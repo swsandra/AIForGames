@@ -4,14 +4,14 @@ using System.Collections;
 public class Evade : DFlee
 {
 
-    Agent pursueTarget;
+    Agent evadeTarget;
     float maxPrediction, speed, prediction;
 
     // Use this for initialization
     new void Start()
     {
         base.Start();
-        pursueTarget = target;
+        evadeTarget = target;
         target = new Agent();
         maxPrediction = 4f;
     }
@@ -24,7 +24,7 @@ public class Evade : DFlee
 
     public override Steering GetSteering()
     {
-        Vector3 direction = pursueTarget.transform.position - character.transform.position;
+        Vector3 direction = evadeTarget.transform.position - character.transform.position;
         float distance = direction.magnitude;
 
         speed = character.velocity.magnitude;
@@ -38,9 +38,9 @@ public class Evade : DFlee
             prediction = distance / speed;
         }
 
-        target = pursueTarget;
+        target = evadeTarget;
 
-        target.transform.position += pursueTarget.velocity * prediction;
+        target.transform.position += evadeTarget.velocity * prediction;
 
         return base.GetSteering();
     }
