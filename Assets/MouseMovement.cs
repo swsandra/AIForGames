@@ -32,7 +32,15 @@ public class MouseMovement : MonoBehaviour{
 
         if (_move == true)
         {
+            transform.rotation = Quaternion.FromToRotation(transform.position, _target);
+            //float ang = Mathf.Atan2(-transform.position.x, transform.position.y) * Mathf.Rad2Deg;
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
+
+            //Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
+
+            //Vector3 newDir = Vector3.RotateTowards(transform.position, _target, _speed * Time.deltaTime, 0.0f);
+            //float ang = Mathf.Atan2(-transform.position.x, transform.position.y) * Mathf.Rad2Deg;
+            //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + ang * Time.deltaTime);
         }
 
     }

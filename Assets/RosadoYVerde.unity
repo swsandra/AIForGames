@@ -313,7 +313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 117788, guid: a6fbd1961fa50ad4aac9620c8e9d9381, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 443356, guid: a6fbd1961fa50ad4aac9620c8e9d9381, type: 2}
       propertyPath: m_LocalScale.x
@@ -409,7 +409,7 @@ RectTransform:
   m_GameObject: {fileID: 781451289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.96525, y: 0.61256623, z: 0.99}
+  m_LocalScale: {x: 0.96525, y: 0.6125662, z: 0.98999995}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -417,7 +417,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 289, y: 133.5}
-  m_SizeDelta: {x: 110, y: 100}
+  m_SizeDelta: {x: 110, y: 98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &874614925
 GameObject:

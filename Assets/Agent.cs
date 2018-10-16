@@ -23,8 +23,7 @@ public class Agent : MonoBehaviour
     void Start()
     {
         velocity = Vector3.zero;
-        //orientation = 0.0f;
-        orientation = Mathf.Atan2(-transform.position.x, transform.position.y) * Mathf.Rad2Deg; // Cambie z por y
+        orientation = 0.0f;
         rotation = 0.0f;
         steering = new Steering();
         Vector3 wrld = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width,0f,0f)) ;
@@ -35,7 +34,8 @@ public class Agent : MonoBehaviour
     {
         // Update postition and orientation
         transform.position += velocity * Time.deltaTime;
-        
+        transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
+
         orientation += rotation * Time.deltaTime;
 
         if (orientation < 0f)
@@ -55,16 +55,6 @@ public class Agent : MonoBehaviour
         if (velocity.magnitude > maxSpeed){
             velocity.Normalize();
             velocity *= maxSpeed;
-        }
-
-        if (steering.angular == 0f)
-        {
-            rotation = 0f;
-        }
-        else
-        {
-            //transform.rotation = Quaternion.AngleAxis(orientation*Time.deltaTime, Vector3.forward);
-            transform.rotation = Quaternion.Euler(new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + orientation*Time.deltaTime));
         }
 
     }

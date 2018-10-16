@@ -5,7 +5,7 @@ public class Align : GeneralBehaviour
 {
     float tRadius=0.5f, sRadius=1.5f, timeToTarget = 0.1f, angularAcc;
     float rotation, rotationSize;
-    float targetRotation, targetOrientation, characterOrientation;
+    float targetRotation;
 
     // Use this for initialization
     new void Start()
@@ -22,16 +22,14 @@ public class Align : GeneralBehaviour
 
     public override Steering GetSteering()
     {
-        //rotation = target.orientation - character.orientation;
-        //Resta de vectores de posición y lo paso a grados
-        Vector3 rotacion = target.transform.position - character.transform.position;
-        rotation = Mathf.Atan2(-rotacion.x, rotacion.y) * Mathf.Rad2Deg;
+        rotation = target.transform.rotation.eulerAngles.z - character.transform.rotation.eulerAngles.z;
 
         rotation = MapToRange(rotation);
         rotationSize = Mathf.Abs(rotation);
 
         if (rotationSize < tRadius)
         {
+            //steering.linear = Vector3.zero;
             steering.angular = 0;
             return steering;
         }
@@ -50,7 +48,7 @@ public class Align : GeneralBehaviour
         //print("St ang antes");
         //print(steering.angular);
 
-        steering.angular = targetRotation - character.rotation;
+        steering.angular = targetRotation - character.transform.rotation.z;
         steering.angular /= timeToTarget;
         
         //print("St ang medio");
@@ -64,6 +62,7 @@ public class Align : GeneralBehaviour
             steering.angular *= character.maxAngularAcc;
         }
 
+        steering.linear = Vector3.zero;
         //print("St ang despues");
         //print(steering.angular);
 
