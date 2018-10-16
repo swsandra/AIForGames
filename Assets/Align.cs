@@ -11,7 +11,6 @@ public class Align : GeneralBehaviour
     new void Start()
     {
         base.Start();
-        //character.orientation = Mathf.Atan2(-character.transform.position.x, character.transform.position.y) * Mathf.Rad2Deg; // Cambie z por y
     }
 
     // Update is called once per frame
@@ -45,14 +44,8 @@ public class Align : GeneralBehaviour
 
         targetRotation = targetRotation * (rotation / rotationSize);
 
-        //print("St ang antes");
-        //print(steering.angular);
-
         steering.angular = targetRotation - character.transform.rotation.z;
         steering.angular /= timeToTarget;
-        
-        //print("St ang medio");
-        //print(steering.angular);
 
         float angularAcc = Mathf.Abs(steering.angular);
 
@@ -62,9 +55,7 @@ public class Align : GeneralBehaviour
             steering.angular *= character.maxAngularAcc;
         }
 
-        steering.linear = Vector3.zero;
-        //print("St ang despues");
-        //print(steering.angular);
+        //steering.linear = Vector3.zero;
 
         return steering;
     }

@@ -18,10 +18,13 @@ public class MouseMovement : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
+
+        //_target = Vector3.zero;
         if (Input.GetMouseButtonDown(0))
         {
             _target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             _target.z = transform.position.z;
+            
 
             if (_move == false)
             {
@@ -32,16 +35,15 @@ public class MouseMovement : MonoBehaviour{
 
         if (_move == true)
         {
-            transform.rotation = Quaternion.FromToRotation(transform.position, _target);
-            //float ang = Mathf.Atan2(-transform.position.x, transform.position.y) * Mathf.Rad2Deg;
             transform.position = Vector3.MoveTowards(transform.position, _target, _speed * Time.deltaTime);
-
-            //Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
-
-            //Vector3 newDir = Vector3.RotateTowards(transform.position, _target, _speed * Time.deltaTime, 0.0f);
-            //float ang = Mathf.Atan2(-transform.position.x, transform.position.y) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + ang * Time.deltaTime);
         }
+
+        Vector3 dirMov = _target - transform.position;
+        if (dirMov != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, (dirMov));
+        }
+        
 
     }
 }
