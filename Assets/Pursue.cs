@@ -19,7 +19,8 @@ public class Pursue : DSeek
     // Update is called once per frame
     void Update()
     {
-        character.steering = GetSteering();
+        character.steering.linear = GetSteering().linear;
+        //print(steering.linear);
     }
 
     public override Steering GetSteering()

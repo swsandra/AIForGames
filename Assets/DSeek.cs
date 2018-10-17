@@ -18,7 +18,7 @@ public class DSeek : GeneralBehaviour {
     //}
     void Update()
     {
-        character.steering = GetSteering();
+        character.steering.linear = GetSteering().linear;
     }
 
     public override Steering GetSteering()

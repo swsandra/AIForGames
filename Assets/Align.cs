@@ -16,7 +16,8 @@ public class Align : GeneralBehaviour
     // Update is called once per frame
     void Update()
     {
-        character.steering = GetSteering();
+        character.steering.angular = GetSteering().angular;
+        //print(steering.angular);
     }
 
     public override Steering GetSteering()
