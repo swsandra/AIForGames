@@ -38,7 +38,7 @@ public class GeneralBehaviour : MonoBehaviour
     }
 
     //2D
-    public Vector3 GetOrientationAsVector(float orientation)
+    protected Vector3 GetOrientationAsVector(float orientation)
     {
         Vector3 vector = Vector3.zero;
         vector.x = Mathf.Cos(orientation*Mathf.Deg2Rad) * 1.0f;

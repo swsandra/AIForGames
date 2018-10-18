@@ -36,17 +36,17 @@ public class Agent : MonoBehaviour
         transform.position += velocity * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
 
-        orientation += rotation * Time.deltaTime;
+        //orientation += rotation * Time.deltaTime;
 
-        if (orientation < 0f)
-        {
-            orientation = orientation + 360f;
-        }
+        //if (orientation < 0f)
+        //{
+        //    orientation = orientation + 360f;
+        //}
 
-        if (orientation > 360f)
-        {
-            orientation = orientation - 360f;
-        }
+        //if (orientation > 360f)
+        //{
+        //    orientation = orientation - 360f;
+        //}
         
         // Update velocity and rotation
         velocity += steering.linear * Time.deltaTime;
