@@ -30,7 +30,7 @@ public class Wander : Face
         //Calculate combined target rotation
         //wanderTargetRotation = wanderOrientation + character.orientation;
         wanderTargetRotation = wanderOrientation + character.transform.rotation.eulerAngles.z;
-        print(wanderTargetRotation);
+        //print(wanderTargetRotation);
 
         //Calculate center of wander circle
         //wanderTargetVect = character.transform.position + offset * GetOrientationAsVector(character.orientation);
@@ -43,7 +43,9 @@ public class Wander : Face
         steering = base.GetSteering(wanderTargetVect);
 
         //steering.linear = character.maxAcc * GetOrientationAsVector(character.orientation);
-        //print(GetOrientationAsVector(character.orientation));
+        //steering.linear = character.maxAcc * GetOrientationAsVector(character.transform.rotation.eulerAngles.z);
+        print(character.transform.rotation.eulerAngles.z);
+        print(GetOrientationAsVector(character.transform.rotation.eulerAngles.z));
 
         return steering;
     }
