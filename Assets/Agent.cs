@@ -35,6 +35,7 @@ public class Agent : MonoBehaviour
         // Update postition and orientation
         transform.position += velocity * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
+        //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotation * Time.deltaTime);
 
         orientation += rotation * Time.deltaTime;
 

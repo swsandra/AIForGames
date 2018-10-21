@@ -34,7 +34,7 @@ public class Face : Align
         }
 
         target = faceTarget;
-        faceTargetRotation = Mathf.Atan2(-direction.x, direction.z) * Mathf.Rad2Deg;
+        faceTargetRotation = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
         //print(faceTargetRotation);
 
         return base.GetSteering(faceTargetRotation);
