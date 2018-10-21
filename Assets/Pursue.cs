@@ -43,7 +43,7 @@ public class Pursue : DSeek
 
         target.transform.position += pursueTarget.velocity*prediction;
 
-        return base.GetSteering();
+        return base.GetSteering(target.transform.position);
     }
 
 }
