@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 public class CollisionDetector : GeneralBehaviour
 {
@@ -7,12 +8,7 @@ public class CollisionDetector : GeneralBehaviour
     public Vector3 centralRay, sideRay1, sideRay2;
     public Vector3 centralRayEnd, sideRay1End, sideRay2End;
     float angleVariation = 40f;
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    
     public void GenerateRays(Agent character, Agent target)
     {
         float lookAhead = 6f;
@@ -43,11 +39,40 @@ public class CollisionDetector : GeneralBehaviour
         sideRay1 = Quaternion.AngleAxis(-angleVariation,Vector3.forward) * halfCentralRay;
         sideRay2 = Quaternion.AngleAxis(angleVariation, Vector3.forward) * halfCentralRay;
 
+        centralRayEnd = centralRay + character.transform.position;
+        sideRay1End = sideRay1 + character.transform.position;
+        sideRay2End = sideRay2 + character.transform.position;
+
     }
 
-    public static bool LineIntersectsCircle(Vector3 rayStart, Vector3 rayEnd, Vector3 center, float radius)
+    public bool LineIntersectsCircle(Vector3 rayStart, Vector3 rayEnd, Vector3 center, float radius)
     {
-        return Vector3.Distance(center, rayStart) <= radius || Vector3.Distance(center, rayEnd) <= radius;
+        //DistancePointLine(Vector3 point, Vector3 lineStart, Vector3 lineEnd);
+        return HandleUtility.DistancePointLine(center, rayStart, rayEnd)<=radius;
+    }
+
+    public Vector3 RayIntersects(Vector3 center, float radius)
+    {
+        //Calculates which ray is intersecting some obstacle
+        if (LineIntersectsCircle(centralRay, centralRayEnd, center, radius))
+        {
+            //print("c");
+            return centralRayEnd;
+        }
+
+        if (LineIntersectsCircle(sideRay1, sideRay1End, center, radius))
+        {
+            //print("1");
+            return sideRay1End;
+        }
+
+        if (LineIntersectsCircle(sideRay2, sideRay2End, center, radius))
+        {
+            //print("2");
+            return sideRay2End;
+        }
+
+        return Vector3.positiveInfinity;
     }
 
     //Returns first collision
@@ -56,9 +81,7 @@ public class CollisionDetector : GeneralBehaviour
         GameObject mostThreatening = null;
 
         GameObject[] objects = GameObject.FindGameObjectsWithTag("Obstacle");
-
-        print(objects[0]);
-
+                
         foreach (GameObject obj in objects)
         {
             //bool collision = LineIntersectsCircle(rayVector, rayVector2, obj.GetComponent<CircleCollider2D>());

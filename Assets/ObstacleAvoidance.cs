@@ -1,22 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObstacleAvoidance : DSeek
+public class ObstacleAvoidance : GeneralBehaviour
 {
     //How far to avoid collision
-    float avoidDistance=4f;
+    float avoidDistance=2f;
     //Length of the collision ray
     float lookAhead=10f;
     //Collision ray vector
-    Vector3 targetPosition;
-    public GameObject[] targets;
+    Vector3 targetPosition, threatenedRay;
+    //public GameObject[] targets;
     CollisionDetector collisionDetector = new CollisionDetector();
+    GameObject[] targets;
 
     // Use this for initialization
     new void Start()
     {
         base.Start();
         collisionDetector.GenerateRays(character, target);
+        targets = GameObject.FindGameObjectsWithTag("Obstacle");
     }
 
     // Update is called once per frame
@@ -28,19 +30,18 @@ public class ObstacleAvoidance : DSeek
     private GameObject FindMostThreateningObstacle()
     {
         GameObject mostThreatening = null;
-        
-        //print(objects[0]);
 
         foreach (GameObject target in targets)
         {
-            //CAMBIAR POR VER SI INTERSECTA CON ALGUN RAYO
-            //bool collision = LineIntersectsCircle(rayVector, rayVector2, obj.GetComponent<CircleCollider2D>());
+            Vector3 center = target.GetComponent<Transform>().position;
+            Vector3 intersectingRay = collisionDetector.RayIntersects(center,avoidDistance);
+            bool collision = intersectingRay.magnitude < Vector3.positiveInfinity.magnitude;
 
-
-            //if (collision && (mostThreatening==null || Vector3.Distance(transform.position,target.transform.position) < Vector3.Distance(transform.position, mostThreatening.transform.position)) )
-            //{
-            //    mostThreatening = target;
-            //}
+            if (collision && (mostThreatening==null || Vector3.Distance(character.transform.position, center) < Vector3.Distance(character.transform.position, mostThreatening.transform.position)) )
+            {
+                mostThreatening = target;
+                threatenedRay = intersectingRay;
+            }
         }
 
         return mostThreatening;
@@ -52,24 +53,19 @@ public class ObstacleAvoidance : DSeek
         collisionDetector.RotateRays(character);
 
         Debug.DrawRay(character.transform.position, collisionDetector.centralRay, Color.red); //rays[0] + character.transform.position es el final del rayo
-        //Debug.DrawLine(character.transform.position, collisionDetector.centralRay + character.transform.position, Color.red);
         Debug.DrawRay(character.transform.position, collisionDetector.sideRay1, Color.green);
         Debug.DrawRay(character.transform.position, collisionDetector.sideRay2, Color.blue);
+        //Debug.DrawLine(character.transform.position, collisionDetector.centralRayEnd, Color.red);
 
-        
-
-        //foreach (Vector3 ray in rays)
-        //{
-            //print(ray);
-        //}
+        //collisionDetector.RayIntersects(center,avoidDistance);
 
         GameObject mostThreatening = FindMostThreateningObstacle();
         Vector3 avoidance = Vector3.zero;
         //print(mostThreatening);
         if (mostThreatening != null)
         {
-            //avoidance.x = rayVector.x - mostThreatening.GetComponent<CircleCollider2D>().bounds.center.x;
-            //avoidance.y = rayVector.y - mostThreatening.GetComponent<CircleCollider2D>().bounds.center.y;
+            avoidance.x = threatenedRay.x - mostThreatening.GetComponent<Transform>().position.x;
+            avoidance.y = threatenedRay.y - mostThreatening.GetComponent<Transform>().position.y;
             avoidance.Normalize();
             avoidance *= character.maxAcc;
         }
@@ -80,29 +76,7 @@ public class ObstacleAvoidance : DSeek
 
         steering.linear = avoidance;
 
-        //return steering;
-
-        //RaycastHit hit; //Acts as collision structure in book algorithm
-        //Debug.DrawRay(character.transform.position, rayVector, Color.red,2,false);
-        //Debug.DrawRay(character.transform.position, rayVector2, Color.green, 2, false);
-        //Find collision
-
-        //if (Physics.Raycast(character.transform.position, rayVector, out hit, lookAhead))
-        //{
-        //    targetPosition = hit.point + hit.normal * avoidDistance;
-        //    print("target transform");
-        //    print(target.transform.position);
-        //    print("target calculated");
-        //    print(targetPosition);
-        //    return base.GetSteering(targetPosition);
-        //}
-
-        return base.GetSteering(target.transform.position);
-        //return steering;
+        return steering;
+        
     }
-
-    
-
 }
-
-
