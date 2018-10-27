@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.4.12f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -236,6 +234,7 @@
   <ItemGroup>
     <Compile Include="Assets\Agent.cs" />
     <Compile Include="Assets\Align.cs" />
+    <Compile Include="Assets\CollisionDetector.cs" />
     <Compile Include="Assets\DArrive.cs" />
     <Compile Include="Assets\DFlee.cs" />
     <Compile Include="Assets\DSeek.cs" />
@@ -251,9 +250,9 @@
     <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\Scritps\OrderPrefabs.cs" />
     <Compile Include="Assets\MouseMovement.cs" />
     <Compile Include="Assets\ObstacleAvoidance.cs" />
-    <Compile Include="Assets\Separation.cs" />
     <Compile Include="Assets\Otro.cs" />
     <Compile Include="Assets\Pursue.cs" />
+    <Compile Include="Assets\Separation.cs" />
     <Compile Include="Assets\Steering.cs" />
     <Compile Include="Assets\VelocityMatch.cs" />
     <Compile Include="Assets\Wander.cs" />

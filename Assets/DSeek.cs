@@ -23,8 +23,8 @@ public class DSeek : GeneralBehaviour {
 
     public Steering GetSteering(Vector3 targetPosition)
     {
-        //steering.linear = target.transform.position - character.transform.position;
         steering.linear = targetPosition - character.transform.position;
+        //steering.linear += targetPosition - character.transform.position;
         steering.linear.Normalize();
         steering.linear *= character.maxAcc;
         return steering;
