@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEditor;
 
-public class CollisionDetector : GeneralBehaviour
+public class CollisionDetector
 {
 
     public Vector3 centralRay, sideRay1, sideRay2;
@@ -74,25 +74,5 @@ public class CollisionDetector : GeneralBehaviour
 
         return Vector3.positiveInfinity;
     }
-
-    //Returns first collision
-    public static GameObject GetCollision()
-    {
-        GameObject mostThreatening = null;
-
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("Obstacle");
-                
-        foreach (GameObject obj in objects)
-        {
-            //bool collision = LineIntersectsCircle(rayVector, rayVector2, obj.GetComponent<CircleCollider2D>());
-            //if (collision && (mostThreatening == null || Distance(transform.position, obj.transform.position) < Distance(transform.position, mostThreatening.transform.position)))
-            //{
-            //    mostThreatening = obj;
-            //}
-        }
-
-        return mostThreatening;
-    }
-
     
 }

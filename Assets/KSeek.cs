@@ -10,7 +10,7 @@ public class KSeek : GeneralBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        character.velocity = target.transform.position - transform.position;
+        character.velocity = target.transform.position - character.transform.position;
         character.velocity.Normalize();
         character.velocity *= character.maxSpeed;
         character.orientation = GetNewOrientation(character.orientation, character.velocity);

@@ -14,7 +14,7 @@ public class KArrive : GeneralBehaviour {
 
     // Update is called once per frame
     void Update () {
-        character.velocity = target.transform.position - transform.position;
+        character.velocity = target.transform.position - character.transform.position;
         if (character.velocity.magnitude<radius)
         {
             return;
@@ -25,7 +25,7 @@ public class KArrive : GeneralBehaviour {
             character.velocity.Normalize();
             character.velocity *= character.maxSpeed;
         }
-        transform.position += character.velocity * Time.deltaTime;
+        character.transform.position += character.velocity * Time.deltaTime;
         character.orientation = GetNewOrientation(character.orientation, character.velocity);
     }
 }

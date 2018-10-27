@@ -5,8 +5,6 @@ public class ObstacleAvoidance : GeneralBehaviour
 {
     //How far to avoid collision
     float avoidDistance=2f;
-    //Length of the collision ray
-    float lookAhead=10f;
     //Collision ray vector
     Vector3 targetPosition, threatenedRay;
     //public GameObject[] targets;
@@ -57,11 +55,9 @@ public class ObstacleAvoidance : GeneralBehaviour
         Debug.DrawRay(character.transform.position, collisionDetector.sideRay2, Color.blue);
         //Debug.DrawLine(character.transform.position, collisionDetector.centralRayEnd, Color.red);
 
-        //collisionDetector.RayIntersects(center,avoidDistance);
-
         GameObject mostThreatening = FindMostThreateningObstacle();
         Vector3 avoidance = Vector3.zero;
-        //print(mostThreatening);
+
         if (mostThreatening != null)
         {
             avoidance.x = threatenedRay.x - mostThreatening.GetComponent<Transform>().position.x;

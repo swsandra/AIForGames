@@ -20,7 +20,7 @@ public class Align : GeneralBehaviour
         //print(steering.angular);
     }
 
-    public virtual Steering GetSteering(float targetRotation)
+    public override Steering GetSteering(float targetRotation)
     {
         //rotation = target.transform.rotation.eulerAngles.z - character.transform.rotation.eulerAngles.z;
         rotation = targetRotation - character.transform.rotation.eulerAngles.z;

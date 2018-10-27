@@ -10,7 +10,7 @@ public class KFlee : GeneralBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        character.velocity = transform.position - target.transform.position;
+        character.velocity = character.transform.position - target.transform.position;
         character.velocity.Normalize();
         character.velocity *= character.maxSpeed;
         character.orientation = GetNewOrientation(character.orientation, character.velocity);

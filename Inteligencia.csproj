@@ -13,12 +13,14 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.4.12f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -234,6 +236,8 @@
   <ItemGroup>
     <Compile Include="Assets\Agent.cs" />
     <Compile Include="Assets\Align.cs" />
+    <Compile Include="Assets\BehaviourAndWeight.cs" />
+    <Compile Include="Assets\BlendedSteering.cs" />
     <Compile Include="Assets\CollisionDetector.cs" />
     <Compile Include="Assets\DArrive.cs" />
     <Compile Include="Assets\DFlee.cs" />

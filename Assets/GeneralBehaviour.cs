@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GeneralBehaviour : MonoBehaviour
+[System.Serializable]
+public abstract class GeneralBehaviour : MonoBehaviour
 {
 
     public Agent character;
     public Agent target;
     public Steering steering;
+    public Agent[] separationTargets;
 
     // Use this for initialization
     protected void Start()
@@ -24,6 +26,16 @@ public class GeneralBehaviour : MonoBehaviour
     }
 
     public virtual Steering GetSteering()
+    {
+        return steering;
+    }
+
+    public virtual Steering GetSteering(float targetRotation)
+    {
+        return steering;
+    }
+
+    public virtual Steering GetSteering(Vector3 targetDirection)
     {
         return steering;
     }

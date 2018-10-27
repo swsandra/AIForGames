@@ -25,7 +25,7 @@ public class Separation : GeneralBehaviour
             //Vector3 direction = target.transform.position - character.transform.position; //Esto hace algo loco
             Vector3 direction = character.transform.position - target.transform.position;
             float distance = direction.magnitude;
-            print(distance);
+            
             float strength;
             if (distance < threshold)
             {
