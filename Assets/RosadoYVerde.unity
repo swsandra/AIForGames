@@ -572,6 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   target: {fileID: 0}
+  separationTargets: []
   offset: 12
   radius: 5
   rate: 2
@@ -610,6 +611,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
+  separationTargets: []
   tRadius: 0.5
   sRadius: 2
   timeToTarget: 0.1
@@ -648,6 +650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   target: {fileID: 0}
+  separationTargets: []
 --- !u!114 &1833858488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,6 +664,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
+  separationTargets: []
 --- !u!114 &1833858490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +678,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   target: {fileID: 0}
+  separationTargets: []
   targets: []
 --- !u!1 &1835651364
 GameObject:
@@ -744,7 +749,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1835651364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 295.238, y: 130.263, z: -10.243338}
+  m_LocalPosition: {x: 295.238, y: 130.263, z: 0}
   m_LocalScale: {x: 23.483654, y: 22.731241, z: 13.703458}
   m_Children: []
   m_Father: {fileID: 0}
@@ -802,6 +807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   target: {fileID: 0}
+  separationTargets: []
 --- !u!114 &1837397437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,6 +839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   target: {fileID: 0}
+  separationTargets: []
 --- !u!114 &1837397439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +853,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 0}
   target: {fileID: 0}
+  separationTargets: []
 --- !u!1 &1878477679
 GameObject:
   m_ObjectHideFlags: 0
@@ -915,8 +923,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1878477679}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 275.493, y: 130.965, z: -10.078125}
-  m_LocalScale: {x: 33.75844, y: 32.56844, z: 10.705021}
+  m_LocalPosition: {x: 275.493, y: 130.965, z: 0}
+  m_LocalScale: {x: 33.75844, y: 32.56844, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -981,22 +989,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f364db90d4b725d43be40f47b0616cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  target: {fileID: 0}
+  character: {fileID: 1924970220}
+  target: {fileID: 2075603940}
+  separationTargets: []
 --- !u!114 &1924970219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924970217}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80ecc061ee101e344b3191b3060649ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1924970220}
   target: {fileID: 2075603940}
-  targets: []
+  separationTargets: []
 --- !u!114 &1924970220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1012,8 +1021,8 @@ MonoBehaviour:
   maxAcc: 3
   orientation: 0
   rotation: 0
-  maxAngularAcc: 3
-  maxRotation: 2
+  maxAngularAcc: 20
+  maxRotation: 25
   velocity: {x: 0, y: 0, z: 0}
 --- !u!114 &1924970222
 MonoBehaviour:
@@ -1021,27 +1030,14 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1924970217}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4674f4ec569321459f6b4a66ab79485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1924970220}
   target: {fileID: 2075603940}
---- !u!114 &1924970223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1924970217}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af655f829de94cf4c80f40e28035e2a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 0}
-  target: {fileID: 0}
-  targets: []
+  separationTargets: []
 --- !u!1 &2075603937 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 197682, guid: 35d0970cf51c34f4c99ce5ec9e84a738, type: 2}

@@ -13,14 +13,12 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectGenerator>VSTU</UnityProjectGenerator>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.4.12f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -234,32 +232,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Agent.cs" />
-    <Compile Include="Assets\Align.cs" />
-    <Compile Include="Assets\BehaviourAndWeight.cs" />
-    <Compile Include="Assets\BlendedSteering.cs" />
-    <Compile Include="Assets\CollisionDetector.cs" />
-    <Compile Include="Assets\DArrive.cs" />
-    <Compile Include="Assets\DFlee.cs" />
-    <Compile Include="Assets\DSeek.cs" />
-    <Compile Include="Assets\Evade.cs" />
-    <Compile Include="Assets\Face.cs" />
-    <Compile Include="Assets\GeneralBehaviour.cs" />
-    <Compile Include="Assets\KArrive.cs" />
-    <Compile Include="Assets\KeyboardMovement.cs" />
-    <Compile Include="Assets\KFlee.cs" />
-    <Compile Include="Assets\KSeek.cs" />
-    <Compile Include="Assets\LookWhereYoureGoing.cs" />
+    <Compile Include="Assets\BehaviourScripts\Agent.cs" />
+    <Compile Include="Assets\BehaviourScripts\Align.cs" />
+    <Compile Include="Assets\BehaviourScripts\BehaviourAndWeight.cs" />
+    <Compile Include="Assets\BehaviourScripts\BlendedSteering.cs" />
+    <Compile Include="Assets\BehaviourScripts\CollisionDetector.cs" />
+    <Compile Include="Assets\BehaviourScripts\DArrive.cs" />
+    <Compile Include="Assets\BehaviourScripts\DFlee.cs" />
+    <Compile Include="Assets\BehaviourScripts\DSeek.cs" />
+    <Compile Include="Assets\BehaviourScripts\Evade.cs" />
+    <Compile Include="Assets\BehaviourScripts\Face.cs" />
+    <Compile Include="Assets\BehaviourScripts\GeneralBehaviour.cs" />
+    <Compile Include="Assets\BehaviourScripts\KArrive.cs" />
+    <Compile Include="Assets\BehaviourScripts\KeyboardMovement.cs" />
+    <Compile Include="Assets\BehaviourScripts\KFlee.cs" />
+    <Compile Include="Assets\BehaviourScripts\KSeek.cs" />
+    <Compile Include="Assets\BehaviourScripts\LookWhereYoureGoing.cs" />
+    <Compile Include="Assets\BehaviourScripts\MouseMovement.cs" />
+    <Compile Include="Assets\BehaviourScripts\ObstacleAvoidance.cs" />
+    <Compile Include="Assets\BehaviourScripts\Otro.cs" />
+    <Compile Include="Assets\BehaviourScripts\Pursue.cs" />
+    <Compile Include="Assets\BehaviourScripts\Separation.cs" />
+    <Compile Include="Assets\BehaviourScripts\Steering.cs" />
+    <Compile Include="Assets\BehaviourScripts\VelocityMatch.cs" />
+    <Compile Include="Assets\BehaviourScripts\Wander.cs" />
     <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\EditorPopup\EditorScripts\OpenMoreGames.cs" />
     <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\Scritps\OrderPrefabs.cs" />
-    <Compile Include="Assets\MouseMovement.cs" />
-    <Compile Include="Assets\ObstacleAvoidance.cs" />
-    <Compile Include="Assets\Otro.cs" />
-    <Compile Include="Assets\Pursue.cs" />
-    <Compile Include="Assets\Separation.cs" />
-    <Compile Include="Assets\Steering.cs" />
-    <Compile Include="Assets\VelocityMatch.cs" />
-    <Compile Include="Assets\Wander.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
