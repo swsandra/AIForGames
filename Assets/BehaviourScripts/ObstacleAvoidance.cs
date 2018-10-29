@@ -68,6 +68,7 @@ public class ObstacleAvoidance : GeneralBehaviour
         else
         {
             avoidance *= 0f;
+            //character.velocity = Vector3.zero;
         }
 
         steering.linear = avoidance;

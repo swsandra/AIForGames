@@ -9,6 +9,7 @@ public class GeneralBehaviour : MonoBehaviour
     public Agent target;
     public Steering steering;
     public Agent[] separationTargets;
+    public float weight = 1f;
 
     // Use this for initialization
     protected void Start()
