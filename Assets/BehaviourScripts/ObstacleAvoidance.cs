@@ -36,7 +36,6 @@ public class ObstacleAvoidance : GeneralBehaviour
             Vector3 intersectingRay = collisionDetector.RayIntersects(character, center, avoidDistance);
             bool collision = intersectingRay.magnitude < Vector3.positiveInfinity.magnitude;
 
-            //if (collision && (mostThreatening==null || Vector3.Distance(character.transform.position, center) < Vector3.Distance(character.transform.position, mostThreatening.transform.position)) )
             if (collision && (mostThreatening == null || Vector3.Distance(character.transform.position, center) < Vector3.Distance(character.transform.position, mostThreatening.transform.position)))
             {
                 mostThreatening = target;
