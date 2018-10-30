@@ -19,6 +19,9 @@ public class Agent : MonoBehaviour
     // Steering
     public Steering steering;
 
+    //Blend property and if the behaviour must be blended or not
+    public bool blendProperty=false, blended=false;
+
     // Use this for initialization
     void Start()
     {
@@ -48,14 +51,50 @@ public class Agent : MonoBehaviour
         {
             orientation = orientation - 360f;
         }
-        
+
+    }
+
+    private void LateUpdate()
+    {
         // Update velocity and rotation
         velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
 
-        if (velocity.magnitude > maxSpeed){
+        if (velocity.magnitude > maxSpeed)
+        {
             velocity.Normalize();
             velocity *= maxSpeed;
+        }
+
+        if (steering.linear.Equals(Vector3.zero))
+        {
+            velocity = Vector3.zero;
+        }
+        blended = false;
+    }
+
+    public void SetSteering(Steering steer, float weight)
+    {
+
+        if (!blended && !blendProperty)
+        {
+            steering = steer;
+            blended = true;
+        }
+        else
+        {
+            steering.linear += (weight * steer.linear);
+            steering.angular += (weight * steer.angular);
+
+            //Crop to max acceleration and max angular acceleration
+            if (steer.linear.magnitude > maxAcc)
+            {
+                steering.linear = steering.linear.normalized * maxAcc;
+            }
+            if (steering.angular > maxAngularAcc)
+            {
+                steering.angular = maxAngularAcc;
+            }
         }
 
     }

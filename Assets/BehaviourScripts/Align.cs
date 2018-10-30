@@ -14,9 +14,10 @@ public class Align : GeneralBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        character.steering.angular = GetSteering(target.transform.rotation.eulerAngles.z).angular;
+        character.SetSteering(GetSteering(target.transform.rotation.eulerAngles.z), weight);
+        //character.steering.angular = GetSteering(target.transform.rotation.eulerAngles.z).angular;
         //print(steering.angular);
     }
 
@@ -56,7 +57,7 @@ public class Align : GeneralBehaviour
             steering.angular *= character.maxAngularAcc;
         }
 
-        //steering.linear = Vector3.zero;
+        steering.linear = Vector3.zero;
 
         return steering;
     }

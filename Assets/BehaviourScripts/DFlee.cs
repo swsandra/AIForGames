@@ -11,7 +11,7 @@ public class DFlee : GeneralBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         character.steering.linear = GetSteering().linear;
     }

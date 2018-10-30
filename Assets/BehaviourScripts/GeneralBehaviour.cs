@@ -20,10 +20,10 @@ public class GeneralBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
-        //character.SetSteering(GetSteering());
-        character.steering = GetSteering();
+        character.SetSteering(GetSteering(), weight);
+        //character.steering = GetSteering();
     }
 
     public virtual Steering GetSteering()

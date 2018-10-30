@@ -7,11 +7,13 @@ public class DSeek : GeneralBehaviour {
     // Use this for initialization
     new void Start() {
         base.Start();
+        weight = 2f;
     }
 
-    void Update()
+    new void Update()
     {
-        character.steering.linear = GetSteering(target.transform.position).linear;
+        character.SetSteering(GetSteering(target.transform.position), weight);
+        //character.steering.linear = GetSteering(target.transform.position).linear;
     }
 
     public override Steering GetSteering(Vector3 targetPosition)
@@ -20,6 +22,7 @@ public class DSeek : GeneralBehaviour {
         //steering.linear += targetPosition - character.transform.position;
         steering.linear.Normalize();
         steering.linear *= character.maxAcc;
+        steering.angular = 0f;
         return steering;
     }
 
