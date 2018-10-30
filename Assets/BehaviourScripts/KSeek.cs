@@ -9,7 +9,7 @@ public class KSeek : GeneralBehaviour {
         base.Start();
     }
     // Update is called once per frame
-    void Update () {
+    new void Update () {
         character.velocity = target.transform.position - character.transform.position;
         character.velocity.Normalize();
         character.velocity *= character.maxSpeed;

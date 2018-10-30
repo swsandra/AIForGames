@@ -13,7 +13,7 @@ public class KArrive : GeneralBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+    new void Update () {
         character.velocity = target.transform.position - character.transform.position;
         if (character.velocity.magnitude<radius)
         {

@@ -17,12 +17,14 @@ public class DArrive : GeneralBehaviour {
         direction = Vector3.zero;
         tVelocity = Vector3.zero;
         distance = 0.0f;
+        weight = 2f;
     }
 
     // Update is called once per frame
     new void Update()
     {
-        character.steering.linear = GetSteering().linear;
+        character.SetSteering(GetSteering(), weight);
+        //character.steering.linear = GetSteering().linear;
     }
 
     public override Steering GetSteering()
@@ -32,7 +34,7 @@ public class DArrive : GeneralBehaviour {
 
         if (distance < tRadius)
         {
-            //character.steering.linear = Vector3.zero; //Si solo retorna se queda en un loop
+            character.steering.linear = Vector3.zero; //Si solo retorna se queda en un loop
             character.velocity = Vector3.zero;    
             return steering;
         }
@@ -57,6 +59,9 @@ public class DArrive : GeneralBehaviour {
             steering.linear.Normalize();
             steering.linear *= character.maxAcc;
         }
+
+        steering.angular = 0f;
+
         return steering;
     }
 }

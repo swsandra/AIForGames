@@ -51,24 +51,24 @@ public class CollisionDetector
         return HandleUtility.DistancePointLine(center, rayStart, rayEnd)<=radius;
     }
 
-    public Vector3 RayIntersects(Vector3 center, float radius)
+    public Vector3 RayIntersects(Agent character, Vector3 center, float radius)
     {
         //Calculates which ray is intersecting some obstacle
-        if (LineIntersectsCircle(centralRay, centralRayEnd, center, radius))
+        if (LineIntersectsCircle(character.transform.position, centralRayEnd, center, radius))
         {
-            //print("c");
+            Debug.Log("c");
             return centralRayEnd;
         }
 
-        if (LineIntersectsCircle(sideRay1, sideRay1End, center, radius))
+        if (LineIntersectsCircle(character.transform.position, sideRay1End, center, radius))
         {
-            //print("1");
+            Debug.Log("1");
             return sideRay1End;
         }
 
-        if (LineIntersectsCircle(sideRay2, sideRay2End, center, radius))
+        if (LineIntersectsCircle(character.transform.position, sideRay2End, center, radius))
         {
-            //print("2");
+            Debug.Log("2");
             return sideRay2End;
         }
 

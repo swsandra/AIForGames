@@ -17,9 +17,10 @@ public class Evade : DFlee
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        character.steering.linear = GetSteering().linear;
+        //character.steering.linear = GetSteering().linear;
+        character.SetSteering(GetSteering(), weight);
     }
 
     public override Steering GetSteering()

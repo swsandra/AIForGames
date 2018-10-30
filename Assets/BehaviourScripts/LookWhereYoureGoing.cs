@@ -13,9 +13,10 @@ public class LookWhereYoureGoing : Align
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        character.steering.angular = GetSteering().angular;
+        //character.steering.angular = GetSteering().angular;
+        character.SetSteering(GetSteering(), weight);
     }
 
     public override Steering GetSteering()
@@ -24,11 +25,13 @@ public class LookWhereYoureGoing : Align
         if (character.velocity.magnitude == 0)
         {
             steering.angular = 0f;
+            steering.linear = Vector3.zero;
             return steering;
         }
 
         lookTargetRotation = Mathf.Atan2(-character.velocity.x, character.velocity.y) * Mathf.Rad2Deg;
 
+        steering.linear = Vector3.zero;
         return base.GetSteering(lookTargetRotation);
     }
 

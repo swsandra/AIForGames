@@ -52,6 +52,11 @@ public class Agent : MonoBehaviour
             orientation = orientation - 360f;
         }
 
+        if (steering.angular > maxAngularAcc)
+        {
+            steering.angular = maxAngularAcc;
+        }
+
     }
 
     private void LateUpdate()
@@ -70,7 +75,9 @@ public class Agent : MonoBehaviour
         {
             velocity = Vector3.zero;
         }
+
         blended = false;
+
     }
 
     public void SetSteering(Steering steer, float weight)

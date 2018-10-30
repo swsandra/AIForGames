@@ -15,9 +15,10 @@ public class Face : Align
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        character.steering.angular = GetSteering(faceTarget.transform.position).angular;
+        character.SetSteering(GetSteering(faceTarget.transform.position), weight);
+        //character.steering.angular = GetSteering(faceTarget.transform.position).angular;
     }
 
     public override Steering GetSteering(Vector3 targetDirection)
@@ -36,6 +37,8 @@ public class Face : Align
         target = faceTarget;
         faceTargetRotation = Mathf.Atan2(-direction.x, direction.y) * Mathf.Rad2Deg;
         //print(faceTargetRotation);
+
+        steering.linear = Vector3.zero;
 
         return base.GetSteering(faceTargetRotation);
     }

@@ -9,7 +9,7 @@ public class KFlee : GeneralBehaviour {
         base.Start();
     }
     // Update is called once per frame
-    void Update () {
+    new void Update () {
         character.velocity = character.transform.position - target.transform.position;
         character.velocity.Normalize();
         character.velocity *= character.maxSpeed;

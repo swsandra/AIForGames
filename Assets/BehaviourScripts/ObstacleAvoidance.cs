@@ -4,7 +4,7 @@ using System.Collections;
 public class ObstacleAvoidance : GeneralBehaviour
 {
     //How far to avoid collision
-    float avoidDistance=2f;
+    float avoidDistance=4f;
     //Collision ray vector
     Vector3 targetPosition, threatenedRay;
     //public GameObject[] targets;
@@ -20,9 +20,10 @@ public class ObstacleAvoidance : GeneralBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        character.steering.linear = GetSteering().linear;
+        //character.steering.linear = GetSteering().linear;
+        character.SetSteering(GetSteering(), weight);
     }
 
     private GameObject FindMostThreateningObstacle()
@@ -32,10 +33,11 @@ public class ObstacleAvoidance : GeneralBehaviour
         foreach (GameObject target in targets)
         {
             Vector3 center = target.GetComponent<Transform>().position;
-            Vector3 intersectingRay = collisionDetector.RayIntersects(center,avoidDistance);
+            Vector3 intersectingRay = collisionDetector.RayIntersects(character, center, avoidDistance);
             bool collision = intersectingRay.magnitude < Vector3.positiveInfinity.magnitude;
 
-            if (collision && (mostThreatening==null || Vector3.Distance(character.transform.position, center) < Vector3.Distance(character.transform.position, mostThreatening.transform.position)) )
+            //if (collision && (mostThreatening==null || Vector3.Distance(character.transform.position, center) < Vector3.Distance(character.transform.position, mostThreatening.transform.position)) )
+            if (collision && (mostThreatening == null || Vector3.Distance(character.transform.position, center) < Vector3.Distance(character.transform.position, mostThreatening.transform.position)))
             {
                 mostThreatening = target;
                 threatenedRay = intersectingRay;
@@ -56,23 +58,26 @@ public class ObstacleAvoidance : GeneralBehaviour
         //Debug.DrawLine(character.transform.position, collisionDetector.centralRayEnd, Color.red);
 
         GameObject mostThreatening = FindMostThreateningObstacle();
+        print(mostThreatening);
+
         Vector3 avoidance = Vector3.zero;
 
         if (mostThreatening != null)
         {
             avoidance.x = threatenedRay.x - mostThreatening.GetComponent<Transform>().position.x;
             avoidance.y = threatenedRay.y - mostThreatening.GetComponent<Transform>().position.y;
+            //avoidance = threatenedRay - ;
             avoidance.Normalize();
             avoidance *= character.maxAcc;
         }
         else
         {
             avoidance *= 0f;
-            //character.velocity = Vector3.zero;
+            
         }
 
         steering.linear = avoidance;
-
+        steering.angular = 0f;
         return steering;
         
     }

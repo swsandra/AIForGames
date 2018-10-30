@@ -13,14 +13,16 @@ public class DFlee : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        character.steering.linear = GetSteering().linear;
+        //character.steering.linear = GetSteering().linear;
+        character.SetSteering(GetSteering(), weight);
     }
 
     public override Steering GetSteering()
     {
-        character.steering.linear = character.transform.position - target.transform.position;
-        character.steering.linear.Normalize();
-        character.steering.linear *= character.maxAcc;
+        steering.linear = character.transform.position - target.transform.position;
+        steering.linear.Normalize();
+        steering.linear *= character.maxAcc;
+        steering.angular = 0f;
         return steering;
     }
 
