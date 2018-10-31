@@ -17,6 +17,7 @@ public class ObstacleAvoidance : GeneralBehaviour
         base.Start();
         collisionDetector.GenerateRays(character, target);
         targets = GameObject.FindGameObjectsWithTag("Obstacle");
+        weight = 3f;
     }
 
     // Update is called once per frame
@@ -57,7 +58,7 @@ public class ObstacleAvoidance : GeneralBehaviour
         //Debug.DrawLine(character.transform.position, collisionDetector.centralRayEnd, Color.red);
 
         GameObject mostThreatening = FindMostThreateningObstacle();
-        print(mostThreatening);
+        //Debug.Log(mostThreatening);
 
         Vector3 avoidance = Vector3.zero;
 

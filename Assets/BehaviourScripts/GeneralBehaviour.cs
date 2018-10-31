@@ -8,7 +8,7 @@ public class GeneralBehaviour : MonoBehaviour
     public Agent character;
     public Agent target;
     public Steering steering;
-    public Agent[] separationTargets;
+    //public Agent[] separationTargets;
     public float weight = 1f;
 
     // Use this for initialization
@@ -27,16 +27,6 @@ public class GeneralBehaviour : MonoBehaviour
     }
 
     public virtual Steering GetSteering()
-    {
-        return steering;
-    }
-
-    public virtual Steering GetSteering(float targetRotation)
-    {
-        return steering;
-    }
-
-    public virtual Steering GetSteering(Vector3 targetDirection)
     {
         return steering;
     }

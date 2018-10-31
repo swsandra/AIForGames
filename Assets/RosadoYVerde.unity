@@ -406,7 +406,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 117788, guid: a6fbd1961fa50ad4aac9620c8e9d9381, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6fbd1961fa50ad4aac9620c8e9d9381, type: 2}
@@ -601,24 +601,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1824497391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f5adb5f72ef8a42a2b92a9abdaa0b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 1824497395}
-  target: {fileID: 2075603940}
-  separationTargets: []
-  weight: 1
-  behaviours:
-  - {fileID: 0}
---- !u!114 &1824497393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1824497391}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4674f4ec569321459f6b4a66ab79485, type: 3}
+  m_Script: {fileID: 11500000, guid: 65fc88e1e2da0ce49b46a6ec2cd2f7cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1824497395}
@@ -631,13 +614,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1824497391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80ecc061ee101e344b3191b3060649ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1824497395}
-  target: {fileID: 2075603940}
+  target: {fileID: 0}
   separationTargets: []
   weight: 1
 --- !u!114 &1824497395
@@ -652,10 +635,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 4
-  maxAcc: 2
+  maxAcc: 9
   orientation: 0
   rotation: 0
-  maxAngularAcc: 20
+  maxAngularAcc: 25
   maxRotation: 25
   velocity: {x: 0, y: 0, z: 0}
   blendProperty: 0
@@ -666,7 +649,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1824497391}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f364db90d4b725d43be40f47b0616cf0, type: 3}
   m_Name: 
@@ -780,7 +763,7 @@ MonoBehaviour:
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
   separationTargets: []
-  weight: 1
+  weight: 3
 --- !u!114 &1833858490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,7 +1174,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 143126, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalScale.y

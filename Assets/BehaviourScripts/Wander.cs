@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Wander : GeneralBehaviour
+public class Wander : Face
 {
     //Wander circle radius and forward offset
     public float circleOffset=9f, circleRadius=5f;
@@ -22,7 +22,7 @@ public class Wander : GeneralBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
         character.steering.linear = GetSteering().linear;
         //print(character.steering.linear);

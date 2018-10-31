@@ -61,6 +61,16 @@ public class Agent : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Crop to max acceleration and max angular acceleration
+        if (steering.linear.magnitude > maxAcc)
+        {
+            steering.linear = steering.linear.normalized * maxAcc;
+        }
+        if (steering.angular > maxAngularAcc)
+        {
+            steering.angular = maxAngularAcc;
+        }
+
         // Update velocity and rotation
         velocity += steering.linear * Time.deltaTime;
         rotation += steering.angular * Time.deltaTime;
@@ -93,15 +103,14 @@ public class Agent : MonoBehaviour
             steering.linear += (weight * steer.linear);
             steering.angular += (weight * steer.angular);
 
-            //Crop to max acceleration and max angular acceleration
-            if (steer.linear.magnitude > maxAcc)
+            /*if (steering.linear.magnitude > maxAcc)
             {
                 steering.linear = steering.linear.normalized * maxAcc;
             }
             if (steering.angular > maxAngularAcc)
             {
                 steering.angular = maxAngularAcc;
-            }
+            }*/
         }
 
     }

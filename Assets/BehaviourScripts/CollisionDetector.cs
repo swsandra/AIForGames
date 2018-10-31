@@ -56,19 +56,19 @@ public class CollisionDetector
         //Calculates which ray is intersecting some obstacle
         if (LineIntersectsCircle(character.transform.position, centralRayEnd, center, radius))
         {
-            Debug.Log("c");
+            //Debug.Log("c");
             return centralRayEnd;
         }
 
         if (LineIntersectsCircle(character.transform.position, sideRay1End, center, radius))
         {
-            Debug.Log("1");
+            //Debug.Log("1");
             return sideRay1End;
         }
 
         if (LineIntersectsCircle(character.transform.position, sideRay2End, center, radius))
         {
-            Debug.Log("2");
+            //Debug.Log("2");
             return sideRay2End;
         }
 

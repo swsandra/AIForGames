@@ -17,7 +17,7 @@ public class DArrive : GeneralBehaviour {
         direction = Vector3.zero;
         tVelocity = Vector3.zero;
         distance = 0.0f;
-        weight = 2f;
+        //weight = 2f;
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class DArrive : GeneralBehaviour {
 
         if (distance < tRadius)
         {
-            character.steering.linear = Vector3.zero; //Si solo retorna se queda en un loop
+            steering.linear = Vector3.zero; //Si solo retorna se queda en un loop
             character.velocity = Vector3.zero;    
             return steering;
         }

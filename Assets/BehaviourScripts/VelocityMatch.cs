@@ -10,7 +10,7 @@ public class VelocityMatch : GeneralBehaviour
         base.Start();
     }
 
-    void Update()
+    new void Update()
     {
         character.steering = GetSteering();
     }

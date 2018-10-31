@@ -16,7 +16,7 @@ public class DSeek : GeneralBehaviour {
         //character.steering.linear = GetSteering(target.transform.position).linear;
     }
 
-    public override Steering GetSteering(Vector3 targetPosition)
+    public Steering GetSteering(Vector3 targetPosition)
     {
         steering.linear = targetPosition - character.transform.position;
         //steering.linear += targetPosition - character.transform.position;

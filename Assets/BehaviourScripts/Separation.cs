@@ -4,26 +4,28 @@ using System.Collections;
 public class Separation : GeneralBehaviour
 {
     public Agent[] targets;
-    float threshold=4f, decayCoefficient=5f;
+    float threshold=3f, decayCoefficient=5f;
     // Use this for initialization
     new void Start()
     {
         base.Start();
+        weight = 1.5f;
     }
 
     // Update is called once per frame
-    void Update()
+    new void Update()
     {
-        character.steering = GetSteering();
+        //character.steering = GetSteering();
+        character.SetSteering(GetSteering(), weight);
     }
 
     public override Steering GetSteering()
     {
 
-        foreach (Agent target in targets)
+        foreach (Agent aTarget in targets)
         {
             //Vector3 direction = target.transform.position - character.transform.position; //Esto hace algo loco
-            Vector3 direction = character.transform.position - target.transform.position;
+            Vector3 direction = character.transform.position - aTarget.transform.position;
             float distance = direction.magnitude;
             
             float strength;
@@ -35,12 +37,11 @@ public class Separation : GeneralBehaviour
             }
             else
             {
-                character.velocity = Vector3.zero;
                 steering.linear = Vector3.zero;
             }
 
         }
-
+        steering.angular = 0f;
         return steering;
     }
 

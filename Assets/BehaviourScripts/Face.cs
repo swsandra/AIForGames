@@ -21,7 +21,7 @@ public class Face : Align
         //character.steering.angular = GetSteering(faceTarget.transform.position).angular;
     }
 
-    public override Steering GetSteering(Vector3 targetDirection)
+    public Steering GetSteering(Vector3 targetDirection)
     {
         //Vector3 direction = faceTarget.transform.position - character.transform.position; //With this line and without parameters, works
         Vector3 direction = targetDirection - character.transform.position;
