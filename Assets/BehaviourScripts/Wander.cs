@@ -4,7 +4,7 @@ using System.Collections;
 public class Wander : Face
 {
     //Wander circle radius and forward offset
-    public float circleOffset=9f, circleRadius=5f;
+    public float circleOffset=6f, circleRadius=3f;
     public float rate=2f; //Rate at which rotation can change
     float wanderOrientation, wanderTargetRotation; //target rotation
     Vector3 wanderTargetVect;
@@ -24,8 +24,8 @@ public class Wander : Face
     // Update is called once per frame
     new void Update()
     {
-        character.steering.linear = GetSteering().linear;
-        //print(character.steering.linear);
+        //character.steering.linear = GetSteering().linear;
+        character.SetSteering(GetSteering(), weight);
     }
 
     public override Steering GetSteering()

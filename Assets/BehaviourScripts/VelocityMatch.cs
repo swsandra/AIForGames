@@ -12,7 +12,8 @@ public class VelocityMatch : GeneralBehaviour
 
     new void Update()
     {
-        character.steering = GetSteering();
+        //character.steering = GetSteering();
+        character.SetSteering(GetSteering(), weight);
     }
 
     // Update is called once per frame
@@ -26,7 +27,7 @@ public class VelocityMatch : GeneralBehaviour
             steering.linear.Normalize();
             steering.linear *= character.maxAcc;
         }
-
+        steering.angular = 0f;
         return steering;
 
     }

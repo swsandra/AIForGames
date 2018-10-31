@@ -406,7 +406,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 117788, guid: a6fbd1961fa50ad4aac9620c8e9d9381, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6fbd1961fa50ad4aac9620c8e9d9381, type: 2}
@@ -564,7 +564,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1816189733}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
   circleOffset: 9
   circleRadius: 5
@@ -606,8 +605,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1824497395}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
+--- !u!114 &1824497393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1824497391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af655f829de94cf4c80f40e28035e2a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 1824497395}
+  target: {fileID: 2075603940}
+  weight: 1
+  targets:
+  - {fileID: 1833858484}
 --- !u!114 &1824497394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1824497395}
   target: {fileID: 0}
-  separationTargets: []
   weight: 1
 --- !u!114 &1824497395
 MonoBehaviour:
@@ -641,7 +654,7 @@ MonoBehaviour:
   maxAngularAcc: 25
   maxRotation: 25
   velocity: {x: 0, y: 0, z: 0}
-  blendProperty: 0
+  blendProperty: 1
   blended: 0
 --- !u!114 &1824497396
 MonoBehaviour:
@@ -656,7 +669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1824497395}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
 --- !u!1 &1833858482 stripped
 GameObject:
@@ -668,14 +680,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1833858482}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3d76494d93506c49afdbe75cb671300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
   tRadius: 0.5
   sRadius: 2
@@ -695,8 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
-  maxAcc: 9
+  maxSpeed: 6
+  maxAcc: 5
   orientation: 0
   rotation: 0
   maxAngularAcc: 25
@@ -717,7 +728,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 0}
-  separationTargets: []
   weight: 1
 --- !u!114 &1833858487
 MonoBehaviour:
@@ -732,7 +742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
 --- !u!114 &1833858488
 MonoBehaviour:
@@ -747,7 +756,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
 --- !u!114 &1833858489
 MonoBehaviour:
@@ -761,25 +769,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
-  target: {fileID: 2075603940}
-  separationTargets: []
-  weight: 3
+  target: {fileID: 0}
+  weight: 1
 --- !u!114 &1833858490
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1833858482}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af655f829de94cf4c80f40e28035e2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 1833858484}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
-  targets: []
+  targets:
+  - {fileID: 1824497395}
 --- !u!1 &1835651364
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +914,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1837397437}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
 --- !u!114 &1837397437
 MonoBehaviour:
@@ -942,7 +948,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1837397437}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
 --- !u!114 &1837397439
 MonoBehaviour:
@@ -957,7 +962,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1837397437}
   target: {fileID: 2075603940}
-  separationTargets: []
   weight: 1
 --- !u!1 &1878477679
 GameObject:
@@ -1174,7 +1178,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 143126, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalScale.y
