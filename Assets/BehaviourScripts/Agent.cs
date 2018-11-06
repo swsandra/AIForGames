@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Agent : MonoBehaviour
 {
@@ -22,6 +23,12 @@ public class Agent : MonoBehaviour
     //Blend property and if the behaviour must be blended or not
     public bool blendProperty=false, blended=false;
 
+    //Priority property
+    public bool priorityProperty;
+
+    public float priorityThreshold = 0.2f;
+    private Dictionary<int, List<Steering>> groups;
+
     // Use this for initialization
     void Start()
     {
@@ -30,6 +37,7 @@ public class Agent : MonoBehaviour
         rotation = 0.0f;
         steering = new Steering();
         Vector3 wrld = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width,0f,0f)) ;
+        groups = new Dictionary<int,List<Steering>>();
     }
 
     // Update is called once per frame
@@ -38,7 +46,6 @@ public class Agent : MonoBehaviour
         // Update postition and orientation
         transform.position += velocity * Time.deltaTime;
         transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
-        //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotation * Time.deltaTime);
 
         orientation += rotation * Time.deltaTime;
 

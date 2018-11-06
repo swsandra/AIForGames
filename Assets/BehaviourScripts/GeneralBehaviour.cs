@@ -8,8 +8,8 @@ public class GeneralBehaviour : MonoBehaviour
     public Agent character;
     public Agent target;
     public Steering steering;
-    //public Agent[] separationTargets;
     public float weight = 1f;
+    public int priority = 1;
 
     // Use this for initialization
     protected void Start()
@@ -22,7 +22,8 @@ public class GeneralBehaviour : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        character.SetSteering(GetSteering(), weight);
+        //character.SetSteering(GetSteering(), weight);
+        character.SetSteering(GetSteering(), priority);
         //character.steering = GetSteering();
     }
 
