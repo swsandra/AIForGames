@@ -24,8 +24,7 @@ public class Wander : Face
     // Update is called once per frame
     new void Update()
     {
-        //character.steering.linear = GetSteering().linear;
-        character.SetSteering(GetSteering(), weight);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     public override Steering GetSteering()

@@ -23,8 +23,7 @@ public class ObstacleAvoidance : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        //character.steering.linear = GetSteering().linear;
-        character.SetSteering(GetSteering(), weight);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     private GameObject FindMostThreateningObstacle()

@@ -26,7 +26,7 @@ public class Agent : MonoBehaviour
     //Priority property
     public bool priorityProperty;
 
-    public float priorityThreshold = 0.2f;
+    public float priorityThreshold = 0.1f;
     private Dictionary<int, List<Steering>> groups;
 
     // Use this for initialization
@@ -68,6 +68,12 @@ public class Agent : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Only when priority property activated
+        if (priorityProperty){
+            steering = GetPrioritySteering();
+            groups.Clear();
+        }
+        
         //Crop to max acceleration and max angular acceleration
         if (steering.linear.magnitude > maxAcc)
         {
@@ -95,31 +101,53 @@ public class Agent : MonoBehaviour
 
         blended = false;
 
+        steering = new Steering();
+
     }
 
-    public void SetSteering(Steering steer, float weight)
+    public void SetSteering(Steering steer, float weight, int priority)
     {
-
-        if (!blended && !blendProperty)
+        //Normal steering behaviour
+        if (!blended && !blendProperty && !priorityProperty)
         {
             steering = steer;
             blended = true;
         }
         else
         {
-            steering.linear += (weight * steer.linear);
-            steering.angular += (weight * steer.angular);
-
-            /*if (steering.linear.magnitude > maxAcc)
-            {
-                steering.linear = steering.linear.normalized * maxAcc;
+            //Blend by weight
+            if (!priorityProperty){
+                steering.linear += (weight * steer.linear);
+                steering.angular += (weight * steer.angular);
+            }else{ //Priority steering
+                if (!groups.ContainsKey(priority)){
+                    groups.Add(priority, new List<Steering>());
+                }
+                groups[priority].Add(steer);
             }
-            if (steering.angular > maxAngularAcc)
-            {
-                steering.angular = maxAngularAcc;
-            }*/
+            
+
         }
 
+    }
+
+    private Steering GetPrioritySteering(){
+        Steering steering = new Steering();
+        float sqrThreshold = priorityThreshold * priorityThreshold;
+        foreach (List<Steering> group in groups.Values){
+            steering = new Steering();
+            foreach(Steering singleSteering in group){
+                Debug.Log(singleSteering.linear);
+                Debug.Log(singleSteering.angular);
+                steering.linear += singleSteering.linear;
+                steering.angular += singleSteering.angular;
+            }
+            if (steering.linear.sqrMagnitude > sqrThreshold || Mathf.Abs(steering.angular) > priorityThreshold){
+                return steering;
+            }
+
+        }
+        return steering;
     }
 
 }

@@ -12,8 +12,7 @@ public class VelocityMatch : GeneralBehaviour
 
     new void Update()
     {
-        //character.steering = GetSteering();
-        character.SetSteering(GetSteering(), weight);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     // Update is called once per frame

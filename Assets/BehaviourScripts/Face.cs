@@ -17,8 +17,7 @@ public class Face : Align
     // Update is called once per frame
     new void Update()
     {
-        character.SetSteering(GetSteering(faceTarget.transform.position), weight);
-        //character.steering.angular = GetSteering(faceTarget.transform.position).angular;
+        character.SetSteering(GetSteering(faceTarget.transform.position), weight, priority);
     }
 
     public Steering GetSteering(Vector3 targetDirection)

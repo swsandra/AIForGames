@@ -15,8 +15,7 @@ public class LookWhereYoureGoing : Align
     // Update is called once per frame
     new void Update()
     {
-        //character.steering.angular = GetSteering().angular;
-        character.SetSteering(GetSteering(), weight);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     public override Steering GetSteering()

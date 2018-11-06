@@ -15,8 +15,7 @@ public class Separation : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        //character.steering = GetSteering();
-        character.SetSteering(GetSteering(), weight);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     public override Steering GetSteering()

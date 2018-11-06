@@ -15,16 +15,12 @@ public class GeneralBehaviour : MonoBehaviour
     protected void Start()
     {
         steering = new Steering();
-        //character = new Agent();
-        //target = new Agent();
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        //character.SetSteering(GetSteering(), weight);
-        character.SetSteering(GetSteering(), priority);
-        //character.steering = GetSteering();
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     public virtual Steering GetSteering()

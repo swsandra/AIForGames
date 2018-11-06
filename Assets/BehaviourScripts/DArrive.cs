@@ -17,14 +17,12 @@ public class DArrive : GeneralBehaviour {
         direction = Vector3.zero;
         tVelocity = Vector3.zero;
         distance = 0.0f;
-        //weight = 2f;
     }
 
     // Update is called once per frame
     new void Update()
     {
-        character.SetSteering(GetSteering(), weight);
-        //character.steering.linear = GetSteering().linear;
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
     public override Steering GetSteering()
