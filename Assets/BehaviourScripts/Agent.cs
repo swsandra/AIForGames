@@ -70,7 +70,10 @@ public class Agent : MonoBehaviour
     {
         //Only when priority property activated
         if (priorityProperty){
-            steering = GetPrioritySteering();
+            Steering newSteering = GetPrioritySteering();
+            if (newSteering!=null){
+                steering = newSteering;
+            }
             groups.Clear();
         }
         
@@ -101,7 +104,7 @@ public class Agent : MonoBehaviour
 
         blended = false;
 
-        steering = new Steering();
+        //steering = new Steering(); //With this it never aligns
 
     }
 
@@ -124,6 +127,7 @@ public class Agent : MonoBehaviour
                     groups.Add(priority, new List<Steering>());
                 }
                 groups[priority].Add(steer);
+                Debug.Log("Priority: "+priority);
             }
             
 
@@ -137,8 +141,8 @@ public class Agent : MonoBehaviour
         foreach (List<Steering> group in groups.Values){
             steering = new Steering();
             foreach(Steering singleSteering in group){
-                Debug.Log(singleSteering.linear);
-                Debug.Log(singleSteering.angular);
+                //Debug.Log(singleSteering.linear);
+                //Debug.Log(singleSteering.angular);
                 steering.linear += singleSteering.linear;
                 steering.angular += singleSteering.angular;
             }
@@ -147,7 +151,7 @@ public class Agent : MonoBehaviour
             }
 
         }
-        return steering;
+        return null;
     }
 
 }
