@@ -51,8 +51,9 @@ public class Agent : MonoBehaviour
         if (!jump){
             // Update postition and orientation when not jumping
             transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
-
+            Debug.Log("!jump");
         }else{
+            Debug.Log("jump");
             //Perform jump
             if (transform.position.z>jumpPoint.landingLocation.z){
                 transform.position+=gravity; //Apply gravity

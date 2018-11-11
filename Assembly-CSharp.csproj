@@ -61,7 +61,6 @@
      <Compile Include="Assets\BehaviourScripts\Face.cs" />
      <Compile Include="Assets\BehaviourScripts\GeneralBehaviour.cs" />
      <Compile Include="Assets\BehaviourScripts\Jump.cs" />
-     <Compile Include="Assets\BehaviourScripts\JumpAI.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPad.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPoint.cs" />
      <Compile Include="Assets\BehaviourScripts\KArrive.cs" />
@@ -72,7 +71,6 @@
      <Compile Include="Assets\BehaviourScripts\MouseMovement.cs" />
      <Compile Include="Assets\BehaviourScripts\ObstacleAvoidance.cs" />
      <Compile Include="Assets\BehaviourScripts\Otro.cs" />
-     <Compile Include="Assets\BehaviourScripts\Projectile.cs" />
      <Compile Include="Assets\BehaviourScripts\Pursue.cs" />
      <Compile Include="Assets\BehaviourScripts\Separation.cs" />
      <Compile Include="Assets\BehaviourScripts\Steering.cs" />

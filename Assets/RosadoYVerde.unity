@@ -228,8 +228,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150693352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.285, y: 123.35, z: 0}
-  m_LocalScale: {x: 78.39133, y: 11.866022, z: 0.9100001}
+  m_LocalPosition: {x: 304.75, y: 123.39, z: 0}
+  m_LocalScale: {x: 27.824806, y: 14.675314, z: 0.9100001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -242,10 +242,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 150693352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0de1b9af26e9a4281d8879d807d2f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 36537ed9e9f59964f941e5db517ab4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  landingLocation: {fileID: 0}
+  neededVelocity: {x: 1, y: 1, z: 0}
+  position: {x: 0, y: 0, z: 0}
 --- !u!1 &482749780
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +299,7 @@ Camera:
   far clip plane: 1000
   field of view: 86
   orthographic: 1
-  orthographic size: 20
+  orthographic size: 25
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -321,7 +322,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 482749780}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 289, y: 133.8, z: -12}
+  m_LocalPosition: {x: 289, y: 133.8, z: -1}
   m_LocalScale: {x: 1.1231989, y: 0.53240496, z: 0.7911295}
   m_Children: []
   m_Father: {fileID: 0}
@@ -592,7 +593,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -600,7 +601,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &877371510
 Transform:
@@ -609,8 +610,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 877371505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 298.64, y: 121.18, z: 0}
-  m_LocalScale: {x: 21.114174, y: 24.103859, z: 0.9100001}
+  m_LocalPosition: {x: 301.745, y: 121.495, z: 0}
+  m_LocalScale: {x: 20.552275, y: 21.294569, z: 0.9100001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -729,8 +730,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022166485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.383, y: 120.964, z: 0}
-  m_LocalScale: {x: 83.2872, y: 22.072424, z: 1}
+  m_LocalPosition: {x: 304.66, y: 121.5, z: 0}
+  m_LocalScale: {x: 27.102139, y: 22.072424, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -977,12 +978,10 @@ MonoBehaviour:
   maxSpeed: 0
   maxVertSpeed: 0
   maxAcc: 0
-  orientation: 0
-  rotation: 0
+  maxJumpAcc: 0
   maxAngularAcc: 0
   maxRotation: 0
   velocity: {x: 0, y: 0, z: 0}
-  verticalVelocity: {x: 0, y: 0, z: 0}
   blendProperty: 1
   blended: 0
   priorityProperty: 0
@@ -1068,12 +1067,10 @@ MonoBehaviour:
   maxSpeed: 4
   maxVertSpeed: 0
   maxAcc: 9
-  orientation: 0
-  rotation: 0
+  maxJumpAcc: 0
   maxAngularAcc: 25
   maxRotation: 25
   velocity: {x: 0, y: 0, z: 0}
-  verticalVelocity: {x: 0, y: 0, z: 0}
   blendProperty: 0
   blended: 0
   priorityProperty: 1
@@ -1131,15 +1128,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
+  maxSpeed: 10
   maxVertSpeed: 0
-  maxAcc: 5
-  orientation: 0
-  rotation: 0
+  maxAcc: 7
+  maxJumpAcc: 0
   maxAngularAcc: 25
   maxRotation: 20
   velocity: {x: 0, y: 0, z: 0}
-  verticalVelocity: {x: 0, y: 0, z: 0}
   blendProperty: 1
   blended: 0
   priorityProperty: 0
@@ -1160,8 +1155,6 @@ MonoBehaviour:
   target: {fileID: 0}
   weight: 1
   priority: 1
-  ray: {x: 0, y: 0, z: 0}
-  rayEnd: {x: 0, y: 0, z: 0}
 --- !u!114 &1833858487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,12 +1375,10 @@ MonoBehaviour:
   maxSpeed: 4
   maxVertSpeed: 0
   maxAcc: 9
-  orientation: 0
-  rotation: 0
+  maxJumpAcc: 0
   maxAngularAcc: 10
   maxRotation: 15
   velocity: {x: 0, y: 0, z: 0}
-  verticalVelocity: {x: 0, y: 0, z: 0}
   blendProperty: 0
   blended: 0
   priorityProperty: 0
@@ -1653,7 +1644,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1661,7 +1652,7 @@ SpriteRenderer:
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &2029025504
 Transform:
@@ -1670,8 +1661,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2029025499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 312.13, y: 121.08, z: 0}
-  m_LocalScale: {x: 21.114174, y: 24.103859, z: 0.9100001}
+  m_LocalPosition: {x: 307.72, y: 121.44, z: 0}
+  m_LocalScale: {x: 21.114174, y: 21.856476, z: 0.9100001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 14
@@ -1691,7 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b80edf8dfbf654f90f14b87187970d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7
+  _speed: 12
   _move: 0
   _point: {fileID: 0}
   _target: {x: 0, y: 0, z: 0}
@@ -1709,12 +1700,10 @@ MonoBehaviour:
   maxSpeed: 0
   maxVertSpeed: 0
   maxAcc: 0
-  orientation: 0
-  rotation: 0
+  maxJumpAcc: 0
   maxAngularAcc: 0
   maxRotation: 0
   velocity: {x: 0, y: 0, z: 0}
-  verticalVelocity: {x: 0, y: 0, z: 0}
   blendProperty: 0
   blended: 0
   priorityProperty: 0
@@ -2024,8 +2013,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2107289197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 305.2, y: 118.32, z: 0}
-  m_LocalScale: {x: 78.39133, y: 14.113461, z: 0.9100001}
+  m_LocalPosition: {x: 304.76, y: 119.76, z: 0}
+  m_LocalScale: {x: 27.824614, y: 15.2371645, z: 0.9100001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
