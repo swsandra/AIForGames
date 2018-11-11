@@ -32,7 +32,7 @@ public class Agent : MonoBehaviour
     public JumpPoint jumpPoint;
 
     //Gravity in z axis to simulate 2.5D movement
-    Vector3 gravity = new Vector3(0f, 0f, -9.8f);
+    Vector3 fakeGravity = new Vector3(0f, 0f, -0.8f);
 
     // Use this for initialization
     void Start()
@@ -47,16 +47,22 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += velocity * Time.deltaTime;
+        
         if (!jump){
             // Update postition and orientation when not jumping
+            transform.position += velocity * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
-            Debug.Log("!jump");
+            
         }else{
-            Debug.Log("jump");
+            transform.position += velocity * Time.deltaTime;
+            //Set z for jump
+            transform.position.Set(transform.position.x,transform.position.y,velocity.z);
+            velocity.z = steering.linear.z;
+            Debug.Log("Velocity "+velocity);
+            Debug.Log("Position "+transform.position);
             //Perform jump
             if (transform.position.z>jumpPoint.landingLocation.z){
-                transform.position+=gravity; //Apply gravity
+                transform.position+=fakeGravity; //Apply gravity
             }
             else{ //It is in the same level as the landing pad
                 transform.position = new Vector3(transform.position.x,transform.position.y,jumpPoint.landingLocation.z);
@@ -89,7 +95,7 @@ public class Agent : MonoBehaviour
             steering.angular = maxAngularAcc;
         }
 
-        // Update velocity and rotation
+        // Update velocity and rotation        
         velocity += steering.linear * Time.deltaTime;
 
         if (velocity.magnitude > maxSpeed)

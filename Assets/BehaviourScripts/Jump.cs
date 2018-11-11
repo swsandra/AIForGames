@@ -55,17 +55,10 @@ public class Jump : GeneralBehaviour
 
         //Check if character is near jump point
         bool nearPoint = (character.transform.position-jumpTarget.position).magnitude <= 1;
-        //Debug.Log("nearPoint "+(character.transform.position-jumpTarget.position).magnitude);
-        //Debug.Log("character "+(character.transform.position));
-        //Debug.Log("jumpTarget "+(jumpTarget.position));
         //Check if character can perform jump
         bool nearVelocity = character.velocity.magnitude >= jumpTarget.neededVelocity.magnitude;
-        //Debug.Log("nearVelocity "+ (character.velocity-jumpTarget.neededVelocity).magnitude);
-        Debug.Log("nearPoint "+nearPoint);
-        Debug.Log("nearVelocity "+nearVelocity);
 
         if (nearPoint && nearVelocity){
-            Debug.Log("jump point is hit");
             character.jump=true;
             character.jumpPoint=jumpPoint;
             steering.linear=new Vector3(0f,0f,character.maxJumpAcc); //Salto

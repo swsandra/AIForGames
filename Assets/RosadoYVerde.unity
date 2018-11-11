@@ -228,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 150693352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 304.75, y: 123.39, z: 0}
+  m_LocalPosition: {x: 304.75, y: 122.34, z: 0}
   m_LocalScale: {x: 27.824806, y: 14.675314, z: 0.9100001}
   m_Children: []
   m_Father: {fileID: 0}
@@ -494,7 +494,6 @@ GameObject:
   - component: {fileID: 877371509}
   - component: {fileID: 877371508}
   - component: {fileID: 877371507}
-  - component: {fileID: 877371506}
   m_Layer: 0
   m_Name: jumpPad1 (1)
   m_TagString: Obstacle
@@ -502,18 +501,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &877371506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 877371505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0de1b9af26e9a4281d8879d807d2f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  landingLocation: {fileID: 0}
 --- !u!50 &877371507
 Rigidbody2D:
   serializedVersion: 4
@@ -730,8 +717,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022166485}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 304.66, y: 121.5, z: 0}
-  m_LocalScale: {x: 27.102139, y: 22.072424, z: 1}
+  m_LocalPosition: {x: 304.698, y: 118.948, z: 0}
+  m_LocalScale: {x: 27.571344, y: 53.970802, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -1128,10 +1115,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10
-  maxVertSpeed: 0
-  maxAcc: 7
-  maxJumpAcc: 0
+  maxSpeed: 7
+  maxVertSpeed: 7
+  maxAcc: 5
+  maxJumpAcc: 5
   maxAngularAcc: 25
   maxRotation: 20
   velocity: {x: 0, y: 0, z: 0}
@@ -1545,7 +1532,6 @@ GameObject:
   - component: {fileID: 2029025503}
   - component: {fileID: 2029025502}
   - component: {fileID: 2029025501}
-  - component: {fileID: 2029025500}
   m_Layer: 0
   m_Name: jumpPad1 (2)
   m_TagString: Obstacle
@@ -1553,18 +1539,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2029025500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2029025499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0de1b9af26e9a4281d8879d807d2f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  landingLocation: {fileID: 0}
 --- !u!50 &2029025501
 Rigidbody2D:
   serializedVersion: 4
@@ -1897,7 +1871,6 @@ GameObject:
   - component: {fileID: 2107289201}
   - component: {fileID: 2107289200}
   - component: {fileID: 2107289199}
-  - component: {fileID: 2107289198}
   m_Layer: 0
   m_Name: jumpPad2
   m_TagString: GapEnd
@@ -1905,18 +1878,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2107289198
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2107289197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b0de1b9af26e9a4281d8879d807d2f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  landingLocation: {fileID: 0}
 --- !u!50 &2107289199
 Rigidbody2D:
   serializedVersion: 4
@@ -2013,7 +1974,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2107289197}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 304.76, y: 119.76, z: 0}
+  m_LocalPosition: {x: 304.68, y: 116.38, z: 0}
   m_LocalScale: {x: 27.824614, y: 15.2371645, z: 0.9100001}
   m_Children: []
   m_Father: {fileID: 0}
