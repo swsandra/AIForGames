@@ -14,8 +14,8 @@ public class Agent : MonoBehaviour
     // Rotation (angular velocity)
     public float rotation, maxAngularAcc, maxRotation;
 
-    // Velocity
-    public Vector3 velocity;
+    // Velocity (linear and vertical)
+    public Vector3 velocity, verticalVelocity;
 
     // Steering
     public Steering steering;
@@ -25,9 +25,11 @@ public class Agent : MonoBehaviour
 
     //Priority property
     public bool priorityProperty;
-
     public float priorityThreshold = 0.1f;
     private Dictionary<int, List<Steering>> groups;
+
+    //Is jumping
+    public bool jump;
 
     // Use this for initialization
     void Start()
@@ -38,6 +40,7 @@ public class Agent : MonoBehaviour
         steering = new Steering();
         Vector3 wrld = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width,0f,0f)) ;
         groups = new Dictionary<int,List<Steering>>();
+        jump=false;
     }
 
     // Update is called once per frame
