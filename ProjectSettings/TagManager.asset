@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - Gap
   - Agent
+  - GapStart
+  - GapEnd
   layers:
   - Default
   - TransparentFX

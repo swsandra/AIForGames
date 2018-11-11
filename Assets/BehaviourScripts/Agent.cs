@@ -5,17 +5,14 @@ using System.Collections.Generic;
 public class Agent : MonoBehaviour
 {
     // MaxSpeed
-    public float maxSpeed;
-    public float maxAcc;
-
-    // Orientation 
-    public float orientation;
+    public float maxSpeed, maxVertSpeed;
+    public float maxAcc, maxJumpAcc;
 
     // Rotation (angular velocity)
-    public float rotation, maxAngularAcc, maxRotation;
+    public float maxAngularAcc, maxRotation;
 
     // Velocity (linear and vertical)
-    public Vector3 velocity, verticalVelocity;
+    public Vector3 velocity;
 
     // Steering
     public Steering steering;
@@ -31,12 +28,16 @@ public class Agent : MonoBehaviour
     //Is jumping
     public bool jump;
 
+    //Jump point 
+    public JumpPoint jumpPoint;
+
+    //Gravity in z axis to simulate 2.5D movement
+    Vector3 gravity = new Vector3(0f, 0f, -9.8f);
+
     // Use this for initialization
     void Start()
     {
         velocity = Vector3.zero;
-        orientation = 0.0f;
-        rotation = 0.0f;
         steering = new Steering();
         Vector3 wrld = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width,0f,0f)) ;
         groups = new Dictionary<int,List<Steering>>();
@@ -46,25 +47,22 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Update postition and orientation
         transform.position += velocity * Time.deltaTime;
-        transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
+        if (!jump){
+            // Update postition and orientation when not jumping
+            transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
 
-        orientation += rotation * Time.deltaTime;
+        }else{
+            //Perform jump
+            if (transform.position.z>jumpPoint.landingLocation.z){
+                transform.position+=gravity; //Apply gravity
+            }
+            else{ //It is in the same level as the landing pad
+                transform.position = new Vector3(transform.position.x,transform.position.y,jumpPoint.landingLocation.z);
+                velocity = new Vector3(velocity.x,velocity.y,0f);
+                jump=false;
+            }
 
-        if (orientation < 0f)
-        {
-            orientation = orientation + 360f;
-        }
-
-        if (orientation > 360f)
-        {
-            orientation = orientation - 360f;
-        }
-
-        if (steering.angular > maxAngularAcc)
-        {
-            steering.angular = maxAngularAcc;
         }
 
     }
@@ -92,7 +90,6 @@ public class Agent : MonoBehaviour
 
         // Update velocity and rotation
         velocity += steering.linear * Time.deltaTime;
-        rotation += steering.angular * Time.deltaTime;
 
         if (velocity.magnitude > maxSpeed)
         {
@@ -106,9 +103,6 @@ public class Agent : MonoBehaviour
         }
 
         blended = false;
-
-        //steering = new Steering(); //With this it never aligns
-
     }
 
     public void SetSteering(Steering steer, float weight, int priority)
@@ -155,6 +149,13 @@ public class Agent : MonoBehaviour
 
         }
         return null;
+    }
+
+    public void Jump(JumpPoint jumpPoint){
+        //deltaPosition has vector between start and end of gap
+
+        //move character till the end 
+
     }
 
 }

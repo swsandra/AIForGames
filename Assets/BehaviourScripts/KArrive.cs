@@ -26,6 +26,6 @@ public class KArrive : GeneralBehaviour {
             character.velocity *= character.maxSpeed;
         }
         character.transform.position += character.velocity * Time.deltaTime;
-        character.orientation = GetNewOrientation(character.orientation, character.velocity);
+        //character.orientation = GetNewOrientation(character.orientation, character.velocity);
     }
 }
