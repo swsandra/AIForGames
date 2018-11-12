@@ -61,6 +61,7 @@ public class Jump : GeneralBehaviour
         if (nearPoint && nearVelocity){
             character.jump=true;
             character.jumpPoint=jumpPoint;
+            character.velocity.z=character.maxJumpAcc; //PA VER QUE HACE
             steering.linear=new Vector3(0f,0f,character.maxJumpAcc); //Salto
             return steering;
         }
