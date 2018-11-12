@@ -43,17 +43,22 @@ public class Agent : MonoBehaviour
         groups = new Dictionary<int,List<Steering>>();
         jump=false;
         initialScale = transform.localScale;
+        jumpPoint = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        float lastVerticalPosition = transform.position.z;
         if (!jump){
             //Cancel z movement
             velocity = new Vector3(velocity.x,velocity.y,0f);
-            transform.position = new Vector3(transform.position.x,transform.position.y,0f);
-
+            //transform.position = new Vector3(transform.position.x,transform.position.y,0.5f);
+            
+            if (jumpPoint!=null){
+                transform.position = new Vector3(transform.position.x,transform.position.y,jumpPoint.landingLocation.z+0.1f);
+            }
+            
             // Update postition and orientation when not jumping
             transform.position += velocity * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
@@ -63,24 +68,29 @@ public class Agent : MonoBehaviour
             //Set z for jump
             transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z+(velocity.z*Time.deltaTime));
             //Debug.Log("Velocity "+velocity);
-            Debug.Log("Position "+transform.position);
+            //Debug.Log("Position "+transform.position);
             
             //Perform jump
             bool higher = transform.position.z-jumpPoint.landingLocation.z > 0.1; //If we are high enoughs
             if (higher){
-                Debug.Log("higher");
+                //Debug.Log("higher");
                 //transform.position+=Vector3(0f, 0f, -9.8f)*Time.deltaTime; //If gravity is applied, it automatically goes down
-                
                 //Scale progressively sprite during jump
-
+                if (lastVerticalPosition<transform.position.z){ //Ascending
+                    transform.localScale += new Vector3(0.01f, 0.01f, 0);
+                }
+                else if (lastVerticalPosition>transform.position.z) { //Descending
+                    transform.localScale -= new Vector3(0.01f, 0.01f, 0);
+                }
                 //transform.localScale += new Vector3(0.1F, 0, 0); PARECIDO
 
             }
             else{ //It is in the same level as the landing pad
-                Debug.Log("samelevel");
-                transform.position = new Vector3(transform.position.x,transform.position.y,jumpPoint.landingLocation.z);
+                //Debug.Log("samelevel");
+                transform.position = new Vector3(transform.position.x,transform.position.y,jumpPoint.landingLocation.z+0.1f);
                 velocity = new Vector3(velocity.x,velocity.y,0f);
                 jump=false;
+                transform.localScale=initialScale;
                 //Reestablish initial sprite's scale
 
             }
