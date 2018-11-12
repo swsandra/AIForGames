@@ -32,7 +32,7 @@ public class Agent : MonoBehaviour
     public JumpPoint jumpPoint;
 
     //Gravity in z axis to simulate 2.5D movement
-    Vector3 fakeGravity = new Vector3(0f, 0f, -0.8f);
+    Vector3 gravity = new Vector3(0f, 0f, -9.8f);
 
     // Use this for initialization
     void Start()
@@ -47,24 +47,27 @@ public class Agent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += velocity * Time.deltaTime;
         if (!jump){
             // Update postition and orientation when not jumping
-            transform.position += velocity * Time.deltaTime;
             transform.rotation = Quaternion.Euler(0,0,transform.rotation.eulerAngles.z + steering.angular * Time.deltaTime);
             
         }else{
-            transform.position += velocity * Time.deltaTime;
+            
             //Set z for jump
-            transform.position.Set(transform.position.x,transform.position.y,velocity.z);
-            velocity.z = steering.linear.z;
+            //velocity.z = steering.linear.z;
+            transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z+(velocity.z*Time.deltaTime));
+            
             Debug.Log("Velocity "+velocity);
             Debug.Log("Position "+transform.position);
             //Perform jump
-            if (transform.position.z>jumpPoint.landingLocation.z){
-                transform.position+=fakeGravity; //Apply gravity
+            bool higher = transform.position.z-jumpPoint.landingLocation.z > 0.5;
+            if (higher){
+                Debug.Log("higher");
+                //transform.position+=gravity; //Apply gravity
             }
             else{ //It is in the same level as the landing pad
+                Debug.Log("samelevel");
                 transform.position = new Vector3(transform.position.x,transform.position.y,jumpPoint.landingLocation.z);
                 velocity = new Vector3(velocity.x,velocity.y,0f);
                 jump=false;
@@ -95,7 +98,11 @@ public class Agent : MonoBehaviour
             steering.angular = maxAngularAcc;
         }
 
-        // Update velocity and rotation        
+        // Update velocity and rotation
+        if (!jump){
+            steering.linear=new Vector3(steering.linear.x,steering.linear.y, steering.linear.z);
+            velocity = new Vector3(velocity.x, velocity.y, 0f);
+        }
         velocity += steering.linear * Time.deltaTime;
 
         if (velocity.magnitude > maxSpeed)
@@ -145,8 +152,6 @@ public class Agent : MonoBehaviour
         foreach (List<Steering> group in groups.Values){
             steering = new Steering();
             foreach(Steering singleSteering in group){
-                //Debug.Log(singleSteering.linear);
-                //Debug.Log(singleSteering.angular);
                 steering.linear += singleSteering.linear;
                 steering.angular += singleSteering.angular;
             }
@@ -156,13 +161,6 @@ public class Agent : MonoBehaviour
 
         }
         return null;
-    }
-
-    public void Jump(JumpPoint jumpPoint){
-        //deltaPosition has vector between start and end of gap
-
-        //move character till the end 
-
     }
 
 }

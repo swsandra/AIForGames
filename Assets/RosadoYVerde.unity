@@ -860,6 +860,22 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 484826, guid: 35d0970cf51c34f4c99ce5ec9e84a738, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 461300, guid: 35d0970cf51c34f4c99ce5ec9e84a738, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 462912, guid: 35d0970cf51c34f4c99ce5ec9e84a738, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 422470, guid: 35d0970cf51c34f4c99ce5ec9e84a738, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 35d0970cf51c34f4c99ce5ec9e84a738, type: 2}
   m_IsPrefabParent: 0
@@ -1752,6 +1768,18 @@ Prefab:
     - target: {fileID: 143126, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_TagString
       value: Agent
+      objectReference: {fileID: 0}
+    - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 493126, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 445866, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}

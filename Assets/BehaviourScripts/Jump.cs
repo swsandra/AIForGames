@@ -77,15 +77,13 @@ public class Jump : GeneralBehaviour
         //Calculate the first jump time
         //Velocity after jumping
         float sqrTerm = Mathf.Sqrt(2f * gravity.z * jumpPoint.deltaPosition.z+character.maxVertSpeed*character.maxVertSpeed);
-        //Debug.Log(" sqrTerm "+sqrTerm);
+        
         //Flying time
         float time = (character.maxVertSpeed-sqrTerm)/gravity.z;
-        //Debug.Log(" time "+time);
 
         //Check if we can use it
         if (!CheckJumpTime(time)){
             time = (character.maxVertSpeed+sqrTerm) / gravity.z;
-            //Debug.Log(" time "+time);
             CheckJumpTime(time);
         }
 
@@ -93,20 +91,16 @@ public class Jump : GeneralBehaviour
     }
 
     private bool CheckJumpTime(float time){
-        //Debug.Log("checkjumptime time "+time);
         //Planar speed
         float vx = jumpPoint.deltaPosition.x / time;
         float vy = jumpPoint.deltaPosition.y / time;
         float speedSq = vx*vx+vy*vy;
-        //Debug.Log("speedSq "+speedSq);
         //Check if we have a valid solution
         if (speedSq<character.maxSpeed * character.maxSpeed){
             jumpTarget.neededVelocity = new Vector3(vx,vy,0f);
             canAchieve=true;
-            //Debug.Log("canAchieve");
             return true;
         }
-        //Debug.Log("cannotAchieve");
         return false;
 
     }
