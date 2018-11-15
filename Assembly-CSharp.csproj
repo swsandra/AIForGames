@@ -54,12 +54,14 @@
      <Compile Include="Assets\BehaviourScripts\Agent.cs" />
      <Compile Include="Assets\BehaviourScripts\Align.cs" />
      <Compile Include="Assets\BehaviourScripts\CollisionDetector.cs" />
+     <Compile Include="Assets\BehaviourScripts\Connection.cs" />
      <Compile Include="Assets\BehaviourScripts\DArrive.cs" />
      <Compile Include="Assets\BehaviourScripts\DFlee.cs" />
      <Compile Include="Assets\BehaviourScripts\DSeek.cs" />
      <Compile Include="Assets\BehaviourScripts\Evade.cs" />
      <Compile Include="Assets\BehaviourScripts\Face.cs" />
      <Compile Include="Assets\BehaviourScripts\GeneralBehaviour.cs" />
+     <Compile Include="Assets\BehaviourScripts\Graph.cs" />
      <Compile Include="Assets\BehaviourScripts\Jump.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPad.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPoint.cs" />
@@ -69,6 +71,7 @@
      <Compile Include="Assets\BehaviourScripts\KSeek.cs" />
      <Compile Include="Assets\BehaviourScripts\LookWhereYoureGoing.cs" />
      <Compile Include="Assets\BehaviourScripts\MouseMovement.cs" />
+     <Compile Include="Assets\BehaviourScripts\Node.cs" />
      <Compile Include="Assets\BehaviourScripts\ObstacleAvoidance.cs" />
      <Compile Include="Assets\BehaviourScripts\Otro.cs" />
      <Compile Include="Assets\BehaviourScripts\Pursue.cs" />
