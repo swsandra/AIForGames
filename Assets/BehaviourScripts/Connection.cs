@@ -4,10 +4,10 @@ using System.Collections;
 public class Connection{
 
     //Cost
-    float cost;
+    public float cost;
     
     //Initial node and final node
-    Node initialNode, finalNode;
+    public Node initialNode, finalNode;
 
     public Connection(Node initialNode, Node finalNode, float cost){
 
