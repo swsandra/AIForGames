@@ -61,7 +61,8 @@
      <Compile Include="Assets\BehaviourScripts\Evade.cs" />
      <Compile Include="Assets\BehaviourScripts\Face.cs" />
      <Compile Include="Assets\BehaviourScripts\GeneralBehaviour.cs" />
-     <Compile Include="Assets\BehaviourScripts\Graph.cs" />
+     <Compile Include="Assets\BehaviourScripts\GraphMap.cs" />
+     <Compile Include="Assets\BehaviourScripts\GraphTest.cs" />
      <Compile Include="Assets\BehaviourScripts\Jump.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPad.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPoint.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\BehaviourScripts\LookWhereYoureGoing.cs" />
      <Compile Include="Assets\BehaviourScripts\MouseMovement.cs" />
      <Compile Include="Assets\BehaviourScripts\Node.cs" />
+     <Compile Include="Assets\BehaviourScripts\NodeRecord.cs" />
      <Compile Include="Assets\BehaviourScripts\ObstacleAvoidance.cs" />
      <Compile Include="Assets\BehaviourScripts\Otro.cs" />
      <Compile Include="Assets\BehaviourScripts\Pursue.cs" />

@@ -9,13 +9,23 @@ public class Node{
     //Node id
     public int id;
 
+    //Triangle center
+    public Vector3 center;
+
     public Node(Vector3[] vertex, int id){
         this.vertex=vertex;
+        this.id=id;
+        this.center=GetCenter();
+    }
+
+    public Node(Vector3 center, int id){
+        this.center=center;
+        this.vertex=null;
         this.id=id;
     }
 
     //Calculate center of triangle
-    public Vector3 center(){
+    public Vector3 GetCenter(){
         
         float x = (vertex[0].x+vertex[1].x+vertex[2].x)/3;
         float y = (vertex[0].y+vertex[1].y+vertex[2].y)/3;
@@ -23,7 +33,7 @@ public class Node{
 
     }
 
-    public void drawTriangle(){
+    public void DrawTriangle(){
         
         Debug.DrawLine(vertex[0],vertex[1],Color.green);
         Debug.DrawLine(vertex[1],vertex[2],Color.green);

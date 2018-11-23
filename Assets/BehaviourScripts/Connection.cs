@@ -9,11 +9,11 @@ public class Connection{
     //Initial node and final node
     public Node initialNode, finalNode;
 
-    public Connection(Node initialNode, Node finalNode, float cost){
+    public Connection(Node initialNode, Node finalNode){
 
         this.initialNode=initialNode;
         this.finalNode=finalNode;
-        this.cost=cost;
+        this.cost= GraphMap.EuclideanDistance(initialNode, finalNode);
 
     }
 
