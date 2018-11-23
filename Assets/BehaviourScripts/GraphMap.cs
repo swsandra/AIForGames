@@ -52,33 +52,6 @@ public class GraphMap{
 
     }
 
-
-    //Find sucesors of a node
-    public Dictionary<int,Node> Sucesors(Node node){
-        
-        Dictionary<int,Node> sucesors = new Dictionary<int,Node>();
-        foreach(Connection con in connections){
-            if (con.initialNode.Equals(node)){
-                sucesors.Add(con.finalNode.id, con.finalNode);
-            }
-        }
-        return sucesors;
-
-    }
-
-    //Find predecesors of a node
-    public Dictionary<int,Node> Predecesors(Node node){
-        
-        Dictionary<int,Node> predecesors = new Dictionary<int,Node>();
-        foreach(Connection con in connections){
-            if (con.finalNode.Equals(node)){
-                predecesors.Add(con.initialNode.id, con.initialNode);
-            }
-        }
-        return predecesors;
-
-    }
-
     //Information for each node
     public struct NodeRecord{
 
@@ -92,6 +65,14 @@ public class GraphMap{
             this.connection=connection;
             this.costSoFar=costSoFar;
             this.estimatedTotalCost=estimatedTotalCost;
+        }
+
+        public Node GetFromNode(){
+            if (connection.initialNode.id==node.id){
+                return connection.finalNode;
+            }else{
+                return connection.initialNode;
+            }
         }
 
     }
@@ -111,9 +92,10 @@ public class GraphMap{
 
         while(open.Count>0f){
             current = SmallestElement(open);
-            path.Add(current.node); //QUE ES ESTOOO
+            
             if (current.node.Equals(end)){
-                return path;
+                //return path;
+                break;
             }
 
             List<Connection> currentConnections = GetNodeConnections(current.node);
@@ -166,10 +148,20 @@ public class GraphMap{
 
         if (current.node.id != end.id){
             return null;
-        }//else{
-            //Path is in path
+        }else{
+            //Starts with current node
+            Node fromNode=current.node;
+            NodeRecord fromNodeRecord=current;
+            while (fromNode.id!=start.id){
+                path.Insert(0,fromNode);
+                //Change fromNode
+                fromNode = fromNodeRecord.GetFromNode();
+                //Search in closed 
+                fromNodeRecord = closed[fromNode];
+            }
+            path.Insert(0,fromNode); //start node
 
-        //}
+        }
         return path;
 
     }

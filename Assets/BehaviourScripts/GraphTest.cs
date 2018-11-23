@@ -22,7 +22,7 @@ public class GraphTest : MonoBehaviour{
     public bool aStar;
 
     void Start(){
-        aStar=false;
+        aStar=true;
 
         graph = new GraphMap();
 
@@ -67,15 +67,17 @@ public class GraphTest : MonoBehaviour{
         graph.AddConnection(node5,node7);
         graph.AddConnection(node6,node7);    
     }
-
+    
     // Update is called once per frame
     new void Update()
     {
+        //Debug.Log("hola");
         if (aStar){
+            //Debug.Log("hola");
             List<Node> path = graph.AStar(node0,node7);
             foreach (Node node in path)
             {
-                print(node.id);
+                Debug.Log(node.id);
             }
             aStar=false;
         }
