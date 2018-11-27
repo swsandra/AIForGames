@@ -32,7 +32,7 @@ public class DArrive : GeneralBehaviour {
 
         if (distance < tRadius)
         {
-            steering.linear = Vector3.zero; //Si solo retorna se queda en un loop
+            steering.linear = Vector3.zero; 
             character.velocity = Vector3.zero;    
             return steering;
         }

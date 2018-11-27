@@ -15,7 +15,7 @@ public class Node{
     public Node(Vector3[] vertex, int id){
         this.vertex=vertex;
         this.id=id;
-        this.center=GetCenter();
+        this.center=CalculateCenter();
     }
 
     public Node(Vector3 center, int id){
@@ -25,7 +25,7 @@ public class Node{
     }
 
     //Calculate center of triangle
-    public Vector3 GetCenter(){
+    public Vector3 CalculateCenter(){
         
         float x = (vertex[0].x+vertex[1].x+vertex[2].x)/3;
         float y = (vertex[0].y+vertex[1].y+vertex[2].y)/3;

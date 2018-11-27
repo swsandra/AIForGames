@@ -62,6 +62,7 @@
      <Compile Include="Assets\BehaviourScripts\Face.cs" />
      <Compile Include="Assets\BehaviourScripts\GeneralBehaviour.cs" />
      <Compile Include="Assets\BehaviourScripts\GraphMap.cs" />
+     <Compile Include="Assets\BehaviourScripts\GraphPathFollowing.cs" />
      <Compile Include="Assets\BehaviourScripts\GraphTest.cs" />
      <Compile Include="Assets\BehaviourScripts\Jump.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPad.cs" />

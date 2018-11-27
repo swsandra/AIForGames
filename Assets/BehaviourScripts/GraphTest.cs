@@ -5,6 +5,7 @@ using System.Linq;
 
 public class GraphTest : MonoBehaviour{
 
+    //For graph which doesnt inherit from monobehaviour
     GraphMap graph;
     Node node0;
     Node node1;

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
+//public class GraphMap : MonoBehaviour{
 public class GraphMap{
 
     //List of Nodes
@@ -11,6 +12,11 @@ public class GraphMap{
 
     //List of Connections
     public List<Connection> connections;
+
+    /*void Start(){
+        nodes = new Dictionary<int,Node>();
+        connections = new List<Connection>();
+    } */
 
     public GraphMap(){
         nodes = new Dictionary<int,Node>();
