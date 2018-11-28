@@ -160,7 +160,7 @@ public class Agent : MonoBehaviour
                     groups.Add(priority, new List<Steering>());
                 }
                 groups[priority].Add(steer);
-                Debug.Log("Priority: "+priority);
+                //Debug.Log("Priority: "+priority);
             }
             
 
