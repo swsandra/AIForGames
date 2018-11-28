@@ -10,13 +10,14 @@ public class GraphPathFollowing : GeneralBehaviour
     Node node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11;
     public Node initial, end, current;
 
-    //Checks if character is arriving at final target
-    public bool arrive;
     //Vector target position
     Vector3 targetPosition;
     
     //Radius to change from nodes, target radius and slow radius
     public float changeRadius = 1f, tRadius= 2f, sRadius = 3f, timeToTarget = 0.2f;
+
+    //If it is in final node
+    public bool final;
 
     //Path to follow
     List<Node> path;
@@ -70,7 +71,9 @@ public class GraphPathFollowing : GeneralBehaviour
         
         //This needs to be changed when implemented with triangles to calculate nearest node
         //(end can be set in state machine script of agent)
-        path = graph.AStar(node0,node7);
+        initial=node0;
+        end=node7;
+        path = graph.AStar(initial,end);
         current = path[0];
         path.RemoveAt(0);
 
@@ -79,22 +82,17 @@ public class GraphPathFollowing : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        if (path.Count!=0){//if there is still path
-            character.SetSteering(GetSteering(path), weight, priority);
-            foreach (Node node in path)
-            {
-                Debug.Log(node.id);
-            }
-        }
+        character.SetSteering(GetSteering(path), weight, priority);
+    
     }
 
     public Steering GetSteering(List<Node> path)
     {
         //If it is at a certain radius from last current, change
         Vector3 distanceToNode = current.center-character.transform.position;
-        Debug.Log("current node "+ current.id +" "+current.center);
-        Debug.Log("distance to node "+distanceToNode.magnitude);
-        if (distanceToNode.magnitude<changeRadius){
+        //Debug.Log("current node "+ current.id +" "+current.center);
+        //Debug.Log("distance to node "+distanceToNode.magnitude);
+        if (distanceToNode.magnitude<changeRadius && path.Count!=0){
             //Remove first element
             current = path[0];
             path.RemoveAt(0);
@@ -142,12 +140,50 @@ public class GraphPathFollowing : GeneralBehaviour
                 steering.angular = 0f;
             }
         }
-        else{//else seek last current
-            targetPosition = current.center;
-            steering.linear = targetPosition - character.transform.position;
-            steering.linear.Normalize();
-            steering.linear *= character.maxAcc;
-            steering.angular = 0f;
+        else{//else seek current
+            //Debug.Log("Current node "+ current.id);
+            if(current.id!=end.id){ //seek last current
+                targetPosition = current.center;
+                steering.linear = targetPosition - character.transform.position;
+                steering.linear.Normalize();
+                steering.linear *= character.maxAcc;
+                steering.angular = 0f;
+            }else{ //arrive at final node
+                targetPosition = current.center;
+                Vector3 direction = targetPosition - character.transform.position; 
+                float distance = direction.magnitude; 
+                float tSpeed;
+
+                if (distance < tRadius)
+                {
+                    steering.linear = Vector3.zero; 
+                    character.velocity = Vector3.zero;    
+                    return steering;
+                }
+
+                if (distance > sRadius)
+                {
+                    tSpeed = character.maxSpeed;
+                }
+                else
+                {
+                    tSpeed = character.maxSpeed * (distance / sRadius);
+                }
+                Vector3 tVelocity = direction.normalized * tSpeed;
+
+                steering.linear = tVelocity - character.velocity;
+                
+                steering.linear /= timeToTarget;
+
+                if (steering.linear.magnitude > character.maxAcc)
+                {
+                    steering.linear.Normalize();
+                    steering.linear *= character.maxAcc;
+                }
+
+                steering.angular = 0f;
+            }
+            
         }
         return steering;
 
@@ -159,7 +195,7 @@ public class GraphPathFollowing : GeneralBehaviour
         initial = path[0];
         path.RemoveAt(0);
         end = node;
-        arrive=false;
+        //arrive=false;
         path = graph.AStar(initial, end);
     }
 
