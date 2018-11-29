@@ -7,18 +7,7 @@ public class GraphTest : MonoBehaviour{
 
     //For graph which doesnt inherit from monobehaviour
     GraphMap graph;
-    Node node0;
-    Node node1;
-    Node node2;
-    Node node3;
-    Node node4;
-    Node node5;
-    Node node6;
-    Node node7;
-    Node node8;
-    Node node9;
-    Node node10;
-    Node node11;
+    Node node0, node1, node2, node3, node4, node5, node6, node7,node8, node9, node10, node11;
 
     public bool aStar;
 
@@ -70,11 +59,9 @@ public class GraphTest : MonoBehaviour{
     }
     
     // Update is called once per frame
-    new void Update()
+    void Update()
     {
-        //Debug.Log("hola");
         if (aStar){
-            //Debug.Log("hola");
             List<Node> path = graph.AStar(node0,node7);
             foreach (Node node in path)
             {
