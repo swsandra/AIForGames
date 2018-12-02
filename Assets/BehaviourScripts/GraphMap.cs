@@ -25,11 +25,15 @@ public class GraphMap : MonoBehaviour{
     // Update is called once per frame
     void Update()
     {
-        foreach(KeyValuePair<int, Node> entry in nodes)
+        GetTriangles();
+        //nodes.First().Value.DrawTriangle();
+        //nodes.Values.ElementAt(1).DrawTriangle();
+        /*foreach(KeyValuePair<int, Node> entry in nodes)
         {
             //draw nodes
+            //Debug.Log(entry.Key);
             entry.Value.DrawTriangle();
-        }
+        } */
     }
 
     public void GetTriangles(){
@@ -41,17 +45,38 @@ public class GraphMap : MonoBehaviour{
             spriteRenderer = child.gameObject.GetComponent<SpriteRenderer>();
             Sprite plank = spriteRenderer.sprite;
             //Create 2 nodes and add to graph
-            Vector3[] vertices = new Vector3[3]; //SUMARLE LA POSICION DEL TRANSFORM CHILD OBJECT?
+            ushort[]  t = plank.triangles;
+            // draw the triangles using grabbed vertices
+            int a,b,c;
+            Vector2[] aux = plank.vertices;
+            Vector3[] v = new Vector3[aux.Length];
+            for(int z = 0; z < aux.Length; z++){
+                v[z]=aux[z];
+            }
+            for (int j = 0; j < t.Length; j = j + 3)
+            {
+                a = t[j];
+                b = t[j + 1];
+                c = t[j + 2];
+                Debug.DrawLine(v[a]+child.gameObject.transform.position, v[b]+child.gameObject.transform.position, Color.white, 100.0f);
+                Debug.DrawLine(v[b]+child.gameObject.transform.position, v[c]+child.gameObject.transform.position, Color.white, 100.0f);
+                Debug.DrawLine(v[c]+child.gameObject.transform.position, v[a]+child.gameObject.transform.position, Color.white, 100.0f);
+            }
+            /*Vector3[] vertices = new Vector3[3]; //SUMARLE LA POSICION DEL TRANSFORM CHILD OBJECT?
             vertices[0]=plank.vertices[0];
+            vertices[0]+= child.gameObject.transform.position;
             vertices[1]=plank.vertices[1];
+            vertices[1]+= child.gameObject.transform.position;
             vertices[2]=plank.vertices[2];
-            AddNode(vertices,i);
-            i++;
+            vertices[2]+= child.gameObject.transform.position;
+            AddNode(vertices,i++);
             vertices[0]=plank.vertices[1];
+            vertices[0]+= child.gameObject.transform.position;
             vertices[1]=plank.vertices[2];
+            vertices[1]+= child.gameObject.transform.position;
             vertices[2]=plank.vertices[3];
-            AddNode(vertices,i);
-            i++;
+            vertices[2]+= child.gameObject.transform.position;
+            AddNode(vertices,i++); */
         }
 
     }
