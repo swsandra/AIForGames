@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-//public class GraphMap : MonoBehaviour{
-public class GraphMap{
+public class GraphMap : MonoBehaviour{
 
     //List of Nodes
     //public List<Node> nodes;
@@ -13,14 +12,48 @@ public class GraphMap{
     //List of Connections
     public List<Connection> connections;
 
-    /*void Start(){
-        nodes = new Dictionary<int,Node>();
-        connections = new List<Connection>();
-    } */
+    private GameObject floor;
+    private SpriteRenderer spriteRenderer;
 
-    public GraphMap(){
+    //Read map, add nodes and connections at start
+    void Start(){
         nodes = new Dictionary<int,Node>();
         connections = new List<Connection>();
+        GetTriangles();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        foreach(KeyValuePair<int, Node> entry in nodes)
+        {
+            //draw nodes
+            entry.Value.DrawTriangle();
+        }
+    }
+
+    public void GetTriangles(){
+        //Get floor object
+        floor = GameObject.Find("Floor");
+        int i = 0;
+        //Find vertex of each child 
+        foreach (Transform child in floor.transform){
+            spriteRenderer = child.gameObject.GetComponent<SpriteRenderer>();
+            Sprite plank = spriteRenderer.sprite;
+            //Create 2 nodes and add to graph
+            Vector3[] vertices = new Vector3[3]; //SUMARLE LA POSICION DEL TRANSFORM CHILD OBJECT?
+            vertices[0]=plank.vertices[0];
+            vertices[1]=plank.vertices[1];
+            vertices[2]=plank.vertices[2];
+            AddNode(vertices,i);
+            i++;
+            vertices[0]=plank.vertices[1];
+            vertices[1]=plank.vertices[2];
+            vertices[2]=plank.vertices[3];
+            AddNode(vertices,i);
+            i++;
+        }
+
     }
 
     public bool AddNode(Vector3[] vertex, int id){
