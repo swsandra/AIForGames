@@ -17,4 +17,8 @@ public class Connection{
 
     }
 
+    public void DrawConnection(){
+        Debug.DrawLine(initialNode.center,finalNode.center,Color.blue);
+    }
+
 }

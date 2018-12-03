@@ -12,12 +12,14 @@ public class Node{
     //Triangle center
     public Vector3 center;
 
+    //Constructor for triangles
     public Node(Vector3[] vertex, int id){
         this.vertex=vertex;
         this.id=id;
         this.center=CalculateCenter();
     }
 
+    //Constructor for test
     public Node(Vector3 center, int id){
         this.center=center;
         this.vertex=null;
@@ -34,8 +36,6 @@ public class Node{
     }
 
     public void DrawTriangle(){
-        //Debug.Log("triangle");
-        //Debug.Log("0 "+vertex[0]+" 1 "+vertex[1]+" 2 "+vertex[2]);
         Debug.DrawLine(vertex[0],vertex[1],Color.green);
         Debug.DrawLine(vertex[1],vertex[2],Color.green);
         Debug.DrawLine(vertex[2],vertex[0],Color.green);

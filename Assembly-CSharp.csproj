@@ -51,22 +51,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Anima2D\Scripts\Bone2D.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\Control.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\EditorUpdaterProxy.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\Ik2D.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\IkCCD2D.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\IkGroup.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\IkLimb2D.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\IkSolver2D.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\IkSolver2DCCD.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\IkSolver2DLimb.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\MathUtils.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\Pose.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\PoseManager.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\SpriteMesh.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\SpriteMeshAnimation.cs" />
-     <Compile Include="Assets\Anima2D\Scripts\SpriteMeshInstance.cs" />
      <Compile Include="Assets\BehaviourScripts\Agent.cs" />
      <Compile Include="Assets\BehaviourScripts\Align.cs" />
      <Compile Include="Assets\BehaviourScripts\CollisionDetector.cs" />
@@ -100,9 +84,6 @@
      <Compile Include="Assets\BehaviourScripts\Wander.cs" />
      <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\EditorPopup\EditorScripts\OpenMoreGames.cs" />
      <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\Scritps\OrderPrefabs.cs" />
-     <None Include="Assets\Anima2D\Version.txt" />
-     <None Include="Assets\Anima2D\Licenses.txt" />
-     <None Include="Assets\Anima2D\Readme.txt" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>

@@ -6,7 +6,6 @@ using System.Linq;
 public class GraphMap : MonoBehaviour{
 
     //List of Nodes
-    //public List<Node> nodes;
     public Dictionary<int,Node> nodes;
 
     //List of Connections
@@ -15,26 +14,33 @@ public class GraphMap : MonoBehaviour{
     private GameObject floor;
     private SpriteRenderer spriteRenderer;
 
+    public bool drawTriangles, drawConnections;
+
     //Read map, add nodes and connections at start
     void Start(){
         nodes = new Dictionary<int,Node>();
         connections = new List<Connection>();
         GetTriangles();
-        
+        GetConnections();
+        drawConnections=false;
+        drawTriangles=false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //GetTriangles();
-        //nodes.First().Value.DrawTriangle();
-        //nodes.Values.ElementAt(1).DrawTriangle();
-        foreach(KeyValuePair<int, Node> entry in nodes)
-        {
-            //draw nodes
-            //Debug.Log(entry.Key);
-            entry.Value.DrawTriangle();
+        if(drawTriangles){
+            foreach(KeyValuePair<int, Node> entry in nodes)
+            {
+                entry.Value.DrawTriangle();
+            }
         }
+
+        if(drawConnections){
+            foreach(Connection con in connections){
+                con.DrawConnection();
+            }
+        }        
     }
 
     public void GetTriangles(){
@@ -54,38 +60,61 @@ public class GraphMap : MonoBehaviour{
             for(int z = 0; z < aux.Length; z++){
                 v[z]=aux[z];
             }
-            
-            /*Debug.Log(t.Length);
-            vertices[0]=v[0]+child.gameObject.transform.position;
-            vertices[1]=v[1]+child.gameObject.transform.position;
-            vertices[2]=v[2]+child.gameObject.transform.position;
-            AddNode(vertices,i++);
-            vertices[0]=v[1]+child.gameObject.transform.position;
-            vertices[1]=v[3]+child.gameObject.transform.position;
-            vertices[2]=v[2]+child.gameObject.transform.position;
-            AddNode(vertices,i++); */
-            //Debug.Log("hola ");
             for (int j = 0; j < t.Length; j = j + 3)
             {
-                Vector3[] vertices = new Vector3[aux.Length];
-                Debug.Log("triangle");
+                Vector3[] vertices = new Vector3[3];
                 a = t[j];
-                Debug.Log("a "+a+" v"+v[a]);
                 b = t[j + 1];
-                Debug.Log("b "+b+" v"+v[b]);
                 c = t[j + 2];
-                Debug.Log("c "+c+" v"+v[c]);
                 
                 vertices[0]=v[a]+child.gameObject.transform.position;
                 vertices[1]=v[b]+child.gameObject.transform.position;
                 vertices[2]=v[c]+child.gameObject.transform.position;
                 AddNode(vertices,i++);
-                //Debug.DrawLine(v[a]+child.gameObject.transform.position, v[b]+child.gameObject.transform.position, Color.white, 100.0f);
-                //Debug.DrawLine(v[b]+child.gameObject.transform.position, v[c]+child.gameObject.transform.position, Color.white, 100.0f);
-                //Debug.DrawLine(v[c]+child.gameObject.transform.position, v[a]+child.gameObject.transform.position, Color.white, 100.0f);
+                
             }
         }
+    }
 
+    public void SetWalls(){
+        
+    }
+
+    public void GetConnections(){
+        for (int i = 0; i<nodes.Count; i++){
+            for (int j = i+1; j<nodes.Count; j++){
+                //Check if any pair of nodes shares a side
+                if (CheckSide(nodes.ElementAt(i).Value,nodes.ElementAt(j).Value)){
+                    AddConnection(nodes.ElementAt(i).Value,nodes.ElementAt(j).Value);
+                }
+            }
+        }
+    }
+
+    public bool CheckSide(Node node, Node node1){
+        //Check if two triangle nodes share a side
+        for(int i = 0; i<node.vertex.Length; i++){
+            for(int j = 0; j <node1.vertex.Length; j++){
+                //Calculate middle point of each pair of vertex
+                float x1=(node.vertex[i%node.vertex.Length].x + node.vertex[(i+1)%node.vertex.Length].x)/2;
+                float y1=(node.vertex[i%node.vertex.Length].y + node.vertex[(i+1)%node.vertex.Length].y)/2;
+                //Vector3 middlePoint = new Vector3(x1, y1, 0f);
+
+                float x2=(node1.vertex[j%node1.vertex.Length].x + node1.vertex[(j+1)%node1.vertex.Length].x)/2;
+                float y2=(node1.vertex[j%node1.vertex.Length].y + node1.vertex[(j+1)%node1.vertex.Length].y)/2;
+                //Vector3 middlePoint1 = new Vector3(x2, y2, 0f);
+                
+                if(node.id==0 && node1.id==1){
+                    Debug.Log("x "+(x1-x2)+" y "+(y1-y2));
+                    Debug.Log("x "+(Mathf.Abs(x1-x2)<1f)+" y "+ (Mathf.Abs(y1-y2)<1f));
+                }
+            
+                if(Mathf.Abs(x1-x2)<1f & Mathf.Abs(y1-y2)<1f){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public bool AddNode(Vector3[] vertex, int id){
@@ -113,7 +142,6 @@ public class GraphMap : MonoBehaviour{
 
         foreach (Connection con in connections){
             if ((con.initialNode.id==initial.id && con.finalNode.id==final.id) || (con.initialNode.id==final.id && con.finalNode.id==initial.id)){
-                Debug.Log("Not added");
                 return false;
             }
         }
