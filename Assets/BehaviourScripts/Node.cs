@@ -34,7 +34,8 @@ public class Node{
     }
 
     public void DrawTriangle(){
-        
+        //Debug.Log("triangle");
+        //Debug.Log("0 "+vertex[0]+" 1 "+vertex[1]+" 2 "+vertex[2]);
         Debug.DrawLine(vertex[0],vertex[1],Color.green);
         Debug.DrawLine(vertex[1],vertex[2],Color.green);
         Debug.DrawLine(vertex[2],vertex[0],Color.green);

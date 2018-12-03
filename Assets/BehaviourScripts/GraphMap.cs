@@ -20,20 +20,21 @@ public class GraphMap : MonoBehaviour{
         nodes = new Dictionary<int,Node>();
         connections = new List<Connection>();
         GetTriangles();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetTriangles();
+        //GetTriangles();
         //nodes.First().Value.DrawTriangle();
         //nodes.Values.ElementAt(1).DrawTriangle();
-        /*foreach(KeyValuePair<int, Node> entry in nodes)
+        foreach(KeyValuePair<int, Node> entry in nodes)
         {
             //draw nodes
             //Debug.Log(entry.Key);
             entry.Value.DrawTriangle();
-        } */
+        }
     }
 
     public void GetTriangles(){
@@ -53,30 +54,36 @@ public class GraphMap : MonoBehaviour{
             for(int z = 0; z < aux.Length; z++){
                 v[z]=aux[z];
             }
+            
+            /*Debug.Log(t.Length);
+            vertices[0]=v[0]+child.gameObject.transform.position;
+            vertices[1]=v[1]+child.gameObject.transform.position;
+            vertices[2]=v[2]+child.gameObject.transform.position;
+            AddNode(vertices,i++);
+            vertices[0]=v[1]+child.gameObject.transform.position;
+            vertices[1]=v[3]+child.gameObject.transform.position;
+            vertices[2]=v[2]+child.gameObject.transform.position;
+            AddNode(vertices,i++); */
+            //Debug.Log("hola ");
             for (int j = 0; j < t.Length; j = j + 3)
             {
+                Vector3[] vertices = new Vector3[aux.Length];
+                Debug.Log("triangle");
                 a = t[j];
+                Debug.Log("a "+a+" v"+v[a]);
                 b = t[j + 1];
+                Debug.Log("b "+b+" v"+v[b]);
                 c = t[j + 2];
-                Debug.DrawLine(v[a]+child.gameObject.transform.position, v[b]+child.gameObject.transform.position, Color.white, 100.0f);
-                Debug.DrawLine(v[b]+child.gameObject.transform.position, v[c]+child.gameObject.transform.position, Color.white, 100.0f);
-                Debug.DrawLine(v[c]+child.gameObject.transform.position, v[a]+child.gameObject.transform.position, Color.white, 100.0f);
+                Debug.Log("c "+c+" v"+v[c]);
+                
+                vertices[0]=v[a]+child.gameObject.transform.position;
+                vertices[1]=v[b]+child.gameObject.transform.position;
+                vertices[2]=v[c]+child.gameObject.transform.position;
+                AddNode(vertices,i++);
+                //Debug.DrawLine(v[a]+child.gameObject.transform.position, v[b]+child.gameObject.transform.position, Color.white, 100.0f);
+                //Debug.DrawLine(v[b]+child.gameObject.transform.position, v[c]+child.gameObject.transform.position, Color.white, 100.0f);
+                //Debug.DrawLine(v[c]+child.gameObject.transform.position, v[a]+child.gameObject.transform.position, Color.white, 100.0f);
             }
-            /*Vector3[] vertices = new Vector3[3]; //SUMARLE LA POSICION DEL TRANSFORM CHILD OBJECT?
-            vertices[0]=plank.vertices[0];
-            vertices[0]+= child.gameObject.transform.position;
-            vertices[1]=plank.vertices[1];
-            vertices[1]+= child.gameObject.transform.position;
-            vertices[2]=plank.vertices[2];
-            vertices[2]+= child.gameObject.transform.position;
-            AddNode(vertices,i++);
-            vertices[0]=plank.vertices[1];
-            vertices[0]+= child.gameObject.transform.position;
-            vertices[1]=plank.vertices[2];
-            vertices[1]+= child.gameObject.transform.position;
-            vertices[2]=plank.vertices[3];
-            vertices[2]+= child.gameObject.transform.position;
-            AddNode(vertices,i++); */
         }
 
     }
