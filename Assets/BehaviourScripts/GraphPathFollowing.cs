@@ -7,7 +7,7 @@ public class GraphPathFollowing : GeneralBehaviour
 
     //Graph
     GraphMap graph;
-    Node node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11;
+    //Node node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11;
     public Node initial, end, current;
 
     //Vector target position
@@ -26,7 +26,8 @@ public class GraphPathFollowing : GeneralBehaviour
     new void Start()
     {
         base.Start();
-        graph = new GraphMap();
+        graph = GetComponent<GraphMap>();
+        /*graph = new GraphMap();
 
         node0 = new Node(new Vector3(-1f, -54.9f, 0f), 0);
         node1 = new Node(new Vector3(22.6f, -35f, 0f), 1);
@@ -67,10 +68,11 @@ public class GraphPathFollowing : GeneralBehaviour
         graph.AddConnection(node2,node6);
         graph.AddConnection(node5,node6);
         graph.AddConnection(node5,node7);
-        graph.AddConnection(node6,node7);
+        graph.AddConnection(node6,node7); */
         
         //This needs to be changed when implemented with triangles to calculate nearest node
         //(end can be set in state machine script of agent)
+
         initial=node0;
         end=node7;
         path = graph.AStar(initial,end);
