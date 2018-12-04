@@ -5,7 +5,7 @@ using UnityEngine;
 public class DArrive : GeneralBehaviour {
 
     //Target radius, slow radius, time to target, distance
-    public float tRadius = 0.5f, sRadius = 2f, timeToTarget = 0.1f, distance;
+    public float tRadius = 1f, sRadius = 3f, timeToTarget = 0.3f, distance;
     public Vector3 tVelocity;
     public float tSpeed;
 

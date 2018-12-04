@@ -4,7 +4,7 @@ using System.Collections;
 public class ObstacleAvoidance : GeneralBehaviour
 {
     //How far to avoid collision
-    float avoidDistance=15f;
+    float avoidDistance=20f;
     //Collision ray vector
     Vector3 targetPosition, threatenedRay;
     //public GameObject[] targets;
