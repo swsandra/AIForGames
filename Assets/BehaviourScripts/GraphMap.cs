@@ -21,6 +21,7 @@ public class GraphMap : MonoBehaviour{
         nodes = new Dictionary<int,Node>();
         connections = new List<Connection>();
         GetTriangles();
+        SetWalls();
         GetConnections();
         drawConnections=false;
         drawTriangles=false;
@@ -77,7 +78,9 @@ public class GraphMap : MonoBehaviour{
     }
 
     public void SetWalls(){
-        
+        foreach (Transform child in floor.transform){
+            child.gameObject.tag="Obstacle";
+        }
     }
 
     public void GetConnections(){
@@ -98,17 +101,10 @@ public class GraphMap : MonoBehaviour{
                 //Calculate middle point of each pair of vertex
                 float x1=(node.vertex[i%node.vertex.Length].x + node.vertex[(i+1)%node.vertex.Length].x)/2;
                 float y1=(node.vertex[i%node.vertex.Length].y + node.vertex[(i+1)%node.vertex.Length].y)/2;
-                //Vector3 middlePoint = new Vector3(x1, y1, 0f);
 
                 float x2=(node1.vertex[j%node1.vertex.Length].x + node1.vertex[(j+1)%node1.vertex.Length].x)/2;
                 float y2=(node1.vertex[j%node1.vertex.Length].y + node1.vertex[(j+1)%node1.vertex.Length].y)/2;
-                //Vector3 middlePoint1 = new Vector3(x2, y2, 0f);
-                
-                if(node.id==0 && node1.id==1){
-                    Debug.Log("x "+(x1-x2)+" y "+(y1-y2));
-                    Debug.Log("x "+(Mathf.Abs(x1-x2)<1f)+" y "+ (Mathf.Abs(y1-y2)<1f));
-                }
-            
+                            
                 if(Mathf.Abs(x1-x2)<1f & Mathf.Abs(y1-y2)<1f){
                     return true;
                 }

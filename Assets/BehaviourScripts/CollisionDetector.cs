@@ -11,7 +11,7 @@ public class CollisionDetector
     
     public void GenerateRays(Agent character, Agent target)
     {
-        float lookAhead = 6f;
+        float lookAhead = 22f;
         float lookSide = lookAhead/2f;
 
         //Define points
@@ -47,7 +47,6 @@ public class CollisionDetector
 
     public bool LineIntersectsCircle(Vector3 rayStart, Vector3 rayEnd, Vector3 center, float radius)
     {
-        //DistancePointLine(Vector3 point, Vector3 lineStart, Vector3 lineEnd);
         return HandleUtility.DistancePointLine(center, rayStart, rayEnd)<=radius;
     }
 
