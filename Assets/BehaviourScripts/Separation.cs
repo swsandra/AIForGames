@@ -4,7 +4,7 @@ using System.Collections;
 public class Separation : GeneralBehaviour
 {
     public Agent[] targets;
-    float threshold=3f, decayCoefficient=5f;
+    float threshold=6f, decayCoefficient=10f;
     // Use this for initialization
     new void Start()
     {
