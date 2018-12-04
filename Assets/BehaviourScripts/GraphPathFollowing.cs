@@ -43,7 +43,7 @@ public class GraphPathFollowing : GeneralBehaviour
     new void Update()
     {
         initial=GetNearestNode(character.transform.position);
-        Debug.DrawLine(character.transform.position,initial.center,Color.red);
+        //Debug.DrawLine(character.transform.position,initial.center,Color.red);
         if (end!=null){
             character.SetSteering(GetSteering(path), weight, priority);
         }        
