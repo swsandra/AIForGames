@@ -17,13 +17,13 @@ public class Face : Align
     // Update is called once per frame
     new void Update()
     {
-        character.SetSteering(GetSteering(faceTarget.transform.position), weight, priority);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
-    public Steering GetSteering(Vector3 targetDirection)
+    public override Steering GetSteering()
     {
-        //Vector3 direction = faceTarget.transform.position - character.transform.position; //With this line and without parameters, works
-        Vector3 direction = targetDirection - character.transform.position;
+        Vector3 direction = faceTarget.transform.position - character.transform.position; //With this line and without parameters, works
+       // Vector3 direction = targetDirection - character.transform.position;
 
         //print(direction);
 
@@ -39,6 +39,6 @@ public class Face : Align
 
         steering.linear = Vector3.zero;
 
-        return base.GetSteering(faceTargetRotation);
+        return base.GetSteeringAux(faceTargetRotation);
     }
 }

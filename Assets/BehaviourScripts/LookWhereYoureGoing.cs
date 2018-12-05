@@ -31,7 +31,7 @@ public class LookWhereYoureGoing : Align
         lookTargetRotation = Mathf.Atan2(-character.velocity.x, character.velocity.y) * Mathf.Rad2Deg;
 
         steering.linear = Vector3.zero;
-        return base.GetSteering(lookTargetRotation);
+        return base.GetSteeringAux(lookTargetRotation);
     }
 
 }

@@ -16,10 +16,15 @@ public class Align : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        character.SetSteering(GetSteering(target.transform.rotation.eulerAngles.z), weight, priority);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
-    public Steering GetSteering(float targetRotation)
+    public override Steering GetSteering()
+    {
+        return GetSteeringAux(target.transform.rotation.eulerAngles.z);
+    }
+
+    public Steering GetSteeringAux(float targetRotation)
     {
         //rotation = target.transform.rotation.eulerAngles.z - character.transform.rotation.eulerAngles.z;
         rotation = targetRotation - character.transform.rotation.eulerAngles.z;

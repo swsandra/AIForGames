@@ -70,7 +70,7 @@ public class Wander : Face
         wanderTargetVect += circleRadius * GetOrientationAsVector(wanderTargetRotation);
 
         // Delegate to face
-        steering = base.GetSteering(wanderTargetVect);
+        //!!!!!!!!!!!!!!!//////////////steering = base.GetSteering(wanderTargetVect);
 
         //steering.linear = character.maxAcc * GetOrientationAsVector(character.orientation);
         steering.linear = character.maxAcc * GetOrientationAsVector(character.transform.rotation.eulerAngles.z);

@@ -12,10 +12,15 @@ public class DSeek : GeneralBehaviour {
 
     new void Update()
     {
-        character.SetSteering(GetSteering(target.transform.position), weight, priority);
+        character.SetSteering(GetSteering(), weight, priority);
     }
 
-    public Steering GetSteering(Vector3 targetPosition)
+    public override Steering GetSteering()
+    {
+        return GetSteeringAux(target.transform.position);
+    }
+
+    public Steering GetSteeringAux(Vector3 targetPosition)
     {
         steering.linear = targetPosition - character.transform.position;
         //steering.linear += targetPosition - character.transform.position;

@@ -23,6 +23,9 @@ public class GraphPathFollowing : GeneralBehaviour
     //Path to follow
     List<Node> path;
 
+    //Behaviour for path following
+    public GeneralBehaviour behaviour;
+
     // Use this for initialization
     new void Start()
     {
@@ -42,12 +45,48 @@ public class GraphPathFollowing : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        initial=GetNearestNode(character.transform.position);
+        //initial=GetNearestNode(character.transform.position);
         //Debug.DrawLine(character.transform.position,initial.center,Color.red);
         if (end!=null){
-            character.SetSteering(GetSteering(path), weight, priority);
+            character.SetSteering(GetSteering(path, behaviour), weight, priority);
         }        
     
+    }
+
+    public Steering GetSteering(List<Node> path, GeneralBehaviour targetBehaviour)
+    {
+        //If it is at a certain radius from last current, change
+        Vector3 distanceToNode = current.center-character.transform.position;
+        if (distanceToNode.magnitude<changeRadius && path.Count!=0){
+            //Remove first element
+            current = path[0];
+            path.RemoveAt(0);
+            //If path is not empty, do behaviour
+            if (path.Count!=0){
+                targetPosition = current.center;
+                steering.linear = targetPosition - character.transform.position;
+                steering.linear.Normalize();
+                steering.linear *= character.maxAcc;
+                steering.angular = 0f;
+            }
+            else{ //else getsteering of behaviour at current node
+                steering = behaviour.GetSteering();
+            }
+        }
+        else{//else seek current
+            if(current.id!=end.id){ //seek last current
+                targetPosition = current.center;
+                steering.linear = targetPosition - character.transform.position;
+                steering.linear.Normalize();
+                steering.linear *= character.maxAcc;
+                steering.angular = 0f;
+            }else{ //getsteering of behaviour at final node
+                steering = behaviour.GetSteering();
+            }
+            
+        }
+        return steering;
+
     }
 
     public Steering GetSteering(List<Node> path)
