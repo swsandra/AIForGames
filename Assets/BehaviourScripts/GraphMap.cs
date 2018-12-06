@@ -23,8 +23,8 @@ public class GraphMap : MonoBehaviour{
         GetTriangles();
         SetWalls();
         GetConnections();
-        drawConnections=false;
-        drawTriangles=false;
+        drawConnections=true;
+        drawTriangles=true;
     }
 
     // Update is called once per frame

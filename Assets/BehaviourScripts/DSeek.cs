@@ -12,7 +12,11 @@ public class DSeek : GeneralBehaviour {
 
     new void Update()
     {
-        character.SetSteering(GetSteering(), weight, priority);
+        if(!stop){
+            character.SetSteering(GetSteering(), weight, priority);
+        }else{
+            character.SetSteering(new Steering(), weight, priority);
+        }
     }
 
     public override Steering GetSteering()

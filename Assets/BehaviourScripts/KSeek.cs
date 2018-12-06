@@ -13,12 +13,5 @@ public class KSeek : GeneralBehaviour {
         character.velocity = target.transform.position - character.transform.position;
         character.velocity.Normalize();
         character.velocity *= character.maxSpeed;
-        //character.orientation = GetNewOrientation(character.orientation, character.velocity);
-        
-        //character.transform.Rotate(character.velocity, Space.World); //VOLAR
-
-        //character.transform.Translate(character.velocity,Space.Self);
-        //print(character.velocity);
-
     }
 }

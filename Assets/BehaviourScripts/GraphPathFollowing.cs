@@ -17,14 +17,11 @@ public class GraphPathFollowing : GeneralBehaviour
     //Radius to change from nodes, target radius and slow radius
     public float changeRadius = 1f, tRadius= 2f, sRadius = 3f, timeToTarget = 0.2f;
 
-    //If it is in final node or it needs to recalculate A*
-    public bool final, astar;
+    //Script for final node
+    GeneralBehaviour behaviour;
 
     //Path to follow
     List<Node> path;
-
-    //Behaviour for path following
-    public GeneralBehaviour behaviour;
 
     // Use this for initialization
     new void Start()
@@ -35,58 +32,42 @@ public class GraphPathFollowing : GeneralBehaviour
         graph = map.GetComponent<GraphMap>();
 
         initial=GetNearestNode(character.transform.position);
-        end=null;
-        /*path = graph.AStar(initial,end);
-        current = path[0];
-        path.RemoveAt(0); */
 
+        //Pursue 
+        end = GetNearestNode(target.transform.position);
+        
+        path = graph.AStar(initial,end);
+        behaviour = GetComponent<DArrive>();
+        //current = path[0];
+        //path.RemoveAt(0);
+        
     }
 
     // Update is called once per frame
     new void Update()
     {
-        //initial=GetNearestNode(character.transform.position);
-        //Debug.DrawLine(character.transform.position,initial.center,Color.red);
-        if (end!=null){
-            character.SetSteering(GetSteering(path, behaviour), weight, priority);
-        }        
-    
-    }
-
-    public Steering GetSteering(List<Node> path, GeneralBehaviour targetBehaviour)
-    {
-        //If it is at a certain radius from last current, change
-        Vector3 distanceToNode = current.center-character.transform.position;
-        if (distanceToNode.magnitude<changeRadius && path.Count!=0){
-            //Remove first element
-            current = path[0];
-            path.RemoveAt(0);
-            //If path is not empty, do behaviour
-            if (path.Count!=0){
-                targetPosition = current.center;
-                steering.linear = targetPosition - character.transform.position;
-                steering.linear.Normalize();
-                steering.linear *= character.maxAcc;
-                steering.angular = 0f;
-            }
-            else{ //else getsteering of behaviour at current node
-                steering = behaviour.GetSteering();
-            }
+        Node targetNode = GetNearestNode(target.transform.position);
+        Node characterNode = GetNearestNode(character.transform.position);
+        Debug.DrawLine(character.transform.position, characterNode.center, Color.red);
+        targetNode.DrawTriangle();
+        //If you character is in same node, activate arrive behaviour
+        if (targetNode.id!=characterNode.id){
+            initial = characterNode;
+            end = targetNode;
+            path = graph.AStar(initial,end);
+            character.SetSteering(GetSteering(path), weight, priority);
         }
-        else{//else seek current
-            if(current.id!=end.id){ //seek last current
-                targetPosition = current.center;
-                steering.linear = targetPosition - character.transform.position;
-                steering.linear.Normalize();
-                steering.linear *= character.maxAcc;
-                steering.angular = 0f;
-            }else{ //getsteering of behaviour at final node
-                steering = behaviour.GetSteering();
-            }
-            
-        }
-        return steering;
-
+        /* if (targetNode.id==characterNode.id){
+            behaviour.stop=false;
+            stop=true;
+        }else if (!stop){//Else recalculate A*
+            behaviour.stop=true;
+            stop=false;
+            initial = characterNode;
+            end = targetNode;
+            path = graph.AStar(initial,end);
+            character.SetSteering(GetSteering(path), weight, priority);
+        }     */
     }
 
     public Steering GetSteering(List<Node> path)

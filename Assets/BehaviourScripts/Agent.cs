@@ -67,13 +67,11 @@ public class Agent : MonoBehaviour
             transform.position += velocity * Time.deltaTime;
             //Set z for jump
             transform.position = new Vector3(transform.position.x,transform.position.y,transform.position.z+(velocity.z*Time.deltaTime));
-            //Debug.Log("Velocity "+velocity);
-            //Debug.Log("Position "+transform.position);
+
             
             //Perform jump
             bool higher = transform.position.z-jumpPoint.landingLocation.z > 0.1; //If we are high enoughs
             if (higher){
-                //Debug.Log("higher");
                 //transform.position+=Vector3(0f, 0f, -9.8f)*Time.deltaTime; //If gravity is applied, it automatically goes down
                 //Scale progressively sprite during jump
                 if (lastVerticalPosition<transform.position.z){ //Ascending
@@ -160,7 +158,6 @@ public class Agent : MonoBehaviour
                     groups.Add(priority, new List<Steering>());
                 }
                 groups[priority].Add(steer);
-                //Debug.Log("Priority: "+priority);
             }
             
 

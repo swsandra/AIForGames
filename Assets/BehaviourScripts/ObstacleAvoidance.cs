@@ -4,7 +4,7 @@ using System.Collections;
 public class ObstacleAvoidance : GeneralBehaviour
 {
     //How far to avoid collision
-    float avoidDistance=10f;
+    float avoidDistance=8f;
     //Collision ray vector
     Vector3 targetPosition, threatenedRay;
     //public GameObject[] targets;
@@ -23,7 +23,11 @@ public class ObstacleAvoidance : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        character.SetSteering(GetSteering(), weight, priority);
+        if(!stop){
+            character.SetSteering(GetSteering(), weight, priority);
+        }else{
+            character.SetSteering(new Steering(), weight, priority);
+        }
     }
 
     private GameObject FindMostThreateningObstacle()

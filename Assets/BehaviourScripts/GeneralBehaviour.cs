@@ -10,6 +10,8 @@ public class GeneralBehaviour : MonoBehaviour
     public float weight = 1f;
     public int priority = 1;
 
+    public bool stop = false;
+
     // Use this for initialization
     protected void Start()
     {
@@ -19,7 +21,11 @@ public class GeneralBehaviour : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        character.SetSteering(GetSteering(), weight, priority);
+        if(!stop){
+            character.SetSteering(GetSteering(), weight, priority);
+        }else{
+            character.SetSteering(new Steering(), weight, priority);
+        }
     }
 
     public virtual Steering GetSteering()
