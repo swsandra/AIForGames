@@ -68,7 +68,6 @@
      <Compile Include="Assets\BehaviourScripts\JumpPad.cs" />
      <Compile Include="Assets\BehaviourScripts\JumpPoint.cs" />
      <Compile Include="Assets\BehaviourScripts\KArrive.cs" />
-     <Compile Include="Assets\BehaviourScripts\KeyboardMovement.cs" />
      <Compile Include="Assets\BehaviourScripts\KFlee.cs" />
      <Compile Include="Assets\BehaviourScripts\KSeek.cs" />
      <Compile Include="Assets\BehaviourScripts\LookWhereYoureGoing.cs" />

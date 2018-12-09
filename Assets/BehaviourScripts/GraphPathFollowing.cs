@@ -53,12 +53,19 @@ public class GraphPathFollowing : GeneralBehaviour
         //Debug.DrawLine(Vector3.zero, initial.center, Color.white);
         //Debug.DrawLine(character.transform.position, characterNode.center, Color.red);
         //Debug.Log("character "+character.transform.position+" current "+current.center);
-        if (targetNode!=characterNode){
-            initial = characterNode;
-            end = targetNode;
+        if (targetNode!=characterNode && targetNode!=end){
+            if(characterNode!=-1){
+                initial = characterNode;
+            }else if(targetNode!=-1){
+                //initial=current; //current or next one?
+                //initial = path[0].id; //if it gets to the end, fails
+                ChangeEndNode(targetNode);
+                //path.RemoveAt(0);
+            }
             path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
-            character.SetSteering(GetSteering(path), weight, priority);
+            
         }
+        character.SetSteering(GetSteering(path), weight, priority); //!!!!After arriving at final node, needs behaviour activation
     }
 
     public Steering GetSteering(List<Node> path)
@@ -165,7 +172,10 @@ public class GraphPathFollowing : GeneralBehaviour
     public void ChangeEndNode(int node){
         initial = GetNearestNode(character.transform.position);
         end = node;
-        path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
+        if(initial!=-1){
+            path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
+        }
+        
     }
 
     public int GetNearestNode(Vector3 position){
@@ -182,7 +192,6 @@ public class GraphPathFollowing : GeneralBehaviour
             float ACP = (1f/2f)* Mathf.Abs(((A.x-position.x)*(C.y-A.y))-((A.x-C.x)*(position.y-A.y)));
             if (ABP + BCP + ACP < ABC){
                 nearestNode=entry.Value.id;
-                //Debug.Log("Found");
             }
         }
         return nearestNode;
