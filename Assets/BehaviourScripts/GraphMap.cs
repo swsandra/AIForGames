@@ -24,7 +24,7 @@ public class GraphMap : MonoBehaviour{
         SetWalls();
         GetConnections();
         drawConnections=true;
-        drawTriangles=true;
+        drawTriangles=false;
     }
 
     // Update is called once per frame
@@ -87,8 +87,8 @@ public class GraphMap : MonoBehaviour{
         for (int i = 0; i<nodes.Count; i++){
             for (int j = i+1; j<nodes.Count; j++){
                 //Check if any pair of nodes shares a side
-                if (CheckSide(nodes.ElementAt(i).Value,nodes.ElementAt(j).Value)){
-                    AddConnection(nodes.ElementAt(i).Value,nodes.ElementAt(j).Value);
+                if (CheckSide(nodes[i],nodes[j])){
+                    AddConnection(nodes[i],nodes[j]);
                 }
             }
         }

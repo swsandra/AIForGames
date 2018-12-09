@@ -9,7 +9,7 @@ public class GraphPathFollowing : GeneralBehaviour
     //Graph
     GraphMap graph;
     //Node node0, node1, node2, node3, node4, node5, node6, node7, node8, node9, node10, node11;
-    public Node initial, end, current;
+    public int initial, end, current;
 
     //Vector target position
     Vector3 targetPosition;
@@ -35,59 +35,50 @@ public class GraphPathFollowing : GeneralBehaviour
 
         //Pursue 
         end = GetNearestNode(target.transform.position);
-        
-        path = graph.AStar(initial,end);
+        //end = graph.nodes[0];
+        path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
         behaviour = GetComponent<DArrive>();
-        //current = path[0];
-        //path.RemoveAt(0);
-        
+        current = path[0].id;
+        path.RemoveAt(0);
     }
 
     // Update is called once per frame
     new void Update()
     {
-        Node targetNode = GetNearestNode(target.transform.position);
-        Node characterNode = GetNearestNode(character.transform.position);
-        Debug.DrawLine(character.transform.position, characterNode.center, Color.red);
-        targetNode.DrawTriangle();
-        //If you character is in same node, activate arrive behaviour
-        if (targetNode.id!=characterNode.id){
+        int targetNode = GetNearestNode(target.transform.position);
+        int characterNode = GetNearestNode(character.transform.position);
+        graph.nodes[initial].DrawTriangle();
+        graph.nodes[end].DrawTriangle();
+        //Debug.Log(graph.nodes.ElementAt(end).Value.id);
+        //Debug.DrawLine(Vector3.zero, initial.center, Color.white);
+        //Debug.DrawLine(character.transform.position, characterNode.center, Color.red);
+        //Debug.Log("character "+character.transform.position+" current "+current.center);
+        if (targetNode!=characterNode){
             initial = characterNode;
             end = targetNode;
-            path = graph.AStar(initial,end);
+            path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
             character.SetSteering(GetSteering(path), weight, priority);
         }
-        /* if (targetNode.id==characterNode.id){
-            behaviour.stop=false;
-            stop=true;
-        }else if (!stop){//Else recalculate A*
-            behaviour.stop=true;
-            stop=false;
-            initial = characterNode;
-            end = targetNode;
-            path = graph.AStar(initial,end);
-            character.SetSteering(GetSteering(path), weight, priority);
-        }     */
     }
 
     public Steering GetSteering(List<Node> path)
     {
-        //If it is at a certain radius from last current, change
-        Vector3 distanceToNode = current.center-character.transform.position;
+        //If it is at a certain radius from last current, change 
+        Vector3 distanceToNode = graph.nodes[current].center-character.transform.position;
         if (distanceToNode.magnitude<changeRadius && path.Count!=0){
             //Remove first element
-            current = path[0];
+            current = path[0].id;
             path.RemoveAt(0);
             //If path is not empty, seek
             if (path.Count!=0){
-                targetPosition = current.center;
+                targetPosition = graph.nodes[current].center;
                 steering.linear = targetPosition - character.transform.position;
                 steering.linear.Normalize();
                 steering.linear *= character.maxAcc;
                 steering.angular = 0f;
             }
             else{ //else arrive at current node
-                targetPosition = current.center;
+                targetPosition = graph.nodes[current].center;
                 Vector3 direction = targetPosition - character.transform.position; 
                 float distance = direction.magnitude; 
                 float tSpeed;
@@ -123,14 +114,14 @@ public class GraphPathFollowing : GeneralBehaviour
             }
         }
         else{//else seek current
-            if(current.id!=end.id){ //seek last current
-                targetPosition = current.center;
+            if(current!=end){ //seek last current
+                targetPosition = graph.nodes[current].center;
                 steering.linear = targetPosition - character.transform.position;
                 steering.linear.Normalize();
                 steering.linear *= character.maxAcc;
                 steering.angular = 0f;
             }else{ //arrive at final node
-                targetPosition = current.center;
+                targetPosition = graph.nodes[current].center;
                 Vector3 direction = targetPosition - character.transform.position; 
                 float distance = direction.magnitude; 
                 float tSpeed;
@@ -171,14 +162,14 @@ public class GraphPathFollowing : GeneralBehaviour
     }
 
     //To use this, GetComponent
-    public void ChangeEndNode(Node node){
+    public void ChangeEndNode(int node){
         initial = GetNearestNode(character.transform.position);
         end = node;
-        path = graph.AStar(initial, end);
+        path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
     }
 
-    public Node GetNearestNode(Vector3 position){
-        Node nearestNode=graph.nodes.ElementAt(0).Value;
+    public int GetNearestNode(Vector3 position){
+        int nearestNode=-1;
         foreach(KeyValuePair<int, Node> entry in graph.nodes)
         {
             Vector3 A = entry.Value.vertex[0];
@@ -189,9 +180,9 @@ public class GraphPathFollowing : GeneralBehaviour
             float ABP = (1f/2f)* Mathf.Abs(((A.x-position.x)*(B.y-A.y))-((A.x-B.x)*(position.y-A.y)));
             float BCP = (1f/2f)* Mathf.Abs(((B.x-position.x)*(C.y-B.y))-((B.x-C.x)*(position.y-B.y)));
             float ACP = (1f/2f)* Mathf.Abs(((A.x-position.x)*(C.y-A.y))-((A.x-C.x)*(position.y-A.y)));
-
             if (ABP + BCP + ACP < ABC){
-                nearestNode=entry.Value;
+                nearestNode=entry.Value.id;
+                //Debug.Log("Found");
             }
         }
         return nearestNode;
