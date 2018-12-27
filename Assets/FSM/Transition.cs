@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public abstract class Transition{
 
-    public bool IsTriggered();
+    public abstract bool IsTriggered();
 
-    public State GetTargetState();
+    public abstract State GetTargetState();
 
 }

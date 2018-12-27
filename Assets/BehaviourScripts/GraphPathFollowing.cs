@@ -48,24 +48,23 @@ public class GraphPathFollowing : GeneralBehaviour
         int characterNode = GetNearestNodeByCenter(character.transform.position, delta);
         graph.nodes[initial].DrawTriangle();
         graph.nodes[end].DrawTriangle();
-        //Debug.Log(graph.nodes.ElementAt(end).Value.id);
-        //Debug.DrawLine(Vector3.zero, initial.center, Color.white);
-        //Debug.DrawLine(character.transform.position, characterNode.center, Color.red);
-        //Debug.Log("character "+character.transform.position+" current "+current.center);
         //IMPORTANTE
-        /*if (targetNode!=characterNode && targetNode!=end){
+        if (targetNode!=characterNode && targetNode!=end){
             if(characterNode!=-1){
                 initial = characterNode;
-            }else if(targetNode!=-1){
+            }
+            if(targetNode!=-1){
                 //initial=current; //current or next one?
                 //initial = path[0].id; //if it gets to the end, fails
                 ChangeEndNode(targetNode);
                 //path.RemoveAt(0);
+                path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
+                current = path[0].id;
+                path.RemoveAt(0);
             }
-            path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
-            
+                  
         }
-        */
+        
         character.SetSteering(GetSteering(path), weight, priority); //!!!!After arriving at final node, needs behaviour activation
     }
 

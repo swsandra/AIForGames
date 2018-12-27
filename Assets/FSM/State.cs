@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 public abstract class State{
 
-    public void MakeAction();
+    public abstract void MakeAction();
 
-    public void MakeEntryAction();
+    public abstract void MakeEntryAction();
 
-    public void MakeExitAction();
+    public abstract void MakeExitAction();
 
-    public List<Transition> GetTransitions();
+    public abstract List<Transition> GetTransitions();
 
 }
