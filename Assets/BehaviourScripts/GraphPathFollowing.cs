@@ -50,15 +50,15 @@ public class GraphPathFollowing : GeneralBehaviour
         graph.nodes[end].DrawTriangle();
         //IMPORTANTE
         if (targetNode!=characterNode && targetNode!=end){
+            
             if(characterNode!=-1){
                 initial = characterNode;
             }
+
             if(targetNode!=-1){
-                //initial=current; //current or next one?
-                //initial = path[0].id; //if it gets to the end, fails
                 ChangeEndNode(targetNode);
-                //path.RemoveAt(0);
                 path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
+                path.RemoveAt(0);
                 current = path[0].id;
                 path.RemoveAt(0);
             }

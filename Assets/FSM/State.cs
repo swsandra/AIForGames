@@ -4,12 +4,7 @@ using System.Collections.Generic;
 
 public abstract class State{
 
-    public abstract void MakeAction();
-
-    public abstract void MakeEntryAction();
-
-    public abstract void MakeExitAction();
-
+    public abstract void GetAction();
     public abstract List<Transition> GetTransitions();
 
 }
