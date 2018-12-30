@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 11593845}
   m_Layer: 0
   m_Name: Fanned_Brick (3)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 26681523}
   m_Layer: 0
   m_Name: Fanned_Brick (66)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 42306406}
   m_Layer: 0
   m_Name: Fanned_Brick (58)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1041,7 +1041,7 @@ GameObject:
   - component: {fileID: 150486158}
   m_Layer: 0
   m_Name: Fanned_Brick (63)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1248,7 +1248,7 @@ GameObject:
   - component: {fileID: 165522719}
   m_Layer: 0
   m_Name: Fanned_Brick (23)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 174056591}
   m_Layer: 0
   m_Name: Fanned_Brick (61)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1832,7 +1832,7 @@ GameObject:
   - component: {fileID: 195255527}
   m_Layer: 0
   m_Name: Fanned_Brick (7)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2270,7 +2270,7 @@ GameObject:
   - component: {fileID: 291883728}
   m_Layer: 0
   m_Name: Fanned_Brick (4)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2343,7 +2343,7 @@ GameObject:
   - component: {fileID: 320286098}
   m_Layer: 0
   m_Name: Fanned_Brick (44)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2617,7 +2617,7 @@ GameObject:
   - component: {fileID: 349213386}
   m_Layer: 0
   m_Name: Fanned_Brick (55)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2690,7 +2690,7 @@ GameObject:
   - component: {fileID: 364946217}
   m_Layer: 0
   m_Name: Fanned_Brick (16)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2836,7 +2836,7 @@ GameObject:
   - component: {fileID: 384195642}
   m_Layer: 0
   m_Name: Fanned_Brick (53)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2982,7 +2982,7 @@ GameObject:
   - component: {fileID: 401964928}
   m_Layer: 0
   m_Name: Fanned_Brick (22)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3274,7 +3274,7 @@ GameObject:
   - component: {fileID: 447451151}
   m_Layer: 0
   m_Name: Fanned_Brick (67)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3493,7 +3493,7 @@ GameObject:
   - component: {fileID: 466913802}
   m_Layer: 0
   m_Name: Fanned_Brick (20)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3639,7 +3639,7 @@ GameObject:
   - component: {fileID: 475581278}
   m_Layer: 0
   m_Name: Fanned_Brick (34)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3939,7 +3939,7 @@ GameObject:
   - component: {fileID: 556489498}
   m_Layer: 0
   m_Name: Fanned_Brick (32)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4154,7 +4154,7 @@ GameObject:
   - component: {fileID: 575350514}
   m_Layer: 0
   m_Name: Fanned_Brick (59)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4477,7 +4477,7 @@ GameObject:
   - component: {fileID: 636769746}
   m_Layer: 0
   m_Name: Fanned_Brick (42)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4696,7 +4696,7 @@ GameObject:
   - component: {fileID: 677360933}
   m_Layer: 0
   m_Name: Fanned_Brick (27)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4769,7 +4769,7 @@ GameObject:
   - component: {fileID: 721156284}
   m_Layer: 0
   m_Name: Fanned_Brick (17)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4842,7 +4842,7 @@ GameObject:
   - component: {fileID: 722009597}
   m_Layer: 0
   m_Name: Fanned_Brick (26)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4915,7 +4915,7 @@ GameObject:
   - component: {fileID: 726037831}
   m_Layer: 0
   m_Name: Fanned_Brick (31)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5342,6 +5342,79 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &779852466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 779852468}
+  - component: {fileID: 779852467}
+  m_Layer: 0
+  m_Name: Table
+  m_TagString: Obstacle
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &779852467
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779852466}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.2, y: 0.2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &779852468
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779852466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 32.4, y: -65.4, z: 0}
+  m_LocalScale: {x: 58.067425, y: 58.06742, z: 58.06742}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &781451289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5446,7 +5519,7 @@ GameObject:
   - component: {fileID: 783717258}
   m_Layer: 0
   m_Name: Fanned_Brick (43)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5519,7 +5592,7 @@ GameObject:
   - component: {fileID: 816517680}
   m_Layer: 0
   m_Name: Fanned_Brick (28)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5592,7 +5665,7 @@ GameObject:
   - component: {fileID: 819070860}
   m_Layer: 0
   m_Name: Fanned_Brick (62)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6062,7 +6135,7 @@ GameObject:
   - component: {fileID: 870398689}
   m_Layer: 0
   m_Name: Fanned_Brick (65)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6354,7 +6427,7 @@ GameObject:
   - component: {fileID: 897502647}
   m_Layer: 0
   m_Name: Fanned_Brick (10)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6719,7 +6792,7 @@ GameObject:
   - component: {fileID: 983623071}
   m_Layer: 0
   m_Name: Fanned_Brick (54)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7131,7 +7204,7 @@ GameObject:
   - component: {fileID: 1026190757}
   m_Layer: 0
   m_Name: Fanned_Brick (14)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7423,7 +7496,7 @@ GameObject:
   - component: {fileID: 1080256493}
   m_Layer: 0
   m_Name: Fanned_Brick (37)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7496,7 +7569,7 @@ GameObject:
   - component: {fileID: 1096303774}
   m_Layer: 0
   m_Name: Fanned_Brick (15)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7602,7 +7675,7 @@ GameObject:
   - component: {fileID: 1117338134}
   m_Layer: 0
   m_Name: Fanned_Brick (46)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7675,7 +7748,7 @@ GameObject:
   - component: {fileID: 1124737646}
   m_Layer: 0
   m_Name: Fanned_Brick (69)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7748,7 +7821,7 @@ GameObject:
   - component: {fileID: 1129269095}
   m_Layer: 0
   m_Name: Fanned_Brick (52)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7819,11 +7892,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 24.5
+      value: -55.3
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -7.8
+      value: -68.6
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -8022,7 +8095,7 @@ GameObject:
   - component: {fileID: 1136129853}
   m_Layer: 0
   m_Name: Fanned_Brick (18)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8387,7 +8460,7 @@ GameObject:
   - component: {fileID: 1197456133}
   m_Layer: 0
   m_Name: Fanned_Brick (33)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8460,7 +8533,7 @@ GameObject:
   - component: {fileID: 1214348438}
   m_Layer: 0
   m_Name: Fanned_Brick (13)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8533,7 +8606,7 @@ GameObject:
   - component: {fileID: 1223899971}
   m_Layer: 0
   m_Name: Fanned_Brick (6)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8606,7 +8679,7 @@ GameObject:
   - component: {fileID: 1242285702}
   m_Layer: 0
   m_Name: Fanned_Brick (49)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8825,7 +8898,7 @@ GameObject:
   - component: {fileID: 1269003227}
   m_Layer: 0
   m_Name: Fanned_Brick (29)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8971,7 +9044,7 @@ GameObject:
   - component: {fileID: 1309619008}
   m_Layer: 0
   m_Name: Fanned_Brick (40)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9044,7 +9117,7 @@ GameObject:
   - component: {fileID: 1310062269}
   m_Layer: 0
   m_Name: Fanned_Brick (64)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9409,7 +9482,7 @@ GameObject:
   - component: {fileID: 1372123673}
   m_Layer: 0
   m_Name: Fanned_Brick (2)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9701,7 +9774,7 @@ GameObject:
   - component: {fileID: 1398949416}
   m_Layer: 0
   m_Name: Fanned_Brick (38)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9774,7 +9847,7 @@ GameObject:
   - component: {fileID: 1402587928}
   m_Layer: 0
   m_Name: Fanned_Brick (51)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9847,7 +9920,7 @@ GameObject:
   - component: {fileID: 1413464998}
   m_Layer: 0
   m_Name: Fanned_Brick (39)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10066,7 +10139,7 @@ GameObject:
   - component: {fileID: 1454570279}
   m_Layer: 0
   m_Name: Fanned_Brick (45)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10500,7 +10573,7 @@ GameObject:
   - component: {fileID: 1487419174}
   m_Layer: 0
   m_Name: Fanned_Brick (12)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10792,7 +10865,7 @@ GameObject:
   - component: {fileID: 1532486667}
   m_Layer: 0
   m_Name: Fanned_Brick (11)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11157,7 +11230,7 @@ GameObject:
   - component: {fileID: 1565193639}
   m_Layer: 0
   m_Name: Fanned_Brick (35)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11905,7 +11978,7 @@ GameObject:
   - component: {fileID: 1692334490}
   m_Layer: 0
   m_Name: Fanned_Brick (41)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12124,7 +12197,7 @@ GameObject:
   - component: {fileID: 1805544277}
   m_Layer: 0
   m_Name: Fanned_Brick (60)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12270,7 +12343,7 @@ GameObject:
   - component: {fileID: 1825620914}
   m_Layer: 0
   m_Name: Fanned_Brick (24)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12512,7 +12585,7 @@ GameObject:
   - component: {fileID: 1855615196}
   m_Layer: 0
   m_Name: Fanned_Brick (47)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12585,7 +12658,7 @@ GameObject:
   - component: {fileID: 1856520439}
   m_Layer: 0
   m_Name: Fanned_Brick (50)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12731,7 +12804,7 @@ GameObject:
   - component: {fileID: 1867994486}
   m_Layer: 0
   m_Name: Fanned_Brick (56)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12804,7 +12877,7 @@ GameObject:
   - component: {fileID: 1873844920}
   m_Layer: 0
   m_Name: Fanned_Brick (8)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12877,7 +12950,7 @@ GameObject:
   - component: {fileID: 1897814364}
   m_Layer: 0
   m_Name: Fanned_Brick (30)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13155,7 +13228,7 @@ GameObject:
   - component: {fileID: 1911757511}
   m_Layer: 0
   m_Name: Fanned_Brick (21)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13228,7 +13301,7 @@ GameObject:
   - component: {fileID: 1942410449}
   m_Layer: 0
   m_Name: Fanned_Brick (48)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13374,7 +13447,7 @@ GameObject:
   - component: {fileID: 1962963900}
   m_Layer: 0
   m_Name: Fanned_Brick (68)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13666,7 +13739,7 @@ GameObject:
   - component: {fileID: 1991803476}
   m_Layer: 0
   m_Name: Fanned_Brick (9)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13812,7 +13885,7 @@ GameObject:
   - component: {fileID: 1997237303}
   m_Layer: 0
   m_Name: Fanned_Brick (57)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13958,7 +14031,7 @@ GameObject:
   - component: {fileID: 2009217564}
   m_Layer: 0
   m_Name: Fanned_Brick (36)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14031,7 +14104,7 @@ GameObject:
   - component: {fileID: 2010456405}
   m_Layer: 0
   m_Name: Fanned_Brick (1)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14104,7 +14177,7 @@ GameObject:
   - component: {fileID: 2053872161}
   m_Layer: 0
   m_Name: Fanned_Brick (5)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14177,7 +14250,7 @@ GameObject:
   - component: {fileID: 2070249210}
   m_Layer: 0
   m_Name: Fanned_Brick (25)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14516,7 +14589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 4
   maxVertSpeed: 6
-  maxAcc: 5
+  maxAcc: 8
   maxJumpAcc: 8
   maxAngularAcc: 8
   maxRotation: 9
@@ -14541,7 +14614,7 @@ MonoBehaviour:
   character: {fileID: 2105798128}
   target: {fileID: 1910697820}
   weight: 1
-  priority: 1
+  priority: 5
   stop: 0
   initial: 0
   end: 0
@@ -14698,7 +14771,7 @@ GameObject:
   - component: {fileID: 2131065132}
   m_Layer: 0
   m_Name: Fanned_Brick (19)
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

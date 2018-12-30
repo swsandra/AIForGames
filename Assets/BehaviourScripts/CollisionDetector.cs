@@ -11,7 +11,7 @@ public class CollisionDetector
     
     public void GenerateRays(Agent character, Agent target)
     {
-        float lookAhead = 22f;
+        float lookAhead = 15f;
         float lookSide = lookAhead/2f;
 
         //Define points
