@@ -15,9 +15,6 @@ public class GraphPathFollowing : GeneralBehaviour
     //Radius to change from nodes, target radius and slow radius
     public float changeRadius = 2f, tRadius= 2f, sRadius = 3f, timeToTarget = 0.2f;
 
-    //Script for final node
-    GeneralBehaviour behaviour;
-
     //Path to follow
     public List<Node> path;
 
@@ -33,11 +30,12 @@ public class GraphPathFollowing : GeneralBehaviour
         GameObject map = GameObject.Find("Map Graph");
         graph = map.GetComponent<GraphMap>();
         initial = graph.GetNearestNodeByCenter(character.transform.position);
-        end = graph.GetNearestNodeByCenter(astar_target.transform.position);
-        path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
-        behaviour = GetComponent<DArrive>();
-        current = path[0].id;
-        path.RemoveAt(0);
+        if (astar_target!=null){
+            end = graph.GetNearestNodeByCenter(astar_target.transform.position);
+            path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
+            current = path[0].id;
+            path.RemoveAt(0);
+        }
     }
 
     // Update is called once per frame

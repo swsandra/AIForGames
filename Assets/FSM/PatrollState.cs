@@ -11,7 +11,7 @@ public class PatrollState : State{
 
     GraphPathFollowing pathFollowing;
 
-    public PatrollState(GraphPathFollowing pFollow, char region, List<Transition> trans){
+    public PatrollState(GraphPathFollowing pFollow, List<Transition> trans, char region){
         //Transitions correspond to character, generated in their state machine script
         transitions=trans;
         //If it is north, between izq arriba (-84,65), der arriba (76, 44), izq abajo (-84,-10), der abajo (76, 31)
