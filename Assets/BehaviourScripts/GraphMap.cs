@@ -21,7 +21,8 @@ public class GraphMap : MonoBehaviour{
         nodes = new Dictionary<int,Node>();
         connections = new List<Connection>();
         GetTriangles();
-        SetWalls();
+        DeleteOccupiedTriangles();
+        //SetWalls();
         GetConnections();
         drawConnections=true;
         drawTriangles=false;
@@ -41,7 +42,52 @@ public class GraphMap : MonoBehaviour{
             foreach(Connection con in connections){
                 con.DrawConnection();
             }
-        }        
+        }
+        
+    }
+
+
+    public void DeleteOccupiedTriangles(){
+
+        //Find all obstacles
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        int nearestToObstacle;
+		SpriteRenderer sprite;
+		foreach (GameObject obs in obstacles){
+			sprite=obs.GetComponent<SpriteRenderer>();
+            nearestToObstacle = GetNearestNodeByCenter(obs.transform.position);
+			Vector3 distanceToNode = obs.transform.position-nodes[nearestToObstacle].center;
+			Vector3 spriteSize = (sprite.bounds.size*0.5f);
+			if (distanceToNode.magnitude<(spriteSize.magnitude-2.5f) || distanceToNode.magnitude<1f){
+				//Remove nodes 
+                
+                //Remove that node cause it can make character walk over an object
+                nodes.Remove(nearestToObstacle);
+                
+			}
+			//Debug.DrawLine(obs.transform.position,obs.transform.position+spriteSize,Color.magenta);
+			
+        }
+
+    }
+
+    public int GetNearestNodeByCenter(Vector3 position){
+        //int nearestNode=-1;
+        int nearestNode = nodes[0].id;
+        float smallestLine = (position - nodes[0].center).magnitude;
+
+        for(int i = 1; i<nodes.Count ; i++){
+            if(nodes.ContainsKey(i)){
+                Vector3 nodeCenter = nodes[i].center;
+                //Calculate areas
+                if ((position - nodeCenter).magnitude <= smallestLine){
+                    nearestNode=nodes[i].id;
+                    smallestLine = (position - nodes[i].center).magnitude;
+                }
+            }
+            
+        }
+        return nearestNode;
     }
 
     public void GetTriangles(){
@@ -86,9 +132,11 @@ public class GraphMap : MonoBehaviour{
     public void GetConnections(){
         for (int i = 0; i<nodes.Count; i++){
             for (int j = i+1; j<nodes.Count; j++){
-                //Check if any pair of nodes shares a side
-                if (CheckSide(nodes[i],nodes[j])){
-                    AddConnection(nodes[i],nodes[j]);
+                //If nodes exist, check if any pair of nodes share a side
+                if (nodes.ContainsKey(i) && nodes.ContainsKey(j)){
+                    if (CheckSide(nodes[i],nodes[j])){
+                        AddConnection(nodes[i],nodes[j]);
+                    }
                 }
             }
         }

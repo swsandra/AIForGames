@@ -24,6 +24,8 @@ public class GraphPathFollowing : GeneralBehaviour
 
     public float delta = 2f;
 
+    public GameObject astar_target;
+
     // Use this for initialization
     new void Start()
     {
@@ -31,9 +33,8 @@ public class GraphPathFollowing : GeneralBehaviour
         //Get map graph
         GameObject map = GameObject.Find("Map Graph");
         graph = map.GetComponent<GraphMap>();
-        initial = GetNearestNodeByCenter(character.transform.position, delta);
-        //Pursue 
-        end = GetNearestNodeByCenter(target.transform.position, delta);
+        initial = graph.GetNearestNodeByCenter(character.transform.position);
+        end = graph.GetNearestNodeByCenter(target.transform.position);
         path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
         behaviour = GetComponent<DArrive>();
         current = path[0].id;
@@ -43,8 +44,8 @@ public class GraphPathFollowing : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        int targetNode = GetNearestNodeByCenter(target.transform.position, delta);
-        int characterNode = GetNearestNodeByCenter(character.transform.position, delta);
+        int targetNode = graph.GetNearestNodeByCenter(target.transform.position);
+        int characterNode = graph.GetNearestNodeByCenter(character.transform.position);
         graph.nodes[initial].DrawTriangle();
         graph.nodes[end].DrawTriangle();
         //IMPORTANTE
@@ -169,7 +170,7 @@ public class GraphPathFollowing : GeneralBehaviour
 
     //To use this, GetComponent
     public void ChangeEndNode(int node){
-        initial = GetNearestNodeByCenter(character.transform.position, delta);
+        initial = graph.GetNearestNodeByCenter(character.transform.position);
         end = node;
         if(initial!=-1){
             path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
@@ -194,22 +195,6 @@ public class GraphPathFollowing : GeneralBehaviour
             //if (sumOfAreas <= ABC | sumOfAreas <= nearestTriangleArea){
             if (sumOfAreas <= delta){
                 return graph.nodes[i].id;
-            }
-        }
-        return nearestNode;
-    }
-
-    public int GetNearestNodeByCenter(Vector3 position, float delta){
-        //int nearestNode=-1;
-        int nearestNode = graph.nodes[0].id;
-        float smallestLine = (position - graph.nodes[0].center).magnitude;
-
-        for(int i = 1; i<graph.nodes.Count ; i++){
-            Vector3 nodeCenter = graph.nodes[i].center;
-            //Calculate areas
-            if ((position - nodeCenter).magnitude <= smallestLine){
-                nearestNode=graph.nodes[i].id;
-                smallestLine = (position - graph.nodes[i].center).magnitude;
             }
         }
         return nearestNode;
