@@ -83,6 +83,7 @@
      <Compile Include="Assets\BehaviourScripts\Wander.cs" />
      <Compile Include="Assets\FSM\PatrollState.cs" />
      <Compile Include="Assets\FSM\PursueState.cs" />
+     <Compile Include="Assets\FSM\SeeHappinessTrans.cs" />
      <Compile Include="Assets\FSM\State.cs" />
      <Compile Include="Assets\FSM\Transition.cs" />
      <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\EditorPopup\EditorScripts\OpenMoreGames.cs" />
