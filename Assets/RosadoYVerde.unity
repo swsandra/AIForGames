@@ -5357,7 +5357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &779852467
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14616,6 +14616,7 @@ MonoBehaviour:
   weight: 1
   priority: 5
   stop: 0
+  graph: {fileID: 0}
   initial: 0
   end: 0
   current: 0
@@ -14624,7 +14625,7 @@ MonoBehaviour:
   sRadius: 3
   timeToTarget: 0.2
   delta: 2
-  astar_target: {fileID: 0}
+  astar_target: {fileID: 1910697817}
 --- !u!114 &2105798130
 MonoBehaviour:
   m_ObjectHideFlags: 0

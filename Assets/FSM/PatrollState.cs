@@ -9,7 +9,9 @@ public class PatrollState : State{
 
     List<Transition> transitions;
 
-    public PatrollState(char region, List<Transition> trans){
+    GraphPathFollowing pathFollowing;
+
+    public PatrollState(GraphPathFollowing pFollow, char region, List<Transition> trans){
         //Transitions correspond to character, generated in their state machine script
         transitions=trans;
         //If it is north, between izq arriba (-84,65), der arriba (76, 44), izq abajo (-84,-10), der abajo (76, 31)
@@ -28,18 +30,23 @@ public class PatrollState : State{
             patrollRegion[0] = new Vector3(-84f, -88f, 0f);
             patrollRegion[1] = new Vector3(127f, 65f, 0f);
         }
-
+        //Store path following script from gameobject
+        pathFollowing = pFollow;
+        pathFollowing.astar_target=null; //Set to null just in case
     }
 
     public override void GetAction(){
-        //If path is not empty, do nothing
-
-        //else
-        //Generate numbers between min and max
-
-        //Get node of result vector
-
-        //Change astar target
+        //If path is empty, change for random target
+        if (pathFollowing.path.Count==0){
+            //Generate numbers between min and max
+            float x = Random.Range(patrollRegion[0].x,patrollRegion[1].x);
+            float y = Random.Range(patrollRegion[0].y,patrollRegion[1].y);
+            //Get node of result vector
+            int newTargetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(x, y, 0f));
+            //Change astar target
+            pathFollowing.ChangeEndNode(newTargetNode);
+        }
+        
     }
     
     public override List<Transition> GetTransitions(){

@@ -5,9 +5,8 @@ using System.Linq;
 
 public class GraphPathFollowing : GeneralBehaviour
 {
-
     //Graph
-    GraphMap graph;
+    public GraphMap graph;
     public int initial, end, current;
 
     //Vector target position
@@ -20,7 +19,7 @@ public class GraphPathFollowing : GeneralBehaviour
     GeneralBehaviour behaviour;
 
     //Path to follow
-    List<Node> path;
+    public List<Node> path;
 
     public float delta = 2f;
 
@@ -34,7 +33,7 @@ public class GraphPathFollowing : GeneralBehaviour
         GameObject map = GameObject.Find("Map Graph");
         graph = map.GetComponent<GraphMap>();
         initial = graph.GetNearestNodeByCenter(character.transform.position);
-        end = graph.GetNearestNodeByCenter(target.transform.position);
+        end = graph.GetNearestNodeByCenter(astar_target.transform.position);
         path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
         behaviour = GetComponent<DArrive>();
         current = path[0].id;
@@ -44,28 +43,27 @@ public class GraphPathFollowing : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
-        int targetNode = graph.GetNearestNodeByCenter(target.transform.position);
-        int characterNode = graph.GetNearestNodeByCenter(character.transform.position);
-        graph.nodes[initial].DrawTriangle();
-        graph.nodes[end].DrawTriangle();
-        //IMPORTANTE
-        if (targetNode!=characterNode && targetNode!=end){
-            
-            if(characterNode!=-1){
-                initial = characterNode;
-            }
+        if (astar_target != null){
 
-            if(targetNode!=-1){
-                ChangeEndNode(targetNode);
-                path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
-                path.RemoveAt(0);
-                current = path[0].id;
-                path.RemoveAt(0);
+            int targetNode = graph.GetNearestNodeByCenter(astar_target.transform.position);
+            int characterNode = graph.GetNearestNodeByCenter(character.transform.position);
+            graph.nodes[initial].DrawTriangle();
+            graph.nodes[end].DrawTriangle();
+            
+            if (targetNode!=characterNode && targetNode!=end){
+                
+                if(characterNode!=-1){
+                    initial = characterNode;
+                }
+
+                if(targetNode!=-1){
+                    ChangeEndNode(targetNode);
+                }
+
             }
-                  
         }
         
-        character.SetSteering(GetSteering(path), weight, priority); //!!!!After arriving at final node, needs behaviour activation
+        character.SetSteering(GetSteering(path), weight, priority);
     }
 
     public Steering GetSteering(List<Node> path)
@@ -174,7 +172,10 @@ public class GraphPathFollowing : GeneralBehaviour
         end = node;
         if(initial!=-1){
             path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
+            path.RemoveAt(0);
         }
+        current = path[0].id;
+        path.RemoveAt(0);
         
     }
 
