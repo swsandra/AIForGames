@@ -23,6 +23,9 @@ public class Sadness_SM : MonoBehaviour{
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		
+		//THIS IS FOR TEST
+		currentState = pursue;
+		triggeredTransition = new SeeMonsterTrans(gameObject);
 	}
 
 	// Update is called once per frame
@@ -39,9 +42,12 @@ public class Sadness_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			currentState = triggeredTransition.GetTargetState();
-		} */
+		} 
 
 		currentState.GetAction();
+		*/
+
+
 
 	}
 

@@ -42,8 +42,8 @@ public class GraphPathFollowing : GeneralBehaviour
     // Update is called once per frame
     new void Update()
     {
+        Debug.Log(astar_target);
         if (astar_target != null){
-
             int targetNode = graph.GetNearestNodeByCenter(astar_target.transform.position);
             int characterNode = graph.GetNearestNodeByCenter(character.transform.position);
             graph.nodes[initial].DrawTriangle();

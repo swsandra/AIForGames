@@ -15,16 +15,17 @@ public class PursueState : State {
         invocant = inv;
         pathFollowing = invocant.GetComponent<GraphPathFollowing>();
         speed = pursueSpeed;
+        Debug.Log("Creating pursue state");
+    }
+
+    public override void GetAction(){
         if (invocant.name=="Monster_Anger") {
             pathFollowing.astar_target=GameObject.Find("Monster_Fear");
         }
         else if (invocant.name=="Monster_Sadness"){
             pathFollowing.astar_target=GameObject.Find("Monster_Happiness");
         }
-        Debug.Log("Creating pursue state");
-    }
 
-    public override void GetAction(){
         //Changes speed of character
         invocant.GetComponent<Agent>().maxSpeed = speed;
         invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
