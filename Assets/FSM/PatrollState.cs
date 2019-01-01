@@ -15,25 +15,24 @@ public class PatrollState : State{
 
 	public PatrollState(GameObject inv){
 		invocant=inv;
+		patrollRegion = new Vector3[2];
 		//If it is north, between izq arriba (-84,65), der arriba (76, 44), izq abajo (-84,-10), der abajo (76, 31)
 		if (invocant.name=="Monster_Disgust") {
-			Vector3[] patrollRegion = new Vector3[2];
 			patrollRegion[0] = new Vector3(-84f, -10f, 0f);
 			patrollRegion[1] = new Vector3(76f, 31f, 0f);
 		}//If it is south, between izq arriba (-123,-18), izq abajo (-123,-88), der abajo (127, -69), der arr (127, -23)
 		else if (invocant.name=="Monster_Anger") {
-			Vector3[] patrollRegion = new Vector3[2];
 			patrollRegion[0] = new Vector3(-123f, -88f, 0f);
 			patrollRegion[1] = new Vector3(127f, -18f, 0f);
 		}//If it is all regions, between izq arriba (-84,65), izq abajo (-123,-88), der abajo (127, -69), der arriba (145, 62)
 		else if (invocant.name=="Monster_Sadness"){
-			Vector3[] patrollRegion = new Vector3[2];
 			patrollRegion[0] = new Vector3(-84f, -88f, 0f);
 			patrollRegion[1] = new Vector3(127f, 65f, 0f);
 		}
 		//Store path following script from gameobject
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
 		pathFollowing.astar_target=null; //Set to null just in case
+		Debug.Log("Creating patroll state");
 	}
 
 	public override void GetAction(){
@@ -45,6 +44,7 @@ public class PatrollState : State{
 			//Get node of result vector
 			int newTargetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(x, y, 0f));
 			//Change astar target
+			Debug.Log("end node "+newTargetNode);
 			pathFollowing.ChangeEndNode(newTargetNode);
 		}
 		

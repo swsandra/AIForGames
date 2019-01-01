@@ -24,6 +24,7 @@ public class TimePassTrans : Transition{
         else if (invocant.name=="Monster_Sadness"){
 
         }
+        Debug.Log("Creating time pass transition");
     }
 
     public override bool IsTriggered(){

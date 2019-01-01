@@ -39,7 +39,6 @@ public class Agent : MonoBehaviour
     {
         velocity = Vector3.zero;
         steering = new Steering();
-        Vector3 wrld = Camera.main.ScreenToWorldPoint(new Vector3 (Screen.width,0f,0f)) ;
         groups = new Dictionary<int,List<Steering>>();
         jump=false;
         initialScale = transform.localScale;

@@ -5061,7 +5061,7 @@ GameObject:
   - component: {fileID: 747229912}
   m_Layer: 0
   m_Name: japanese_food_01
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5117,7 +5117,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 747229911}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 124.2, y: 48.2, z: -2}
+  m_LocalPosition: {x: 126.7, y: 42.8, z: -2}
   m_LocalScale: {x: 19.18967, y: 19.189674, z: 19.189674}
   m_Children: []
   m_Father: {fileID: 0}
@@ -14612,7 +14612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 2105798128}
-  target: {fileID: 1910697820}
+  target: {fileID: 0}
   weight: 1
   priority: 5
   stop: 0
@@ -14625,7 +14625,7 @@ MonoBehaviour:
   sRadius: 3
   timeToTarget: 0.2
   delta: 2
-  astar_target: {fileID: 1910697817}
+  astar_target: {fileID: 0}
 --- !u!114 &2105798130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14642,6 +14642,17 @@ MonoBehaviour:
   weight: 1
   priority: 1
   stop: 0
+--- !u!114 &2105798131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105798124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9e63ac82b856843bf547b5efaf1e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2107289197
 GameObject:
   m_ObjectHideFlags: 0

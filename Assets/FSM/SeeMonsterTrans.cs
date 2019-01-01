@@ -21,6 +21,7 @@ public class SeeMonsterTrans : Transition{
         else if (invocant.name=="Monster_Sadness"){
 
         }
+        Debug.Log("Creating see monster");
     }
 
     public override bool IsTriggered(){

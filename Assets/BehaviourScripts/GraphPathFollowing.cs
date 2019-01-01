@@ -30,6 +30,7 @@ public class GraphPathFollowing : GeneralBehaviour
         GameObject map = GameObject.Find("Map Graph");
         graph = map.GetComponent<GraphMap>();
         initial = graph.GetNearestNodeByCenter(character.transform.position);
+        path = new List<Node>();
         if (astar_target!=null){
             end = graph.GetNearestNodeByCenter(astar_target.transform.position);
             path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
@@ -47,7 +48,7 @@ public class GraphPathFollowing : GeneralBehaviour
             int characterNode = graph.GetNearestNodeByCenter(character.transform.position);
             graph.nodes[initial].DrawTriangle();
             graph.nodes[end].DrawTriangle();
-            
+                        
             if (targetNode!=characterNode && targetNode!=end){
                 
                 if(characterNode!=-1){
@@ -186,7 +187,7 @@ public class GraphPathFollowing : GeneralBehaviour
             Vector3 B = graph.nodes[i].vertex[1];
             Vector3 C = graph.nodes[i].vertex[2];
             //Calculate areas
-            float ABC = (1f/2f)* Mathf.Abs(((A.x-C.x)*(B.y-A.y))-((A.x-B.x)*(C.y-A.y)));
+            //float ABC = (1f/2f)* Mathf.Abs(((A.x-C.x)*(B.y-A.y))-((A.x-B.x)*(C.y-A.y)));
             float ABP = (1f/2f)* Mathf.Abs(((A.x-position.x)*(B.y-A.y))-((A.x-B.x)*(position.y-A.y)));
             float BCP = (1f/2f)* Mathf.Abs(((B.x-position.x)*(C.y-B.y))-((B.x-C.x)*(position.y-B.y)));
             float ACP = (1f/2f)* Mathf.Abs(((A.x-position.x)*(C.y-A.y))-((A.x-C.x)*(position.y-A.y)));

@@ -14,12 +14,14 @@ public class PursueState : State {
         //Store path following script from gameobject
         invocant = inv;
         pathFollowing = invocant.GetComponent<GraphPathFollowing>();
+        speed = pursueSpeed;
         if (invocant.name=="Monster_Anger") {
             pathFollowing.astar_target=GameObject.Find("Monster_Fear");
         }
         else if (invocant.name=="Monster_Sadness"){
             pathFollowing.astar_target=GameObject.Find("Monster_Happiness");
         }
+        Debug.Log("Creating pursue state");
     }
 
     public override void GetAction(){
