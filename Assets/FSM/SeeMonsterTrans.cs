@@ -1,6 +1,7 @@
 using UnityEngine;
-using System.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class SeeMonsterTrans : Transition{
 
@@ -8,10 +9,13 @@ public class SeeMonsterTrans : Transition{
 
     DateTime creationTime;
 
+    bool changeCreationTime;
+
     public SeeMonsterTrans(GameObject inv){
         invocant=inv;
         //Save creation time
         creationTime = System.DateTime.Now;
+        changeCreationTime = false;
         if (invocant.name=="Monster_Disgust") {
             
         }
@@ -26,17 +30,20 @@ public class SeeMonsterTrans : Transition{
 
     public override bool IsTriggered(){
         //Check if any monster gets in sight line
-        
         //For now it cheks if 5 sec have passed
+        if (changeCreationTime){
+            creationTime = System.DateTime.Now;
+            changeCreationTime=false;
+        }
         DateTime currentTime = System.DateTime.Now;
-        if (Mathf.Abs((float)((currentTime - creationTime).TotalSeconds))>5f){
+        float seconds = Mathf.Abs((float)((currentTime - creationTime).TotalSeconds));
+        if(seconds>12f){
             return true;
         }
         return false;
     }
 
-    public override State GetTargetState(){
-        int speed=0;
+    public override string GetTargetState(){
         if (invocant.name=="Monster_Disgust") {
             //If the monster it saw was happiness
 
@@ -44,13 +51,14 @@ public class SeeMonsterTrans : Transition{
         }
         else if (invocant.name=="Monster_Anger") {
             //Pursue fear
-            speed=12;
         }
         else if (invocant.name=="Monster_Sadness"){
             //Pursue happiness
-            speed=9;
         }
-        return new PursueState(invocant, speed);
+
+        invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
+        changeCreationTime=true;
+        return "pursue";
 
     }
 

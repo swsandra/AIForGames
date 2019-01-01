@@ -7,14 +7,16 @@ public class PatrollState : State{
 	//Patroll region, vectors indicating limits within patroll (min and max)
 	Vector3[] patrollRegion;
 
-	//List<Transition> transitions;
+	List<Transition> transitions;
 
 	GraphPathFollowing pathFollowing;
 
 	GameObject invocant;
 
-	public PatrollState(GameObject inv){
+	public PatrollState(GameObject inv, List<Transition> trans){
 		invocant=inv;
+		transitions = trans;
+		name="patroll";
 		patrollRegion = new Vector3[2];
 		//If it is north, between izq arriba (-84,65), der arriba (76, 44), izq abajo (-84,-10), der abajo (76, 31)
 		if (invocant.name=="Monster_Disgust") {
@@ -51,20 +53,6 @@ public class PatrollState : State{
 	}
 
 	public override List<Transition> GetTransitions(){
-		List<Transition> transitions = new List<Transition>();
-		//If it sees a monster
-		transitions.Add(new SeeMonsterTrans(invocant));
-		if (invocant.name=="Monster_Disgust") {
-			
-		}
-		else if (invocant.name=="Monster_Anger") {
-			
-		}
-		else if (invocant.name=="Monster_Sadness"){
-			
-			//If it smells food
-
-		}
 		return transitions;
 	}
 

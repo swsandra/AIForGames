@@ -5,6 +5,6 @@ public abstract class Transition{
 
     public abstract bool IsTriggered();
 
-    public abstract State GetTargetState();
+    public abstract string GetTargetState();
 
 }

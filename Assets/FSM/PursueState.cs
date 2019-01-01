@@ -6,13 +6,17 @@ public class PursueState : State {
 
     GraphPathFollowing pathFollowing;
 
-    int speed;
+    float speed;
 
     GameObject invocant;
 
-    public PursueState(GameObject inv, int pursueSpeed){
+    List<Transition> transitions;
+
+    public PursueState(GameObject inv, List<Transition> trans, float pursueSpeed){
         //Store path following script from gameobject
         invocant = inv;
+        transitions= trans;
+        name="pursue";
         pathFollowing = invocant.GetComponent<GraphPathFollowing>();
         speed = pursueSpeed;
         Debug.Log("Creating pursue state");
@@ -25,7 +29,6 @@ public class PursueState : State {
         else if (invocant.name=="Monster_Sadness"){
             pathFollowing.astar_target=GameObject.Find("Monster_Happiness");
         }
-
         //Changes speed of character
         invocant.GetComponent<Agent>().maxSpeed = speed;
         invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
@@ -35,15 +38,6 @@ public class PursueState : State {
     }
     
     public override List<Transition> GetTransitions(){
-        List<Transition> transitions= new List<Transition>();
-        if (invocant.name=="Monster_Anger") {
-            
-        }
-        else if (invocant.name=="Monster_Sadness"){
-            //If some time passes
-            transitions.Add(new TimePassTrans(invocant, 5));
-            //Gets tired
-        }
         return transitions;
     }
 

@@ -1,6 +1,7 @@
 using UnityEngine;
-using System.Collections;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class TimePassTrans : Transition{
 
@@ -10,9 +11,12 @@ public class TimePassTrans : Transition{
 
     float delay;
 
+    bool changeCreationTime;
+
     public TimePassTrans(GameObject inv, float d){
         invocant=inv;
         delay=d;
+        changeCreationTime=false;
         //Save creation time
         creationTime = System.DateTime.Now;
         if (invocant.name=="Monster_Disgust") {
@@ -29,6 +33,10 @@ public class TimePassTrans : Transition{
 
     public override bool IsTriggered(){
         //For now it cheks if n sec have passed
+        if (changeCreationTime){
+            creationTime = System.DateTime.Now;
+            changeCreationTime=false;
+        }
         DateTime currentTime = System.DateTime.Now;
         if (Mathf.Abs((float)((currentTime - creationTime).TotalSeconds))>delay){
             return true;
@@ -36,7 +44,7 @@ public class TimePassTrans : Transition{
         return false;
     }
 
-    public override State GetTargetState(){
+    public override string GetTargetState(){
         if (invocant.name=="Monster_Disgust") {
             
         }
@@ -46,7 +54,10 @@ public class TimePassTrans : Transition{
         else if (invocant.name=="Monster_Sadness"){
             
         }
-        return new PatrollState(invocant);
+
+        invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
+        changeCreationTime=true;
+        return "patroll";
 
     }
 

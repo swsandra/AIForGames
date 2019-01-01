@@ -10,29 +10,34 @@ public class Sadness_SM : MonoBehaviour{
 
 	Transition triggeredTransition;
 
+	float initialSpeed;
+
 	 // Use this for initialization
 	void Start()
 	{
 		states = new List<State>();
-		PatrollState patroll = new PatrollState(gameObject);
+		//Transitions for patroll state
+		List<Transition> patrolltrans = new List<Transition>();
+		patrolltrans.Add(new SeeMonsterTrans(gameObject));
+		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
-		PursueState pursue = new PursueState(gameObject, 9);
+		//Transitions for pursue state
+		List<Transition> pursuetrans = new List<Transition>();
+		pursuetrans.Add(new TimePassTrans(gameObject, 7f));
+		PursueState pursue = new PursueState(gameObject, pursuetrans, 9f);
 		states.Add(pursue);
 		initialState = patroll;
 		currentState = patroll;
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
-		
-		//THIS IS FOR TEST
-		currentState = pursue;
-		triggeredTransition = new SeeMonsterTrans(gameObject);
+		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
 		//Book algorithm
-		/* triggeredTransition = null;
+		triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -41,13 +46,21 @@ public class Sadness_SM : MonoBehaviour{
 		}
 
 		if (triggeredTransition!=null){
-			currentState = triggeredTransition.GetTargetState();
+			string targetState = triggeredTransition.GetTargetState();
+			Debug.Log("Next state: "+targetState);
+			//Get state from states list
+			foreach (State state in states){
+				gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
+        		gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
+				if(targetState.Equals(state.name)){
+					currentState = state;
+				}
+			}
 		} 
 
 		currentState.GetAction();
-		*/
 
-
+		
 
 	}
 
