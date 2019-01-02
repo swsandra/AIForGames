@@ -14,8 +14,8 @@ public class SeeMonsterTrans : Transition{
     public SeeMonsterTrans(GameObject inv){
         invocant=inv;
         //Save creation time
-        creationTime = System.DateTime.Now;
-        changeCreationTime = false;
+        //creationTime = System.DateTime.Now;
+        changeCreationTime = true;
         if (invocant.name=="Monster_Disgust") {
             
         }

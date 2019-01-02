@@ -16,9 +16,9 @@ public class TimePassTrans : Transition{
     public TimePassTrans(GameObject inv, float d){
         invocant=inv;
         delay=d;
-        changeCreationTime=false;
+        changeCreationTime=true;
         //Save creation time
-        creationTime = System.DateTime.Now;
+        //creationTime = System.DateTime.Now;
         if (invocant.name=="Monster_Disgust") {
             
         }
