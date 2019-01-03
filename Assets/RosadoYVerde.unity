@@ -7965,11 +7965,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -66.8
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -51.1
+      value: -31.5
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14633,22 +14633,6 @@ MonoBehaviour:
   weight: 1
   priority: 1
   stop: 0
---- !u!114 &2105798127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2105798124}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f364db90d4b725d43be40f47b0616cf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 2105798128}
-  target: {fileID: 0}
-  weight: 1
-  priority: 1
-  stop: 0
 --- !u!114 &2105798128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14698,7 +14682,7 @@ MonoBehaviour:
   sRadius: 3
   timeToTarget: 0.2
   delta: 2
-  astar_target: {fileID: 0}
+  astar_target: {fileID: 1910697817}
 --- !u!114 &2105798130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14721,11 +14705,35 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2105798124}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a9e63ac82b856843bf547b5efaf1e2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2105798132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105798124}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0feeab44907fd6649b74660ab17bdbfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105798133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2105798124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a44a769530951274fad5895ab0ff81b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxRadius: 35
+  minRadius: 20
 --- !u!1 &2107289197
 GameObject:
   m_ObjectHideFlags: 0

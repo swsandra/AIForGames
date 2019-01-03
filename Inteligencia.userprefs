@@ -1,11 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Anima2D\Scripts\Editor\SpriteMeshPostprocessor.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DebugDrawingExtension\readme.txt">
     <Files>
       <File FileName="Assets\BehaviourScripts\Agent.cs" Line="1" Column="1" />
       <File FileName="Assets\BehaviourScripts\Jump.cs" Line="1" Column="1" />
       <File FileName="Assets\BehaviourScripts\GraphPathFollowing.cs" Line="1" Column="1" />
-      <File FileName="Assets\Anima2D\Scripts\Editor\SpriteMeshPostprocessor.cs" Line="176" Column="1" />
+      <File FileName="Assets\DebugDrawingExtension\readme.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

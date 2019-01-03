@@ -73,7 +73,7 @@ public class Sight : MonoBehaviour{
     public List<string> CheckSightTriangle(float delta){
         
         List<string> collidingCharacters = new List<string>();
-        //Find vertex of each child 
+        
         foreach (Transform child in characters.transform){
             if (child.gameObject.name.Equals(gameObject.name)){
                 continue;
