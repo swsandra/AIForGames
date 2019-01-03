@@ -17,12 +17,11 @@ public class Sensor : MonoBehaviour{
         modalities = new List<string>();
         modalities.Add("sight");
         if (gameObject.name=="Monster_Disgust") {
-            modalities.Add("hearing");
-            modalities.Add("talk");
+            //modalities.Add("hearing");
             threshold = 3f;
         }
         else if (gameObject.name=="Monster_Anger") {
-            modalities.Add("hearing");
+            modalities.Add("hearing");//When disgust talks
             threshold = 3f;
         }
         else if (gameObject.name=="Monster_Sadness"){
@@ -35,14 +34,15 @@ public class Sensor : MonoBehaviour{
 	// Update is called once per frame
 	void Update()
 	{
-		
+        //Notification of signals (bool?)
 	}
 
+    //FUNCTION NEEDS TO BE CHANGED
     public bool detectsModality(Modality mod){
         if (modalities.Contains(mod.name)){
             return true;
         }
         return false;
-    }    
+    }
 
 }

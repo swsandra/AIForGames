@@ -11,7 +11,7 @@ public class GraphMap : MonoBehaviour{
     //List of Connections
     public List<Connection> connections;
 
-    private GameObject floor;
+    //private GameObject floor;
     private SpriteRenderer spriteRenderer;
 
     public bool drawTriangles, drawConnections;
@@ -92,7 +92,7 @@ public class GraphMap : MonoBehaviour{
 
     public void GetTriangles(){
         //Get floor object
-        floor = GameObject.Find("Floor");
+        GameObject floor = GameObject.Find("Floor");
         int i = 0;
         //Find vertex of each child 
         foreach (Transform child in floor.transform){
@@ -123,11 +123,13 @@ public class GraphMap : MonoBehaviour{
         }
     }
 
+    /*
     public void SetWalls(){
         foreach (Transform child in floor.transform){
             child.gameObject.tag="Obstacle";
         }
     }
+    */
 
     public void GetConnections(){
         for (int i = 0; i<nodes.Count; i++){

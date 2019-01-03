@@ -90,6 +90,11 @@
      <Compile Include="Assets\FSM\Transition.cs" />
      <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\EditorPopup\EditorScripts\OpenMoreGames.cs" />
      <Compile Include="Assets\Match 3 - Dark Monsters - Infinite Monster Builder\Scritps\OrderPrefabs.cs" />
+     <Compile Include="Assets\Sense Manager\HearModality.cs" />
+     <Compile Include="Assets\Sense Manager\Modality.cs" />
+     <Compile Include="Assets\Sense Manager\Sensor.cs" />
+     <Compile Include="Assets\Sense Manager\Sight.cs" />
+     <Compile Include="Assets\Sense Manager\Signal.cs" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>

@@ -60,9 +60,6 @@ public class Sadness_SM : MonoBehaviour{
 
 		currentState.GetAction();
 
-		
-
 	}
-
 
 }
