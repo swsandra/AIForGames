@@ -98,6 +98,8 @@
      <Compile Include="Assets\Sense Manager\Sensor.cs" />
      <Compile Include="Assets\Sense Manager\Sight.cs" />
      <Compile Include="Assets\Sense Manager\Signal.cs" />
+     <Compile Include="Assets\Sense Manager\Smell.cs" />
+     <Compile Include="Assets\Sense Manager\SmellModality.cs" />
      <Compile Include="Assets\Sense Manager\Talk.cs" />
      <None Include="Assets\DebugDrawingExtension\readme.txt" />
  <Reference Include="UnityEngine.CoreModule">

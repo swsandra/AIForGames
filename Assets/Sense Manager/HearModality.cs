@@ -1,12 +1,11 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class HearModality: Modality {
 
     public HearModality(){
         name="hearing";
-        maximumRange=40;
+        maximumRange=60;
         attenuation=1f; //FOR SMELL THIS HAS TO CHANGE
         inverseTransmissionSpeed=0f;
     }

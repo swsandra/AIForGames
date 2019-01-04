@@ -25,15 +25,15 @@ public class Sensor : MonoBehaviour{
         modalities = new List<string>();
         if (gameObject.name=="Monster_Disgust") {
             //modalities.Add("hearing");
-            threshold = 3f;
+            //threshold = 4f;
         }
         else if (gameObject.name=="Monster_Anger") {
             modalities.Add("hearing");//When disgust talks
-            threshold = 3f;
+            threshold = 4f;
         }
         else if (gameObject.name=="Monster_Sadness"){
             //Test
-            modalities.Add("hearing");
+            //modalities.Add("hearing");
             //
             modalities.Add("smell");
             threshold = 4f;

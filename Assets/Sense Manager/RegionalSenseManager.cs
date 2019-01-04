@@ -82,8 +82,6 @@ public class RegionalSenseManager : MonoBehaviour{
             //Create notification record
             Notification notification = new Notification(time, sensor.name, signal);
             notifications.Enqueue(notification);
-            //Send signals is in update
-            //SendSignals();
 
         }
     }
