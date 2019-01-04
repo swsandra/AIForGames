@@ -57,7 +57,6 @@ public class Sensor : MonoBehaviour{
         }
 	}
 
-    //FUNCTION NEEDS TO BE CHANGED (?)
     public bool detectsModality(Modality mod){
         if (modalities.Contains(mod.name)){
             return true;
