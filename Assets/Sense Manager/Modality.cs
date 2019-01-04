@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Modality{
 
-	public int minimumRange, maximumRange;
+	public int maximumRange;
 
 	public string name;
 

@@ -8,14 +8,21 @@ public class Sensor : MonoBehaviour{
 
     List<string> modalities;
 
-    float threshold;
+    public float threshold;
+
+    public bool newSignal;
+
+    int targetNode;
+
+    Vector3 target;
+
+    GraphPathFollowing pathFollowing;
 
 	 // Use this for initialization
 	void Start()
 	{
 		character = gameObject.GetComponent<Agent>();
         modalities = new List<string>();
-        modalities.Add("sight");
         if (gameObject.name=="Monster_Disgust") {
             //modalities.Add("hearing");
             threshold = 3f;
@@ -25,24 +32,43 @@ public class Sensor : MonoBehaviour{
             threshold = 3f;
         }
         else if (gameObject.name=="Monster_Sadness"){
+            //Test
+            modalities.Add("hearing");
+            //
             modalities.Add("smell");
             threshold = 4f;
         }
         
+        pathFollowing=gameObject.GetComponent<GraphPathFollowing>();
+        pathFollowing.astar_target=null;
+        newSignal=false;
+
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-        //Notification of signals (bool?)
+        //Notification of signals
+        if(newSignal){
+            targetNode = pathFollowing.graph.GetNearestNodeByCenter(target);
+            //Change astar target
+            pathFollowing.ChangeEndNode(targetNode);
+            newSignal=false;
+        }
 	}
 
-    //FUNCTION NEEDS TO BE CHANGED
+    //FUNCTION NEEDS TO BE CHANGED (?)
     public bool detectsModality(Modality mod){
         if (modalities.Contains(mod.name)){
             return true;
         }
         return false;
+    }
+
+    public void Notify(Signal signal){
+        Debug.Log("Notifying of new signal.");
+        newSignal=true;
+        target=signal.position;
     }
 
 }

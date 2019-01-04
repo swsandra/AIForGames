@@ -94,9 +94,11 @@
      <Compile Include="Assets\Sense Manager\Hearing.cs" />
      <Compile Include="Assets\Sense Manager\HearModality.cs" />
      <Compile Include="Assets\Sense Manager\Modality.cs" />
+     <Compile Include="Assets\Sense Manager\RegionalSenseManager.cs" />
      <Compile Include="Assets\Sense Manager\Sensor.cs" />
      <Compile Include="Assets\Sense Manager\Sight.cs" />
      <Compile Include="Assets\Sense Manager\Signal.cs" />
+     <Compile Include="Assets\Sense Manager\Talk.cs" />
      <None Include="Assets\DebugDrawingExtension\readme.txt" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
