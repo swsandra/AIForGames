@@ -127,7 +127,7 @@ public class GraphMap : MonoBehaviour{
 
     /*
     public void SetWalls(){
-        foreach (Transform child in floor.transform){
+        foreach (Transform child in walls.transform){
             child.gameObject.tag="Obstacle";
         }
     }

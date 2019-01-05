@@ -34,7 +34,7 @@ public class RegionalSenseManager : MonoBehaviour{
             Sensor childSensor = child.GetComponent<Sensor>();
             if (childSensor!=null){
                 sensors.Add(child.gameObject);
-                Debug.Log(child.name);
+                //Debug.Log(child.name);
             }
         }
         notifications = new Queue<Notification>();

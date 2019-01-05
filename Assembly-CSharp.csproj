@@ -101,6 +101,7 @@
      <Compile Include="Assets\Sense Manager\Smell.cs" />
      <Compile Include="Assets\Sense Manager\SmellModality.cs" />
      <Compile Include="Assets\Sense Manager\Talk.cs" />
+     <Compile Include="Assets\Sense Manager\WaypointDecision.cs" />
      <None Include="Assets\DebugDrawingExtension\readme.txt" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
