@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class WaypointDecision : MonoBehaviour{
 
 	//Nodes of waypoints
-	Vector3[] waypoints;
+	int[] waypoints;
 
 	public bool calcWaypoint;
 
@@ -19,13 +19,12 @@ public class WaypointDecision : MonoBehaviour{
 	void Start()
 	{
 		//Store waypoints
-		waypoints = new Vector3[3];
+		waypoints = new int[3];
 		GameObject map = GameObject.Find("Map Graph");
 		graph = map.GetComponent<GraphMap>();
-		waypoints[0]=new Vector3(-116f,62f,0f);
-		waypoints[1]=new Vector3(-3f,-30f,0f);
-		waypoints[2]=new Vector3(141f,-90f,0f);
-		
+		waypoints[0]=graph.GetNearestNodeByCenter(new Vector3(-116f,62f,0f));
+		waypoints[1]=graph.GetNearestNodeByCenter(new Vector3(-3f,-30f,0f));
+		waypoints[2]=graph.GetNearestNodeByCenter(new Vector3(141f,-90f,0f));
 
 		Debug.Log("Waypoints are at nodes "+waypoints[0]+" "+waypoints[1]+" "+waypoints[2]);
 
@@ -52,26 +51,26 @@ public class WaypointDecision : MonoBehaviour{
 
 	public List<int> GetNearestWaypoints(){
 		List<int> nextWaypoints = new List<int>();
-		foreach(Vector3 waypoint in waypoints){
-			Debug.Log("Now testing node "+graph.GetNearestNodeByCenter(waypoint));
-			if(nextWaypoints.Count==0){
-				nextWaypoints.Add(graph.GetNearestNodeByCenter(waypoint));
-			}else{//Iterate until greater distance found
-				//Calculate distance from waypoint to character
-				float distance = (waypoint-transform.position).magnitude;
-				int j=0;
-				foreach(int nextWaypoint in nextWaypoints){
-					float nextDistance =(graph.nodes[nextWaypoint].center-transform.position).magnitude;
-					Debug.Log("Distance "+ distance +" nextdistance "+ nextDistance);
-					if(nextDistance>distance){
-						nextWaypoints.Insert(j,graph.GetNearestNodeByCenter(waypoint));
-						break;
-					}else if (nextWaypoints.Count==1){
-						nextWaypoints.Add(graph.GetNearestNodeByCenter(waypoint));
-					}
-					j++;
+		Dictionary<int,float> waypointDistance = new Dictionary<int,float>();
+		for(int i=0;i<waypoints.Length;i++){
+			//Calculate distances for each point
+			waypointDistance[waypoints[i]] = (graph.nodes[waypoints[i]].center-transform.position).magnitude;
+		}
+		//Reorder from nearest
+		while (waypointDistance.Count>0){
+			//Calculate smaller distance
+			float nearestDistance=Mathf.Infinity;
+			int nearest=-1;
+			foreach(KeyValuePair<int, float> waypoint in waypointDistance){
+				if(waypoint.Value<nearestDistance){
+					nearestDistance=waypoint.Value;
+					nearest=waypoint.Key;
 				}
 			}
+			//Add waypoint to nearest
+			nextWaypoints.Add(nearest);
+			//Remove from dictionary
+			waypointDistance.Remove(nearest);
 		}
 		return nextWaypoints;
 	}
