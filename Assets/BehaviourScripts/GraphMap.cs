@@ -51,16 +51,18 @@ public class GraphMap : MonoBehaviour{
 
         //Find all obstacles
         GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
-        int nearestToObstacle;
+        //int nearestToObstacle;
 		SpriteRenderer sprite;
 		foreach (GameObject obs in obstacles){
+            //Debug.Log("Obstacle is "+obs.name);
 			sprite=obs.GetComponent<SpriteRenderer>();
-            nearestToObstacle = GetNearestNodeByCenter(obs.transform.position);
+            int nearestToObstacle = GetNearestNodeByCenter(obs.transform.position);
+            //Debug.Log("Node id "+ nearestToObstacle);
 			Vector3 distanceToNode = obs.transform.position-nodes[nearestToObstacle].center;
 			Vector3 spriteSize = (sprite.bounds.size*0.5f);
 			if (distanceToNode.magnitude<(spriteSize.magnitude-2.5f) || distanceToNode.magnitude<1f){
 				//Remove nodes 
-                
+                //Debug.Log("Node deleted is at "+nodes[nearestToObstacle].center+" id "+ nearestToObstacle);
                 //Remove that node cause it can make character walk over an object
                 nodes.Remove(nearestToObstacle);
                 

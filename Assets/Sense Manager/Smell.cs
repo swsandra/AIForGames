@@ -32,7 +32,7 @@ public class Smell : MonoBehaviour{
         }
 		if (scent){
 			//Add signal to regional sense manager
-			senseManager.newSignals.Enqueue(new Signal(50, transform.position, smell));
+			senseManager.newSignals.Enqueue(new Signal(50, transform.position, smell)); //Since this is smell, each time strenght can be decreased
             //Calculate time for signal to end
             float seconds = Mathf.Abs((float)((System.DateTime.Now - startOfSmell).TotalSeconds));
             if(seconds>secondsForSmell){
