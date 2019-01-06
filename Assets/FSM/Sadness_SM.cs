@@ -23,11 +23,14 @@ public class Sadness_SM : MonoBehaviour{
 		states.Add(patroll);
 		//Transitions for pursue state
 		List<Transition> pursuetrans = new List<Transition>();
-		pursuetrans.Add(new TimePassTrans(gameObject, 7f));
+		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
 		PursueState pursue = new PursueState(gameObject, pursuetrans, 9f);
 		states.Add(pursue);
 		initialState = patroll;
 		currentState = patroll;
+		//TEST
+		currentState = pursue;
+		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
@@ -37,7 +40,7 @@ public class Sadness_SM : MonoBehaviour{
 	void Update()
 	{
 		//Book algorithm
-		triggeredTransition = null;
+		/*triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -58,7 +61,16 @@ public class Sadness_SM : MonoBehaviour{
 			}
 		}
 
-		currentState.GetAction();
+		currentState.GetAction(); */
+		foreach (Transition transition in currentState.GetTransitions()){
+			if (transition.IsTriggered()){
+				Debug.Log("Triggered transition");
+				triggeredTransition = transition;
+				break;
+			}else{
+				Debug.Log("NOOOOOOO");
+			}
+		}
 
 	}
 

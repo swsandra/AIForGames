@@ -7,7 +7,7 @@ public class Hearing : MonoBehaviour{
 
     GameObject characters;
 
-    public List<string> heardCharacters;
+    public List<string> heardCharacters, heardCloseCharacters;
 
     public float maxRadius, minRadius;
 
@@ -23,6 +23,7 @@ public class Hearing : MonoBehaviour{
 	void Update()
 	{
         DrawHearingArea();
+        heardCloseCharacters = CheckMinArea();
         heardCharacters = CheckMinArea();
         /*if (heardCharacters.Count!=0){
             Debug.Log("Characters heard: ");
