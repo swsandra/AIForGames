@@ -46,7 +46,7 @@ public class PatrollState : State{
 			//Get node of result vector
 			int newTargetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(x, y, 0f));
 			//Change astar target
-			Debug.Log("end node "+newTargetNode);
+			//Debug.Log("end node "+newTargetNode);
 			pathFollowing.ChangeEndNode(newTargetNode);
 		}
 		

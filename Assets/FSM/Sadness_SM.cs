@@ -26,10 +26,16 @@ public class Sadness_SM : MonoBehaviour{
 		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
 		PursueState pursue = new PursueState(gameObject, pursuetrans, 9f);
 		states.Add(pursue);
+		//Transitions for look for state
+		List<Transition> looktrans = new List<Transition>();
+		looktrans.Add(new TimePassTrans(gameObject,5f));
+		LookForState look = new LookForState(gameObject,looktrans,7f);
+		states.Add(look);
+
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = pursue;
+		currentState = look;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -62,16 +68,8 @@ public class Sadness_SM : MonoBehaviour{
 		}
 
 		currentState.GetAction(); */
-		foreach (Transition transition in currentState.GetTransitions()){
-			if (transition.IsTriggered()){
-				Debug.Log("Triggered transition");
-				triggeredTransition = transition;
-				break;
-			}else{
-				Debug.Log("NOOOOOOO");
-			}
-		}
-
+		currentState.GetAction();
+		
 	}
 
 }

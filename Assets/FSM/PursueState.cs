@@ -19,6 +19,9 @@ public class PursueState : State {
         name="pursue";
         pathFollowing = invocant.GetComponent<GraphPathFollowing>();
         speed = pursueSpeed;
+        //Changes speed of character
+        invocant.GetComponent<Agent>().maxSpeed = speed;
+        invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
         Debug.Log("Creating pursue state");
     }
 
@@ -29,12 +32,6 @@ public class PursueState : State {
         else if (invocant.name=="Monster_Sadness"){
             pathFollowing.astar_target=GameObject.Find("Monster_Happiness");
         }
-        //Changes speed of character
-        invocant.GetComponent<Agent>().maxSpeed = speed;
-        invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
-        //Pursues while it is in sight triangle (not implemented yet)
-
-        //For now it just pursues after 5s of being lonely
     }
     
     public override List<Transition> GetTransitions(){
