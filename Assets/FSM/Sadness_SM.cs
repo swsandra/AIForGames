@@ -18,23 +18,26 @@ public class Sadness_SM : MonoBehaviour{
 		states = new List<State>();
 		//Transitions for patroll state
 		List<Transition> patrolltrans = new List<Transition>();
+		patrolltrans.Add(new GetSignalTrans(gameObject));
 		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		//Transitions for pursue state
 		List<Transition> pursuetrans = new List<Transition>();
+		pursuetrans.Add(new GetSignalTrans(gameObject));
 		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
 		PursueState pursue = new PursueState(gameObject, pursuetrans, 9f);
 		states.Add(pursue);
 		//Transitions for look for state
 		List<Transition> looktrans = new List<Transition>();
+		looktrans.Add(new GetSignalTrans(gameObject));
 		looktrans.Add(new SeeMonsterTrans(gameObject));
 		looktrans.Add(new TimePassTrans(gameObject,5f));
 		LookForState look = new LookForState(gameObject,looktrans,7f);
 		states.Add(look);
 		//Transitions for eat state
 		List<Transition> eattrans = new List<Transition>();
-		eattrans.Add(new GetSignalTrans(gameObject)); //INCORRECT
+		eattrans.Add(new FoodDissapearsTrans(gameObject));
 		EatState eat = new EatState(gameObject,eattrans);
 		states.Add(eat);
 
@@ -74,13 +77,7 @@ public class Sadness_SM : MonoBehaviour{
 		}
 
 		currentState.GetAction(); */
-		foreach (Transition transition in currentState.GetTransitions()){
-			if (transition.IsTriggered()){
-				Debug.Log("Transition triggered");
-				triggeredTransition = transition;
-				break;
-			}   
-		}
+		
 		
 	}
 
