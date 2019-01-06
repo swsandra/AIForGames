@@ -30,11 +30,7 @@ public class WaypointDecision : MonoBehaviour{
 		waypoints[1]=graph.GetNearestNodeByCenter(new Vector3(-3f,-30f,0f));
 		waypoints[2]=graph.GetNearestNodeByCenter(new Vector3(141f,-90f,0f));
 
-		Debug.Log("Waypoints are at nodes "+waypoints[0]+" "+waypoints[1]+" "+waypoints[2]);
-
-		Debug.Log("This is test");
-		pursuer=GameObject.Find("Monster_Happiness");
-		//pursuer=GameObject.Find("Monster_Anger");
+		pursuer=GameObject.Find("Monster_Anger");
 
 		calcWaypoint=false;
 
@@ -141,7 +137,7 @@ public class WaypointDecision : MonoBehaviour{
 	
 		//Calculate if waypoints are in pursuers line of sight
 		foreach(int waypoint in nearestWaypoints){
-			Debug.Log("Working waypoint at node "+waypoint);
+			//Debug.Log("Working waypoint at node "+waypoint);
 			bool takeWaypoint = false;		
 			//Ray between pursuer and waypoint
 			Vector3 lineStart = pursuer.transform.position;
@@ -155,7 +151,7 @@ public class WaypointDecision : MonoBehaviour{
 				float spriteSize = Vector3.Distance(wall.position,wall.position+spriteSizeVector);
 				if (HandleUtility.DistancePointLine(wall.position,lineStart,lineEnd)<=spriteSize){
 					//Then this waypoint is good because there is a wall between pursuer and it
-					Debug.Log("Wall "+wall.gameObject.name+" is in sight line.");
+					//Debug.Log("Wall "+wall.gameObject.name+" is in sight line.");
 					takeWaypoint = true;
 					break;
 				}
@@ -170,7 +166,7 @@ public class WaypointDecision : MonoBehaviour{
 					float spriteSize = Vector3.Distance(obstacle.transform.position,obstacle.transform.position+spriteSizeVector);
 					if (HandleUtility.DistancePointLine(obstacle.transform.position,lineStart,lineEnd)<=spriteSize){
 						//Then this waypoint is good because there is a wall between pursuer and it
-						Debug.Log("Wall "+obstacle.gameObject.name+" is in sight line.");
+						//Debug.Log("Wall "+obstacle.gameObject.name+" is in sight line.");
 						takeWaypoint = true;
 						break;
 					}

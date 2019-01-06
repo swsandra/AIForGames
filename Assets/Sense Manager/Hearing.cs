@@ -4,21 +4,19 @@ using System.Collections.Generic;
 
 public class Hearing : MonoBehaviour{
 
-    Agent character;
 
     GameObject characters;
 
-    List<string> heardCharacters;
+    public List<string> heardCharacters;
 
     public float maxRadius, minRadius;
 
 	 // Use this for initialization
 	void Start()
 	{
-        character = gameObject.GetComponent<Agent>();
         characters = GameObject.Find("Characters");
-        //minRadius=20f;
-        //maxRadius=35f;
+        minRadius=15f;
+        maxRadius=35f;
 	}
 
 	// Update is called once per frame
@@ -26,12 +24,12 @@ public class Hearing : MonoBehaviour{
 	{
         DrawHearingArea();
         heardCharacters = CheckMinArea();
-        if (heardCharacters.Count!=0){
+        /*if (heardCharacters.Count!=0){
             Debug.Log("Characters heard: ");
             foreach (string name in heardCharacters){
                 Debug.Log(" "+name);
             }
-        }
+        } */
         
 	}
 

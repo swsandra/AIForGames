@@ -12,7 +12,7 @@ public class Sight : MonoBehaviour{
 
     GameObject characters;
 
-    List<string> inSightCharacters;
+    public List<string> inSightCharacters;
 
 	 // Use this for initialization
 	void Start()
@@ -41,12 +41,12 @@ public class Sight : MonoBehaviour{
 	{
         GenerateSightTriangle();
 		inSightCharacters = CheckSightTriangle(2f);
-        if (inSightCharacters.Count!=0){
+        /*if (inSightCharacters.Count!=0){
             Debug.Log("Characters in sight: ");
             foreach (string name in inSightCharacters){
                 Debug.Log(" "+name);
             }
-        }
+        } */
 	}
 
     public void GenerateSightTriangle()
