@@ -85,7 +85,7 @@ public class WaypointDecision : MonoBehaviour{
 		return nextWaypoints;
 	}
 
-	public int BestWaypoint(){
+	public int BestWaypointByArea(){
 		int bestWaypoint = -1;
 		List<int> nearestWaypoints = GetNearestWaypoints();
 	
@@ -132,6 +132,54 @@ public class WaypointDecision : MonoBehaviour{
 
 		}
 
+		return bestWaypoint;
+	}
+
+	public int BestWaypoint(){
+		int bestWaypoint = -1;
+		List<int> nearestWaypoints = GetNearestWaypoints();
+	
+		//Calculate if waypoints are in pursuers line of sight
+		foreach(int waypoint in nearestWaypoints){
+			Debug.Log("Working waypoint at node "+waypoint);
+			bool takeWaypoint = false;		
+			//Ray between pursuer and waypoint
+			Vector3 lineStart = pursuer.transform.position;
+			Vector3 lineEnd = graph.nodes[waypoint].center;
+			GameObject walls = GameObject.Find("Walls");
+			//First check all walls
+			foreach(Transform wall in walls.transform){
+				SpriteRenderer sprite;
+				sprite=wall.GetComponent<SpriteRenderer>();
+				Vector3 spriteSizeVector = (sprite.bounds.size*0.5f);
+				float spriteSize = Vector3.Distance(wall.position,wall.position+spriteSizeVector);
+				if (HandleUtility.DistancePointLine(wall.position,lineStart,lineEnd)<=spriteSize){
+					//Then this waypoint is good because there is a wall between pursuer and it
+					Debug.Log("Wall "+wall.gameObject.name+" is in sight line.");
+					takeWaypoint = true;
+					break;
+				}
+			}
+			//If there is no wall in sight line, check obstacles
+			if (!takeWaypoint){
+				GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+				foreach(GameObject obstacle in obstacles){
+					SpriteRenderer sprite;
+					sprite=obstacle.GetComponent<SpriteRenderer>();
+					Vector3 spriteSizeVector = (sprite.bounds.size*0.5f);
+					float spriteSize = Vector3.Distance(obstacle.transform.position,obstacle.transform.position+spriteSizeVector);
+					if (HandleUtility.DistancePointLine(obstacle.transform.position,lineStart,lineEnd)<=spriteSize){
+						//Then this waypoint is good because there is a wall between pursuer and it
+						Debug.Log("Wall "+obstacle.gameObject.name+" is in sight line.");
+						takeWaypoint = true;
+						break;
+					}
+				}
+			}else{
+				bestWaypoint=waypoint;
+				break;
+			}
+		}
 
 		return bestWaypoint;
 	}
