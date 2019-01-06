@@ -67,8 +67,7 @@ public class GraphMap : MonoBehaviour{
                 nodes.Remove(nearestToObstacle);
                 
 			}
-			//Debug.DrawLine(obs.transform.position,obs.transform.position+spriteSize,Color.magenta);
-			
+			//Debug.DrawLine(obs.transform.position,obs.transform.position+spriteSize,Color.magenta);			
         }
 
     }

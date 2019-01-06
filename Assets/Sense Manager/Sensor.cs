@@ -32,9 +32,6 @@ public class Sensor : MonoBehaviour{
             threshold = 4f;
         }
         else if (gameObject.name=="Monster_Sadness"){
-            //Test
-            //modalities.Add("hearing");
-            //
             modalities.Add("smell");
             threshold = 4f;
         }

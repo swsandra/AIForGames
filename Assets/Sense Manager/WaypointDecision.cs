@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 
 public class WaypointDecision : MonoBehaviour{
 
@@ -13,7 +14,10 @@ public class WaypointDecision : MonoBehaviour{
 
 	GraphMap graph;
 
-	GameObject pursuer;    
+	GameObject pursuer;  
+
+	//Radius between wall or obstacle and waypoint
+	float checkRadius=35f;
 
 	 // Use this for initialization
 	void Start()
@@ -28,8 +32,9 @@ public class WaypointDecision : MonoBehaviour{
 
 		Debug.Log("Waypoints are at nodes "+waypoints[0]+" "+waypoints[1]+" "+waypoints[2]);
 
-		//pathFollowing=gameObject.GetComponent<GraphPathFollowing>();
-		//pathFollowing.astar_target=null;
+		Debug.Log("This is test");
+		pursuer=GameObject.Find("Monster_Happiness");
+		//pursuer=GameObject.Find("Monster_Anger");
 
 		calcWaypoint=false;
 
@@ -38,15 +43,20 @@ public class WaypointDecision : MonoBehaviour{
 	// Update is called once per frame
 	void Update()
 	{
+		int waypoint;
 		if (calcWaypoint){
-			List<int> nearestWaypoints = GetNearestWaypoints();
-			if (nearestWaypoints.Count!=0){
-				foreach(int waypoint in nearestWaypoints){
-					Debug.Log("Waypoint at "+ graph.nodes[waypoint].center +" node "+waypoint);
-				}
-			}
+			waypoint = BestWaypoint();
+			Debug.Log("Best waypoint at node "+waypoint);
 			calcWaypoint=false;
 		}
+		/*GameObject walls = GameObject.Find("Walls");
+		foreach(Transform wall in walls.transform){
+			SpriteRenderer sprite;
+			sprite=wall.GetComponent<SpriteRenderer>();
+			Vector3 spriteSize = (sprite.bounds.size*0.5f);
+			Debug.DrawLine(wall.position,wall.position+spriteSize,Color.magenta);
+
+		} */
 	}
 
 	public List<int> GetNearestWaypoints(){
@@ -78,7 +88,49 @@ public class WaypointDecision : MonoBehaviour{
 	public int BestWaypoint(){
 		int bestWaypoint = -1;
 		List<int> nearestWaypoints = GetNearestWaypoints();
-		//Calculare if waypoints are in pursuers line of sight
+	
+		//Calculate if waypoints are in pursuers line of sight
+		foreach(int waypoint in nearestWaypoints){
+			Debug.Log("Working waypoint at node "+waypoint);
+			bool takeWaypoint = false;
+			//First find all walls or obstacles within a certain radius
+			GameObject walls = GameObject.Find("Walls");
+			List<Transform> nearObjects = new List<Transform>();
+			foreach(Transform wall in walls.transform){
+				if (Vector3.Distance(graph.nodes[waypoint].center,wall.position)<=checkRadius){
+					nearObjects.Add(wall);
+				}
+			}
+			//Check obstacles too
+			GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+			foreach(GameObject obstacle in obstacles){
+				if (Vector3.Distance(graph.nodes[waypoint].center,obstacle.transform.position)<=checkRadius){
+					nearObjects.Add(obstacle.transform);
+				}
+			}
+			Debug.Log("There are "+nearObjects.Count+" near objects.");
+			//Ray between pursuer and waypoint
+			Vector3 lineStart = pursuer.transform.position;
+			Vector3 lineEnd = graph.nodes[waypoint].center;
+			foreach(Transform obj in nearObjects){
+				SpriteRenderer sprite;
+				sprite=obj.GetComponent<SpriteRenderer>();
+				Vector3 spriteSizeVector = (sprite.bounds.size*0.5f);
+				float spriteSize = Vector3.Distance(obj.position,obj.position+spriteSizeVector);
+				if (HandleUtility.DistancePointLine(obj.position,lineStart,lineEnd)<=spriteSize){
+					//Then this waypoint is not good or the object is not in sight line
+					Debug.Log("Object "+obj.gameObject.name+" is in sight line.");
+					takeWaypoint = true;
+					break;
+				}
+			}
+
+			if (takeWaypoint){
+				bestWaypoint=waypoint;
+				break;
+			}
+
+		}
 
 
 		return bestWaypoint;
