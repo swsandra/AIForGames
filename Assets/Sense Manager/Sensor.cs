@@ -12,7 +12,7 @@ public class Sensor : MonoBehaviour{
 
     public bool newSignal;
 
-    int targetNode;
+    public int targetNode;
 
     Vector3 target;
 
@@ -39,6 +39,7 @@ public class Sensor : MonoBehaviour{
         pathFollowing=gameObject.GetComponent<GraphPathFollowing>();
         pathFollowing.astar_target=null;
         newSignal=false;
+        targetNode=-1;
 
 	}
 
@@ -49,8 +50,9 @@ public class Sensor : MonoBehaviour{
         if(newSignal){
             targetNode = pathFollowing.graph.GetNearestNodeByCenter(target);
             //Change astar target
-            pathFollowing.ChangeEndNode(targetNode);
-            newSignal=false;
+            //pathFollowing.ChangeEndNode(targetNode);
+            //newSignal=false;
+            //Debug.Log("New signal");
         }
 	}
 
@@ -62,7 +64,7 @@ public class Sensor : MonoBehaviour{
     }
 
     public void Notify(Signal signal){
-        Debug.Log("Notifying of new signal.");
+        //Debug.Log("Notifying of new signal.");
         newSignal=true;
         target=signal.position;
     }

@@ -18,6 +18,7 @@ public class PursueState : State {
         transitions= trans;
         name="pursue";
         pathFollowing = invocant.GetComponent<GraphPathFollowing>();
+        pathFollowing.astar_target=null; //Set to null just in case
         speed = pursueSpeed;
         //Changes speed of character
         invocant.GetComponent<Agent>().maxSpeed = speed;

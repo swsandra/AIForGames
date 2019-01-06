@@ -28,14 +28,20 @@ public class Sadness_SM : MonoBehaviour{
 		states.Add(pursue);
 		//Transitions for look for state
 		List<Transition> looktrans = new List<Transition>();
+		looktrans.Add(new SeeMonsterTrans(gameObject));
 		looktrans.Add(new TimePassTrans(gameObject,5f));
 		LookForState look = new LookForState(gameObject,looktrans,7f);
 		states.Add(look);
+		//Transitions for eat state
+		List<Transition> eattrans = new List<Transition>();
+		eattrans.Add(new GetSignalTrans(gameObject)); //INCORRECT
+		EatState eat = new EatState(gameObject,eattrans);
+		states.Add(eat);
 
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = look;
+		currentState = eat;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -68,7 +74,13 @@ public class Sadness_SM : MonoBehaviour{
 		}
 
 		currentState.GetAction(); */
-		currentState.GetAction();
+		foreach (Transition transition in currentState.GetTransitions()){
+			if (transition.IsTriggered()){
+				Debug.Log("Transition triggered");
+				triggeredTransition = transition;
+				break;
+			}   
+		}
 		
 	}
 

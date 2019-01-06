@@ -82,6 +82,8 @@
      <Compile Include="Assets\BehaviourScripts\VelocityMatch.cs" />
      <Compile Include="Assets\BehaviourScripts\Wander.cs" />
      <Compile Include="Assets\DebugDrawingExtension\DebugExtension.cs" />
+     <Compile Include="Assets\FSM\EatState.cs" />
+     <Compile Include="Assets\FSM\GetSignalTrans.cs" />
      <Compile Include="Assets\FSM\LookForState.cs" />
      <Compile Include="Assets\FSM\PatrollState.cs" />
      <Compile Include="Assets\FSM\PursueState.cs" />

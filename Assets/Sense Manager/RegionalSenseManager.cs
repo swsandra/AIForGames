@@ -45,7 +45,7 @@ public class RegionalSenseManager : MonoBehaviour{
 	void Update()
 	{
         if(newSignals.Count!=0){
-            Debug.Log("Adding new signal");
+            //Debug.Log("Adding new signal");
             addSignal(newSignals.Dequeue());
         }
         SendSignals();
@@ -77,7 +77,7 @@ public class RegionalSenseManager : MonoBehaviour{
                 continue;
             }
             //Time for notification will depend on signal modality (smell is later)
-            Debug.Log("Sensor will be notified in "+distance*signal.modality.inverseTransmissionSpeed+" seconds");
+            //Debug.Log("Sensor will be notified in "+distance*signal.modality.inverseTransmissionSpeed+" seconds");
             DateTime time = System.DateTime.Now.AddSeconds(distance*signal.modality.inverseTransmissionSpeed);
             //Create notification record
             Notification notification = new Notification(time, sensor.name, signal);
@@ -94,7 +94,7 @@ public class RegionalSenseManager : MonoBehaviour{
             if (DateTime.Compare(notification.time,currentTime)<0){ //notification.time<currentTime
                 //
                 GameObject sensor = GameObject.Find(notification.sensorName);
-                Debug.Log("Notification is due for "+notification.sensorName);
+                //Debug.Log("Notification is due for "+notification.sensorName);
                 sensor.GetComponent<Sensor>().Notify(notification.signal);
                 notifications.Dequeue();
 

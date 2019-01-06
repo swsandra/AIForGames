@@ -31,6 +31,7 @@ public class LookForState : State {
             newTargetNode = pathFollowing.graph.GetNearestNodeByCenter(GameObject.Find("Monster_Happiness").transform.position);
         }
         pathFollowing.ChangeEndNode(newTargetNode);
+        pathFollowing.astar_target=null; //Set to null just in case
         //Changes speed of character
         invocant.GetComponent<Agent>().maxSpeed = speed;
         invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
