@@ -5099,6 +5099,7 @@ GameObject:
   m_Component:
   - component: {fileID: 747229913}
   - component: {fileID: 747229912}
+  - component: {fileID: 747229914}
   m_Layer: 0
   m_Name: Sushi
   m_TagString: Obstacle
@@ -5163,6 +5164,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747229914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 747229911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19180419535d9764f97c9c9e8b2805c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scent: 0
+  newScent: 0
 --- !u!1 &752829294
 GameObject:
   m_ObjectHideFlags: 0
@@ -14593,11 +14607,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 131.5
+      value: 105.2
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -58.1
+      value: -40.9
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -14733,6 +14747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: 0
   newSignal: 0
+  targetNode: 0
 --- !u!114 &2105798128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14805,7 +14820,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2105798124}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a9e63ac82b856843bf547b5efaf1e2d, type: 3}
   m_Name: 

@@ -12,7 +12,7 @@ public class Smell : MonoBehaviour{
 
     DateTime startOfSmell, newSignal;
 
-	SpriteRenderer sushiSprite, ramenSprite;
+	public SpriteRenderer sushiSprite, ramenSprite;
 
 	// Use this for initialization
 	void Start()
@@ -23,9 +23,6 @@ public class Smell : MonoBehaviour{
 		smell=new SmellModality();
         secondsForSmell=20f;
 		secondsForNewSignal = 60f;
-		//TEST
-		secondsForNewSignal = 5f;
-		//
 		newSignal=DateTime.Now;
 		//Hide sprites when starting
 		sushiSprite=GetComponent<SpriteRenderer>();

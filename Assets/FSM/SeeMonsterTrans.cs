@@ -14,7 +14,6 @@ public class SeeMonsterTrans : Transition {
 		invocant=inv;
 		sight=invocant.GetComponent<Sight>();
 		hearing=invocant.GetComponent<Hearing>();
-		Debug.Log("Creating see monster");
 	}
 
 	public override bool IsTriggered(){

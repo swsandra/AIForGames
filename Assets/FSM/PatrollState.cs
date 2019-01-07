@@ -34,7 +34,6 @@ public class PatrollState : State{
 		//Store path following script from gameobject
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
 		pathFollowing.astar_target=null; //Set to null just in case
-		Debug.Log("Creating patroll state");
 	}
 
 	public override void GetAction(){
@@ -49,7 +48,6 @@ public class PatrollState : State{
 			//Debug.Log("end node "+newTargetNode);
 			pathFollowing.ChangeEndNode(newTargetNode);
 		}
-		
 	}
 
 	public override List<Transition> GetTransitions(){

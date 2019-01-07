@@ -37,15 +37,12 @@ public class Sadness_SM : MonoBehaviour{
 		states.Add(look);
 		//Transitions for eat state
 		List<Transition> eattrans = new List<Transition>();
-		eattrans.Add(new FoodDissapearsTrans(gameObject));
+		eattrans.Add(new FoodDisappearsTrans(gameObject));
 		EatState eat = new EatState(gameObject,eattrans);
 		states.Add(eat);
 
 		initialState = patroll;
 		currentState = patroll;
-		//TEST
-		currentState = eat;
-		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
@@ -74,11 +71,10 @@ public class Sadness_SM : MonoBehaviour{
 					currentState = state;
 				}
 			}
-		}
+		} */
 
-		currentState.GetAction(); */
-		
-		
+		currentState.GetAction();
+
 	}
 
 }

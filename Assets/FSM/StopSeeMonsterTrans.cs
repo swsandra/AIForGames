@@ -15,7 +15,6 @@ public class StopSeeMonsterTrans : Transition {
 		invocant=inv;
 		sight=invocant.GetComponent<Sight>();
 		hearing=invocant.GetComponent<Hearing>();
-		Debug.Log("Creating stop see monster");
 	}
 
 	public override bool IsTriggered(){

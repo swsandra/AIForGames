@@ -20,7 +20,6 @@ public class EatState : State {
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
 		graph = GameObject.Find("Map Graph").GetComponent<GraphMap>();
 		pathFollowing.astar_target=null; //Set to null just in case
-		Debug.Log("Creating eat state");
 	}
 
 	public override void GetAction(){

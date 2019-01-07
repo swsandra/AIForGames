@@ -23,7 +23,6 @@ public class PursueState : State {
         //Changes speed of character
         invocant.GetComponent<Agent>().maxSpeed = speed;
         invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
-        Debug.Log("Creating pursue state");
     }
 
     public override void GetAction(){

@@ -83,6 +83,7 @@
      <Compile Include="Assets\BehaviourScripts\Wander.cs" />
      <Compile Include="Assets\DebugDrawingExtension\DebugExtension.cs" />
      <Compile Include="Assets\FSM\EatState.cs" />
+     <Compile Include="Assets\FSM\FoodDisappearsTrans.cs" />
      <Compile Include="Assets\FSM\GetSignalTrans.cs" />
      <Compile Include="Assets\FSM\LookForState.cs" />
      <Compile Include="Assets\FSM\PatrollState.cs" />

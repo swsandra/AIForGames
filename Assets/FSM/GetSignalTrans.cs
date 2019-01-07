@@ -9,7 +9,6 @@ public class GetSignalTrans : Transition {
 
 	public GetSignalTrans(GameObject inv){
 		invocant=inv;
-		Debug.Log("Creating get signal");
 	}
 
 	public override bool IsTriggered(){
