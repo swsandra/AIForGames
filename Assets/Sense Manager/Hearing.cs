@@ -15,6 +15,8 @@ public class Hearing : MonoBehaviour{
 	void Start()
 	{
         characters = GameObject.Find("Characters");
+        heardCharacters = new List<string>();
+        heardCloseCharacters = new List<string>();
         minRadius=20f;
         maxRadius=35f;
 	}
