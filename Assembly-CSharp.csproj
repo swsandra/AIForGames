@@ -89,6 +89,7 @@
      <Compile Include="Assets\FSM\HearNoiseTrans.cs" />
      <Compile Include="Assets\FSM\LookForState.cs" />
      <Compile Include="Assets\FSM\PatrollState.cs" />
+     <Compile Include="Assets\FSM\PursuerWaypointState.cs" />
      <Compile Include="Assets\FSM\PursueState.cs" />
      <Compile Include="Assets\FSM\Sadness_SM.cs" />
      <Compile Include="Assets\FSM\SearchLocationState.cs" />

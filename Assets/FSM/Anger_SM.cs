@@ -56,22 +56,26 @@ public class Anger_SM : MonoBehaviour{
 		//Look for state
 		List<Transition> looktrans = new List<Transition>();
 		looktrans.Add(new SeeMonsterTrans(gameObject));
-		looktrans.Add(new TimePassTrans(gameObject,4f,"nearwaypoint"));
+		looktrans.Add(new TimePassTrans(gameObject,4f,"pursuerwaypoint"));
 		LookForState look = new LookForState(gameObject,looktrans,10f);
 		states.Add(look);
 
 		//Push Fear state
 
 
-		//Nearest waypoint state
-
+		//Nearest pursuer waypoint state
+		List<Transition> waypointtrans = new List<Transition>();
+		waypointtrans.Add(new SeeMonsterTrans(gameObject));
+		waypointtrans.Add(new StopAndTimePassTrans(gameObject,1f,"patroll"));
+		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,17f);
+		states.Add(pursuerwaypoint);
 
 
 
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = searchLocation;
+		currentState = pursuerwaypoint;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
