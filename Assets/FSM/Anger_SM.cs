@@ -29,7 +29,7 @@ public class Anger_SM : MonoBehaviour{
 		searchnoisetrans.Add(new SeeMonsterTrans(gameObject));
 		searchnoisetrans.Add(new GetSignalTrans(gameObject));
 		searchnoisetrans.Add(new TimePassTrans(gameObject,7f,"patroll"));
-		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,10f);//Runs super fast
+		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,10f);
 		states.Add(search);
 
 		//Search Disgust (go to signal state)
@@ -44,13 +44,14 @@ public class Anger_SM : MonoBehaviour{
 		searchlocationtrans.Add(new SeeMonsterTrans(gameObject));
 		searchlocationtrans.Add(new GetSignalTrans(gameObject));
 		searchlocationtrans.Add(new StopAndTimePassTrans(gameObject,1f,"patroll")); //No hay nadie en el punto
-		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);//Runs super fast
+		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);
 		states.Add(searchLocation);
 
 		//Pursue state
 		List<Transition> pursuetrans = new List<Transition>();
-		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
-		PursueState pursue = new PursueState(gameObject, pursuetrans, 17f);
+		//pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
+		pursuetrans.Add(new ReachTrans(gameObject));
+		PursueState pursue = new PursueState(gameObject, pursuetrans, 12f);
 		states.Add(pursue);
 
 		//Look for state
@@ -67,7 +68,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> waypointtrans = new List<Transition>();
 		waypointtrans.Add(new SeeMonsterTrans(gameObject));
 		waypointtrans.Add(new StopAndTimePassTrans(gameObject,1f,"patroll"));
-		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,17f);
+		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,12f);
 		states.Add(pursuerwaypoint);
 
 
@@ -75,7 +76,7 @@ public class Anger_SM : MonoBehaviour{
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = pursuerwaypoint;
+		currentState = pursue;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -112,7 +113,7 @@ public class Anger_SM : MonoBehaviour{
 		//TEST
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
-				//Debug.Log("Transition triggered");
+				Debug.Log("Transition triggered");
 				triggeredTransition = transition;
 				break;
 			}   

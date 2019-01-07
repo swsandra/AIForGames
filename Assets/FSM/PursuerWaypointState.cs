@@ -33,9 +33,7 @@ public class PursuerWaypointState : State {
 
         //Calculate best pursuer waypoint
         int target = waypoint.BestPursuerWaypoint(invocant.transform.position);
-		pathFollowing.graph.nodes[target].DrawTriangle();
-		Debug.Log("Best waypoint at "+target);
-		//pathFollowing.ChangeEndNode(target);
+		pathFollowing.ChangeEndNode(target);
 		
 	}
 	

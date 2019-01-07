@@ -6,7 +6,7 @@ public class PursueState : State {
 
     GraphPathFollowing pathFollowing;
 
-    float speed;
+    float speed, reachRadius=9f;
 
     GameObject invocant;
 
@@ -27,7 +27,13 @@ public class PursueState : State {
         invocant.GetComponent<Agent>().maxSpeed = speed;
         invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
         if (invocant.name=="Monster_Anger") {
-            pathFollowing.astar_target=GameObject.Find("Monster_Fear");
+            GameObject fear = GameObject.Find("Monster_Fear");
+            pathFollowing.astar_target= fear;
+            //Check if it is within certain range, it maximizes its speed
+            if(Vector3.Distance(fear.transform.position,invocant.transform.position)<reachRadius){
+                invocant.GetComponent<Agent>().maxSpeed = (speed*2);
+                invocant.GetComponent<Agent>().maxAcc = (speed*4)+10;
+            }
         }
         else if (invocant.name=="Monster_Sadness"){
             pathFollowing.astar_target=GameObject.Find("Monster_Happiness");
