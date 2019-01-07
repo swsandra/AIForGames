@@ -32,13 +32,13 @@ public class Sadness_SM : MonoBehaviour{
 		List<Transition> looktrans = new List<Transition>();
 		looktrans.Add(new GetSignalTrans(gameObject));
 		looktrans.Add(new SeeMonsterTrans(gameObject));
-		looktrans.Add(new TimePassTrans(gameObject,7f));
+		looktrans.Add(new TimePassTrans(gameObject,7f,"patroll"));
 		LookForState look = new LookForState(gameObject,looktrans,10f);
 		states.Add(look);
 		//Transitions for eat state
 		List<Transition> eattrans = new List<Transition>();
 		eattrans.Add(new FoodDisappearsTrans(gameObject));
-		EatState eat = new EatState(gameObject,eattrans);
+		GoToSignalState eat = new GoToSignalState(gameObject,eattrans);
 		states.Add(eat);
 
 		initialState = patroll;

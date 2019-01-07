@@ -12,10 +12,13 @@ public class TimePassTrans : Transition{
     float delay;
 
     bool changeCreationTime;
+    
+    string nextTransition;
 
-    public TimePassTrans(GameObject inv, float d){
+    public TimePassTrans(GameObject inv, float d, string transition){
         invocant=inv;
         delay=d;
+        nextTransition=transition;
         changeCreationTime=true;
         //Save creation time
         //creationTime = System.DateTime.Now;
@@ -44,20 +47,10 @@ public class TimePassTrans : Transition{
     }
 
     public override string GetTargetState(){
-        if (invocant.name=="Monster_Disgust") {
-            
-        }
-        else if (invocant.name=="Monster_Anger") {
-            
-        }
-        else if (invocant.name=="Monster_Sadness"){
-            
-        }
-
         invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
         invocant.GetComponent<GraphPathFollowing>().path=new List<Node>();
         changeCreationTime=true;
-        return "patroll";
+        return nextTransition;
 
     }
 

@@ -18,18 +18,30 @@ public class Anger_SM : MonoBehaviour{
 		states = new List<State>();
 		//Patroll state
 		List<Transition> patrolltrans = new List<Transition>();
+        patrolltrans.Add(new GetSignalTrans(gameObject));
 		patrolltrans.Add(new HearNoiseTrans(gameObject));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
-        //Search state
-		List<Transition> searchtrans = new List<Transition>();
-		//searchtrans.Add();
-		SearchState search = new SearchState(gameObject, searchtrans,10f);//Runs super fast
+        //Search noise state
+		List<Transition> searchnoisetrans = new List<Transition>();
+        searchnoisetrans.Add(new GetSignalTrans(gameObject));
+		searchnoisetrans.Add(new TimePassTrans(gameObject,7f,"patroll"));
+		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,10f);//Runs super fast
 		states.Add(search);
 
-		//Search Disgust state
+		//Search Disgust (go to signal state)
+        List<Transition> searchdisgusttrans = new List<Transition>();
+		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,3f,"searchlocation"));
+		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans);
+		states.Add(gotosignal);
 
+        //Search location state
+        List<Transition> searchlocationtrans = new List<Transition>();
+        searchlocationtrans.Add(new GetSignalTrans(gameObject));
+		searchlocationtrans.Add(new TimePassTrans(gameObject,2f,"patroll")); //No hay nadie alrededor del punto
+		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);//Runs super fast
+		states.Add(searchLocation);
 
         //Pursue state
 
@@ -48,7 +60,7 @@ public class Anger_SM : MonoBehaviour{
 		initialState = patroll;
 		currentState = patroll;
         //TEST
-        currentState = search;
+        currentState = gotosignal;
         //
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -91,7 +103,7 @@ public class Anger_SM : MonoBehaviour{
 			}   
 		}
 
-        currentState.GetAction();
+        //currentState.GetAction();
         //
 
 	}

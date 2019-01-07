@@ -23,13 +23,7 @@ public class GetSignalTrans : Transition {
 	public override string GetTargetState(){
 
 		invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
-		if (invocant.name=="Monster_Anger") {
-            return ""; //HAS TO RETURN SOMETHING LIKE LOOK FOR SOMEONE (using max range of hearing)
-        }
-        else if (invocant.name=="Monster_Sadness"){
-			return "eat";
-        }
-		return "";	
+		return "goto";
 
 	}
 

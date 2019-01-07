@@ -5,7 +5,7 @@ public class HearModality: Modality {
 
     public HearModality(){
         name="hearing";
-        maximumRange=60;
+        maximumRange=100;
         attenuation=1f; //FOR SMELL THIS HAS TO CHANGE
         inverseTransmissionSpeed=0f;
     }
