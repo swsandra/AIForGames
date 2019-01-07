@@ -212,7 +212,7 @@ public class WaypointDecision : MonoBehaviour{
 	public int BestPursuerWaypoint(Vector3 position){
 		int bestWaypoint = -1;
 		List<int> nearestWaypoints = GetNearestWaypoints(position);
-		int lessObstacles = 0; //Number of obstacles in the way
+		float lessObstacles = Mathf.Infinity; //Number of obstacles in the way
 		//Calculate if waypoints are in pursuers line of sight
 		foreach(int waypoint in nearestWaypoints){
 			int numObstacles=0;
