@@ -39,13 +39,13 @@ public class WaypointDecision : MonoBehaviour{
 	// Update is called once per frame
 	void Update()
 	{
-		int waypoint;
+		/*int waypoint;
 		if (calcWaypoint){
 			waypoint = BestWaypoint();
 			Debug.Log("Best waypoint at node "+waypoint);
 			calcWaypoint=false;
 		}
-		/*GameObject walls = GameObject.Find("Walls");
+		GameObject walls = GameObject.Find("Walls");
 		foreach(Transform wall in walls.transform){
 			SpriteRenderer sprite;
 			sprite=wall.GetComponent<SpriteRenderer>();
@@ -81,6 +81,7 @@ public class WaypointDecision : MonoBehaviour{
 		return nextWaypoints;
 	}
 
+	//Not this one
 	public int BestWaypointByArea(){
 		int bestWaypoint = -1;
 		List<int> nearestWaypoints = GetNearestWaypoints();

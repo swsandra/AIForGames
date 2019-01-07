@@ -18,6 +18,7 @@ public class Anger_SM : MonoBehaviour{
 		states = new List<State>();
 		//Patroll state
 		List<Transition> patrolltrans = new List<Transition>();
+		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		patrolltrans.Add(new GetSignalTrans(gameObject));
 		patrolltrans.Add(new HearNoiseTrans(gameObject));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
@@ -25,6 +26,7 @@ public class Anger_SM : MonoBehaviour{
 		
 		//Search noise state
 		List<Transition> searchnoisetrans = new List<Transition>();
+		searchnoisetrans.Add(new SeeMonsterTrans(gameObject));
 		searchnoisetrans.Add(new GetSignalTrans(gameObject));
 		searchnoisetrans.Add(new TimePassTrans(gameObject,7f,"patroll"));
 		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,10f);//Runs super fast
@@ -32,22 +34,31 @@ public class Anger_SM : MonoBehaviour{
 
 		//Search Disgust (go to signal state)
 		List<Transition> searchdisgusttrans = new List<Transition>();
+		searchdisgusttrans.Add(new SeeMonsterTrans(gameObject));
 		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,3f,"searchlocation"));
 		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans);
 		states.Add(gotosignal);
 
 		//Search location state
 		List<Transition> searchlocationtrans = new List<Transition>();
+		searchlocationtrans.Add(new SeeMonsterTrans(gameObject));
 		searchlocationtrans.Add(new GetSignalTrans(gameObject));
-		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,1f,"searchlocation")); //No hay nadie en el punto
+		searchlocationtrans.Add(new StopAndTimePassTrans(gameObject,1f,"patroll")); //No hay nadie en el punto
 		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);//Runs super fast
 		states.Add(searchLocation);
 
 		//Pursue state
-
+		List<Transition> pursuetrans = new List<Transition>();
+		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
+		PursueState pursue = new PursueState(gameObject, pursuetrans, 17f);
+		states.Add(pursue);
 
 		//Look for state
-
+		List<Transition> looktrans = new List<Transition>();
+		looktrans.Add(new SeeMonsterTrans(gameObject));
+		looktrans.Add(new TimePassTrans(gameObject,4f,"nearwaypoint"));
+		LookForState look = new LookForState(gameObject,looktrans,10f);
+		states.Add(look);
 
 		//Push Fear state
 
