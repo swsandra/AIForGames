@@ -18,50 +18,50 @@ public class Anger_SM : MonoBehaviour{
 		states = new List<State>();
 		//Patroll state
 		List<Transition> patrolltrans = new List<Transition>();
-        patrolltrans.Add(new GetSignalTrans(gameObject));
+		patrolltrans.Add(new GetSignalTrans(gameObject));
 		patrolltrans.Add(new HearNoiseTrans(gameObject));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
-        //Search noise state
+		//Search noise state
 		List<Transition> searchnoisetrans = new List<Transition>();
-        searchnoisetrans.Add(new GetSignalTrans(gameObject));
+		searchnoisetrans.Add(new GetSignalTrans(gameObject));
 		searchnoisetrans.Add(new TimePassTrans(gameObject,7f,"patroll"));
 		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,10f);//Runs super fast
 		states.Add(search);
 
 		//Search Disgust (go to signal state)
-        List<Transition> searchdisgusttrans = new List<Transition>();
+		List<Transition> searchdisgusttrans = new List<Transition>();
 		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,3f,"searchlocation"));
 		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans);
 		states.Add(gotosignal);
 
-        //Search location state
-        List<Transition> searchlocationtrans = new List<Transition>();
-        searchlocationtrans.Add(new GetSignalTrans(gameObject));
-		searchlocationtrans.Add(new TimePassTrans(gameObject,2f,"patroll")); //No hay nadie alrededor del punto
+		//Search location state
+		List<Transition> searchlocationtrans = new List<Transition>();
+		searchlocationtrans.Add(new GetSignalTrans(gameObject));
+		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,1f,"searchlocation")); //No hay nadie en el punto
 		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);//Runs super fast
 		states.Add(searchLocation);
 
-        //Pursue state
+		//Pursue state
 
 
-        //Look for state
+		//Look for state
 
 
-        //Push Fear state
+		//Push Fear state
 
 
-        //Nearest waypoint state
+		//Nearest waypoint state
 
 
 
 
 		initialState = patroll;
 		currentState = patroll;
-        //TEST
-        currentState = gotosignal;
-        //
+		//TEST
+		currentState = searchLocation;
+		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
@@ -85,7 +85,7 @@ public class Anger_SM : MonoBehaviour{
 			//Get state from states list
 			foreach (State state in states){
 				gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
-        		gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
+				gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				if(targetState.Equals(state.name)){
 					currentState = state;
 				}
@@ -94,17 +94,17 @@ public class Anger_SM : MonoBehaviour{
 
 		currentState.GetAction(); */
 
-        //TEST
-        foreach (Transition transition in currentState.GetTransitions()){
+		//TEST
+		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
-                Debug.Log("Transition triggered");
+				//Debug.Log("Transition triggered");
 				triggeredTransition = transition;
 				break;
 			}   
 		}
 
-        //currentState.GetAction();
-        //
+		currentState.GetAction();
+		//
 
 	}
 

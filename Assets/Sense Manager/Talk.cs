@@ -16,7 +16,7 @@ public class Talk : MonoBehaviour{
 		talk=false;
 		senseManager = GameObject.Find("Sense Manager").GetComponent<RegionalSenseManager>();
 		hear=new HearModality();
-
+		target=Vector3.zero;
 	}
 
 	// Update is called once per frame
@@ -29,8 +29,8 @@ public class Talk : MonoBehaviour{
 		}
 	}
 
-	public void ChangeMessage(Vector3 newMessage){
-		target=newMessage;
+	public void ChangeTarget(Vector3 newTarget){
+		target=newTarget;
 	}
 
 }

@@ -172,9 +172,10 @@ public class GraphPathFollowing : GeneralBehaviour
             path = graph.AStar(graph.nodes[initial],graph.nodes[end]);
             path.RemoveAt(0);
         }
-        current = path[0].id;
-        path.RemoveAt(0);
-        
+        if (path.Count!=0){
+            current = path[0].id;
+            path.RemoveAt(0);
+        }
     }
 
     public int GetNearestNodeByAreas(Vector3 position, float delta){
