@@ -26,14 +26,14 @@ public class Sadness_SM : MonoBehaviour{
 		List<Transition> pursuetrans = new List<Transition>();
 		pursuetrans.Add(new GetSignalTrans(gameObject));
 		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
-		PursueState pursue = new PursueState(gameObject, pursuetrans, 9f);
+		PursueState pursue = new PursueState(gameObject, pursuetrans, 15f);
 		states.Add(pursue);
 		//Transitions for look for state
 		List<Transition> looktrans = new List<Transition>();
 		looktrans.Add(new GetSignalTrans(gameObject));
 		looktrans.Add(new SeeMonsterTrans(gameObject));
-		looktrans.Add(new TimePassTrans(gameObject,5f));
-		LookForState look = new LookForState(gameObject,looktrans,7f);
+		looktrans.Add(new TimePassTrans(gameObject,7f));
+		LookForState look = new LookForState(gameObject,looktrans,10f);
 		states.Add(look);
 		//Transitions for eat state
 		List<Transition> eattrans = new List<Transition>();
@@ -52,7 +52,7 @@ public class Sadness_SM : MonoBehaviour{
 	void Update()
 	{
 		//Book algorithm
-		/*triggeredTransition = null;
+		triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -71,7 +71,7 @@ public class Sadness_SM : MonoBehaviour{
 					currentState = state;
 				}
 			}
-		} */
+		}
 
 		currentState.GetAction();
 

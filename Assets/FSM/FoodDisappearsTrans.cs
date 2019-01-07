@@ -47,6 +47,7 @@ public class FoodDisappearsTrans : Transition{
         }
 
         invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
+        invocant.GetComponent<GraphPathFollowing>().path=new List<Node>();
         changeCreationTime=true;
         return "patroll";
 

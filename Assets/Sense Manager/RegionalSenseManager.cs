@@ -56,24 +56,24 @@ public class RegionalSenseManager : MonoBehaviour{
         foreach(GameObject sensor in sensors){
             //Check if sensor can detect modality
             if (!sensor.GetComponent<Sensor>().detectsModality(signal.modality)){
-                Debug.Log("Sensor "+sensor.name+" cant detect modality");
+                //Debug.Log("Sensor "+sensor.name+" cant detect modality");
                 continue;
             }
             //Check range
             float distance = (signal.position-sensor.transform.position).magnitude;
             if (signal.modality.maximumRange<distance){
-                Debug.Log("distance "+distance+" is greater than range "+signal.modality.maximumRange);
+                //Debug.Log("distance "+distance+" is greater than range "+signal.modality.maximumRange);
                 continue;
             }
             //Check threshold for intensity
             float intensity = signal.strenght * Mathf.Pow(signal.modality.attenuation,distance);
             if (intensity<sensor.GetComponent<Sensor>().threshold){
-                Debug.Log("intensity "+intensity+" is less than threshold "+sensor.GetComponent<Sensor>().threshold);
+                //Debug.Log("intensity "+intensity+" is less than threshold "+sensor.GetComponent<Sensor>().threshold);
                 continue;
             }
             //Additional checks
             if(!signal.modality.extraChecks()){
-                Debug.Log("Extra checks didnt pass");
+                //Debug.Log("Extra checks didnt pass");
                 continue;
             }
             //Time for notification will depend on signal modality (smell is later)
