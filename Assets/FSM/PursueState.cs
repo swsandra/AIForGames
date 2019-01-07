@@ -20,12 +20,12 @@ public class PursueState : State {
         pathFollowing = invocant.GetComponent<GraphPathFollowing>();
         pathFollowing.astar_target=null; //Set to null just in case
         speed = pursueSpeed;
-        //Changes speed of character
-        invocant.GetComponent<Agent>().maxSpeed = speed;
-        invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
     }
 
     public override void GetAction(){
+        //Changes speed of character
+        invocant.GetComponent<Agent>().maxSpeed = speed;
+        invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
         if (invocant.name=="Monster_Anger") {
             pathFollowing.astar_target=GameObject.Find("Monster_Fear");
         }

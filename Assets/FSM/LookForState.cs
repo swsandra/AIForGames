@@ -25,12 +25,12 @@ public class LookForState : State {
         graph = GameObject.Find("Map Graph").GetComponent<GraphMap>();
         newTargetNode=-1;
         pathFollowing.astar_target=null; //Set to null just in case
-        //Changes speed of character
-        invocant.GetComponent<Agent>().maxSpeed = speed;
-        invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
     }
 
     public override void GetAction(){
+        //Changes speed of character
+        invocant.GetComponent<Agent>().maxSpeed = speed;
+        invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
         if (newTargetNode==-1){
             if (invocant.name=="Monster_Anger") {
                 newTargetNode = pathFollowing.graph.GetNearestNodeByCenter(GameObject.Find("Monster_Fear").transform.position);
