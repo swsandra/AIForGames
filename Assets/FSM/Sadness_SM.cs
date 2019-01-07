@@ -26,7 +26,7 @@ public class Sadness_SM : MonoBehaviour{
 		List<Transition> pursuetrans = new List<Transition>();
 		pursuetrans.Add(new GetSignalTrans(gameObject));
 		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
-		PursueState pursue = new PursueState(gameObject, pursuetrans, 15f);
+		PursueState pursue = new PursueState(gameObject, pursuetrans, 17f);
 		states.Add(pursue);
 		//Transitions for look for state
 		List<Transition> looktrans = new List<Transition>();

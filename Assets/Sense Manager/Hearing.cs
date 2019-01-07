@@ -24,7 +24,7 @@ public class Hearing : MonoBehaviour{
 	{
         DrawHearingArea();
         heardCloseCharacters = CheckMinArea();
-        heardCharacters = CheckMinArea();
+        heardCharacters = CheckMaxArea();
         
 	}
 
