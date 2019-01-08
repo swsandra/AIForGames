@@ -49,6 +49,11 @@ public class SeeMonsterTrans : Transition {
 					return true;
 				}
 			}
+			else if (invocant.name=="Monster_Disgust") {
+				if (hearing.heardCloseCharacters.Contains("Monster_Fear")){
+					return true;
+				}
+			}
 			else if (invocant.name=="Monster_Sadness"){
 				if (hearing.heardCloseCharacters.Contains("Monster_Happiness")){
 					return true;
@@ -63,6 +68,9 @@ public class SeeMonsterTrans : Transition {
 
 		if (invocant.name=="Monster_Fear") {
 			return "waypoint";
+		}
+		else if (invocant.name=="Monster_Disgust") {
+			return "scream";
 		}
 		invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
 		return "pursue";

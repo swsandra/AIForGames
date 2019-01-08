@@ -83,6 +83,7 @@
      <Compile Include="Assets\BehaviourScripts\Wander.cs" />
      <Compile Include="Assets\DebugDrawingExtension\DebugExtension.cs" />
      <Compile Include="Assets\FSM\Anger_SM.cs" />
+     <Compile Include="Assets\FSM\Disgust_SM.cs" />
      <Compile Include="Assets\FSM\DizzyState.cs" />
      <Compile Include="Assets\FSM\Fear_SM.cs" />
      <Compile Include="Assets\FSM\FleeState.cs" />

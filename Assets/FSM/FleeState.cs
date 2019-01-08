@@ -18,7 +18,7 @@ public class FleeState : State{
 	public FleeState(GameObject inv, List<Transition> trans, float fleeSpeed){
 		invocant=inv;
 		transitions = trans;
-		name="patroll";
+		name="flee";
 		patrollRegion = new Vector3[2];
         patrollRegion[0] = new Vector3(96f, -3f, 0f);
         patrollRegion[1] = new Vector3(148f, 64f, 0f);
