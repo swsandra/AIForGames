@@ -18,6 +18,7 @@ public class PushedTrans : Transition {
         //If it was pushed
 		if(invocant.GetComponent<Separation>().pushed){
             invocant.GetComponent<Separation>().pushed=false;
+            return true;
         }
 		return false;
 	}

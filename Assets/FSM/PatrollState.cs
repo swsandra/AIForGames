@@ -18,10 +18,10 @@ public class PatrollState : State{
 		transitions = trans;
 		name="patroll";
 		patrollRegion = new Vector3[2];
-		//If it is north, between izq arriba (-84,65), der arriba (76, 44), izq abajo (-84,-10), der abajo (76, 31)
+		//If it is north, between izq arriba (-84,65), der arriba (76, 64), izq abajo (-84,-10), der abajo (76, 31)
 		if (invocant.name=="Monster_Disgust") {
 			patrollRegion[0] = new Vector3(-84f, -10f, 0f);
-			patrollRegion[1] = new Vector3(76f, 31f, 0f);
+			patrollRegion[1] = new Vector3(76f, 64f, 0f);
 		}//If it is south, between izq arriba (-123,-18), izq abajo (-123,-88), der abajo (127, -69), der arr (127, -23)
 		else if (invocant.name=="Monster_Anger") {
 			patrollRegion[0] = new Vector3(-123f, -88f, 0f);
@@ -30,6 +30,10 @@ public class PatrollState : State{
 		else if (invocant.name=="Monster_Sadness"){
 			patrollRegion[0] = new Vector3(-84f, -88f, 0f);
 			patrollRegion[1] = new Vector3(127f, 65f, 0f);
+		}//If it is the kitchen, between 
+		else if (invocant.name=="Monster_Fear"){
+			patrollRegion[0] = new Vector3(96f, -9f, 0f);
+			patrollRegion[1] = new Vector3(148f, 64f, 0f);
 		}
 		//Store path following script from gameobject
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();

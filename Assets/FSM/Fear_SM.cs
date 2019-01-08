@@ -18,14 +18,20 @@ public class Fear_SM : MonoBehaviour{
 		states = new List<State>();
 		//Patroll state
 		List<Transition> patrolltrans = new List<Transition>();
-		//patrolltrans.Add(new SeeMonsterTrans(gameObject));
+		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		patrolltrans.Add(new PushedTrans(gameObject)); //is being pushed
-		//patrolltrans.Add(new TimePassTrans(gameObject,15f,"patrollonce"));
+		patrolltrans.Add(new TimePassTrans(gameObject,20f,"patrollonce"));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
 		//Patroll once state
-		
+		List<Transition> patrolloncetrans = new List<Transition>();
+		patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
+		patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
+		//Sees disgust
+		patrolloncetrans.Add(new TimePassTrans(gameObject,10f,"patroll"));
+		PatrollOnceState patrollonce = new PatrollOnceState(gameObject, patrolloncetrans);
+		states.Add(patrollonce);
 
 		//Flee state
 		
@@ -52,7 +58,7 @@ public class Fear_SM : MonoBehaviour{
 	void Update()
 	{
 		//Book algorithm
-		/*triggeredTransition = null;
+		triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -73,15 +79,15 @@ public class Fear_SM : MonoBehaviour{
 			}
 		}
 
-		currentState.GetAction(); */
+		currentState.GetAction();
 
-		foreach (Transition transition in currentState.GetTransitions()){
-			if (transition.IsTriggered()){
-				Debug.Log("Transition triggered");
-				triggeredTransition = transition;
-				break;
-			}   
-		}
+		//foreach (Transition transition in currentState.GetTransitions()){
+		//	if (transition.IsTriggered()){
+		//		Debug.Log("Transition triggered");
+		//		triggeredTransition = transition;
+		//		break;
+		//	}   
+		//}
 
 		//currentState.GetAction();
 
