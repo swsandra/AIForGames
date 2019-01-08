@@ -38,13 +38,21 @@ public class Fear_SM : MonoBehaviour{
 		fleetrans.Add(new SeeMonsterTrans(gameObject));
 		fleetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		fleetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
-		FleeState flee = new FleeState(gameObject, patrolloncetrans, 8f);
+		FleeState flee = new FleeState(gameObject, fleetrans, 8f);
 		states.Add(flee);
 
 		//Waypoint decision state
-		
+		List<Transition> waypointtrans = new List<Transition>();
+		waypointtrans.Add(new PushedTrans(gameObject));
+		waypointtrans.Add(new StopAndTimePassTrans(gameObject,7f,"patroll"));
+		WaypointState waypoint = new WaypointState(gameObject, waypointtrans, 8f);
+		states.Add(waypoint);
 
 		//Dizzy state
+		List<Transition> dizzytrans = new List<Transition>();
+		dizzytrans.Add(new StopAndTimePassTrans(gameObject,7f,"waypoint"));
+		//DizzyState dizzy = new DizzyState(gameObject, dizzytrans, 8f);
+		//states.Add(dizzy);
 
 		
 
@@ -52,7 +60,7 @@ public class Fear_SM : MonoBehaviour{
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = flee;
+		currentState = waypoint;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case

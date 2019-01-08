@@ -61,6 +61,9 @@ public class SeeMonsterTrans : Transition {
 
 	public override string GetTargetState(){
 
+		if (invocant.name=="Monster_Fear") {
+			return "waypoint";
+		}
 		invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
 		return "pursue";
 

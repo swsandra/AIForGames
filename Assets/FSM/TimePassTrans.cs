@@ -20,17 +20,6 @@ public class TimePassTrans : Transition{
         delay=d;
         nextTransition=transition;
         changeCreationTime=true;
-        //Save creation time
-        //creationTime = System.DateTime.Now;
-        if (invocant.name=="Monster_Disgust") {
-            
-        }
-        else if (invocant.name=="Monster_Anger") {
-            
-        }
-        else if (invocant.name=="Monster_Sadness"){
-
-        }
     }
 
     public override bool IsTriggered(){
