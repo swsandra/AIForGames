@@ -47,6 +47,7 @@ public class PushState : State {
 			//Disable
 			fear.maxSpeed=initialSpeed;
 			message.GetComponent<Renderer>().enabled=false;
+			changeCreationTime=true;
 			return;
 		}
 		//Enable

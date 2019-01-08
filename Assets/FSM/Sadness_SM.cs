@@ -41,7 +41,7 @@ public class Sadness_SM : MonoBehaviour{
 		//Transitions for eat state
 		List<Transition> eattrans = new List<Transition>();
 		eattrans.Add(new FoodDisappearsTrans(gameObject));
-		GoToSignalState eat = new GoToSignalState(gameObject,eattrans);
+		GoToSignalState eat = new GoToSignalState(gameObject,eattrans,6f);
 		states.Add(eat);
 
 		initialState = patroll;
