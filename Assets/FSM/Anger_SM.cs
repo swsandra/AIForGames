@@ -49,7 +49,7 @@ public class Anger_SM : MonoBehaviour{
 
 		//Pursue state
 		List<Transition> pursuetrans = new List<Transition>();
-		//pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
+		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
 		pursuetrans.Add(new ReachTrans(gameObject));
 		PursueState pursue = new PursueState(gameObject, pursuetrans, 12f);
 		states.Add(pursue);
@@ -62,7 +62,10 @@ public class Anger_SM : MonoBehaviour{
 		states.Add(look);
 
 		//Push Fear state
-
+		List<Transition> pushtrans = new List<Transition>();
+		pushtrans.Add(new TimePassTrans(gameObject,4f,"patroll"));
+		PushState push = new PushState(gameObject,pushtrans);
+		states.Add(push);
 
 		//Nearest pursuer waypoint state
 		List<Transition> waypointtrans = new List<Transition>();
@@ -71,12 +74,10 @@ public class Anger_SM : MonoBehaviour{
 		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,12f);
 		states.Add(pursuerwaypoint);
 
-
-
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = pursue;
+		currentState = push;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -113,7 +114,7 @@ public class Anger_SM : MonoBehaviour{
 		//TEST
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
-				Debug.Log("Transition triggered");
+				//Debug.Log("Transition triggered");
 				triggeredTransition = transition;
 				break;
 			}   
