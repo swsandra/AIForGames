@@ -37,20 +37,20 @@ public class SeeMonsterTrans : Transition {
 			}
 		}
 		//Check if there is any monster inside min radius in hearing
-		if(hearing.heardCharacters.Count!=0){
+		if(hearing.heardCloseCharacters.Count!=0){
 			//Check if it is the target for each monster
 			if (invocant.name=="Monster_Fear") {
-				if (sight.inSightCharacters.Contains("Monster_Anger")){
+				if (hearing.heardCloseCharacters.Contains("Monster_Anger")){
 					return true;
 				}
 			}
 			else if (invocant.name=="Monster_Anger") {
-				if (hearing.heardCharacters.Contains("Monster_Fear")){
+				if (hearing.heardCloseCharacters.Contains("Monster_Fear")){
 					return true;
 				}
 			}
 			else if (invocant.name=="Monster_Sadness"){
-				if (hearing.heardCharacters.Contains("Monster_Happiness")){
+				if (hearing.heardCloseCharacters.Contains("Monster_Happiness")){
 					return true;
 				}
 			}

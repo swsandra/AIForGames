@@ -99,6 +99,7 @@
      <Compile Include="Assets\FSM\Sadness_SM.cs" />
      <Compile Include="Assets\FSM\SearchLocationState.cs" />
      <Compile Include="Assets\FSM\SearchNoiseState.cs" />
+     <Compile Include="Assets\FSM\SeeDisgustTrans.cs" />
      <Compile Include="Assets\FSM\SeeMonsterTrans.cs" />
      <Compile Include="Assets\FSM\State.cs" />
      <Compile Include="Assets\FSM\StopAndTimePassTrans.cs" />

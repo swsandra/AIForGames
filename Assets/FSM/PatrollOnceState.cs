@@ -19,8 +19,8 @@ public class PatrollOnceState : State{
 		name="patrollonce";
         //Patrolling north
 		patrollRegion = new Vector3[2];
-        patrollRegion[0] = new Vector3(-23f, 0f, 0f);
-		patrollRegion[1] = new Vector3(76f, 64f, 0f);
+        patrollRegion[0] = new Vector3(4f, -40f, 0f);
+		patrollRegion[1] = new Vector3(85f, 41f, 0f);
 		//Store path following script from gameobject
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
 		pathFollowing.astar_target=null; //Set to null just in case
