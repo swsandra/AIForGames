@@ -35,7 +35,7 @@ public class Anger_SM : MonoBehaviour{
 		//Search Disgust (go to signal state)
 		List<Transition> searchdisgusttrans = new List<Transition>();
 		searchdisgusttrans.Add(new SeeMonsterTrans(gameObject));
-		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,3f,"searchlocation"));
+		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,4f,"searchlocation"));
 		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans);
 		states.Add(gotosignal);
 
@@ -43,7 +43,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> searchlocationtrans = new List<Transition>();
 		searchlocationtrans.Add(new SeeMonsterTrans(gameObject));
 		searchlocationtrans.Add(new GetSignalTrans(gameObject));
-		searchlocationtrans.Add(new StopAndTimePassTrans(gameObject,1f,"patroll")); //No hay nadie en el punto
+		searchlocationtrans.Add(new StopAndTimePassTrans(gameObject,2f,"patroll")); //No hay nadie en el punto
 		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);
 		states.Add(searchLocation);
 
@@ -70,14 +70,14 @@ public class Anger_SM : MonoBehaviour{
 		//Nearest pursuer waypoint state
 		List<Transition> waypointtrans = new List<Transition>();
 		waypointtrans.Add(new SeeMonsterTrans(gameObject));
-		waypointtrans.Add(new StopAndTimePassTrans(gameObject,1f,"patroll"));
+		waypointtrans.Add(new StopAndTimePassTrans(gameObject,2f,"patroll"));
 		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,12f);
 		states.Add(pursuerwaypoint);
 
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = push;
+		//currentState = push;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -88,7 +88,7 @@ public class Anger_SM : MonoBehaviour{
 	void Update()
 	{
 		//Book algorithm
-		/*triggeredTransition = null;
+		triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -109,19 +109,7 @@ public class Anger_SM : MonoBehaviour{
 			}
 		}
 
-		currentState.GetAction(); */
-
-		//TEST
-		foreach (Transition transition in currentState.GetTransitions()){
-			if (transition.IsTriggered()){
-				//Debug.Log("Transition triggered");
-				triggeredTransition = transition;
-				break;
-			}   
-		}
-
 		currentState.GetAction();
-		//
 
 	}
 
