@@ -52,6 +52,7 @@ public class PushState : State {
 		}
 		//Enable
 		fear.SetSteering(separation.GetSteering(), separation.weight, separation.priority);
+		separation.pushed=true;
 		fear.maxSpeed=initialSpeed*2;
 		//Enable text mesh renderer
 		message.transform.position=new Vector3(invocant.transform.position.x,invocant.transform.position.y+15f,invocant.transform.position.z);

@@ -864,11 +864,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 25.4
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -75.4
+      value: -71.8
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5956,9 +5956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 6
   maxVertSpeed: 6
-  maxAcc: 18
+  maxAcc: 20
   maxJumpAcc: 8
   maxAngularAcc: 30
   maxRotation: 15
@@ -5993,6 +5993,7 @@ MonoBehaviour:
   - {fileID: 1463035772}
   threshold: 6
   decayCoefficient: 10
+  pushed: 0
 --- !u!114 &821653487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6009,6 +6010,17 @@ MonoBehaviour:
   weight: 1
   priority: 1
   stop: 0
+--- !u!114 &821653488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821653483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38929614c6eeb584bbef3e03fe166231, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &825669185
 GameObject:
   m_ObjectHideFlags: 0
@@ -10647,11 +10659,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 88
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -67.4
+      value: -75.2
       objectReference: {fileID: 0}
     - target: {fileID: 452902, guid: 5302e0fa9c649e44688e67302a3e57b5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10785,9 +10797,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 5
   maxVertSpeed: 6
-  maxAcc: 18
+  maxAcc: 20
   maxJumpAcc: 8
   maxAngularAcc: 30
   maxRotation: 15
@@ -12857,9 +12869,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 5
   maxVertSpeed: 6
-  maxAcc: 18
+  maxAcc: 20
   maxJumpAcc: 8
   maxAngularAcc: 30
   maxRotation: 15
@@ -13558,7 +13570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96b80edf8dfbf654f90f14b87187970d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 12
+  _speed: 13
   _move: 0
   _point: {fileID: 0}
   _target: {x: 0, y: 0, z: 0}
@@ -13573,12 +13585,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
+  maxSpeed: 5
   maxVertSpeed: 6
-  maxAcc: 9
+  maxAcc: 20
   maxJumpAcc: 8
-  maxAngularAcc: 8
-  maxRotation: 9
+  maxAngularAcc: 30
+  maxRotation: 15
   velocity: {x: 0, y: 0, z: 0}
   blendProperty: 0
   blended: 0
@@ -15016,9 +15028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fc9dc26f8719f4ca4cad2fd2f0b403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 4
+  maxSpeed: 5
   maxVertSpeed: 6
-  maxAcc: 18
+  maxAcc: 20
   maxJumpAcc: 8
   maxAngularAcc: 30
   maxRotation: 15

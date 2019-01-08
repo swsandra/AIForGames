@@ -83,6 +83,7 @@
      <Compile Include="Assets\BehaviourScripts\Wander.cs" />
      <Compile Include="Assets\DebugDrawingExtension\DebugExtension.cs" />
      <Compile Include="Assets\FSM\Anger_SM.cs" />
+     <Compile Include="Assets\FSM\Fear_SM.cs" />
      <Compile Include="Assets\FSM\FoodDisappearsTrans.cs" />
      <Compile Include="Assets\FSM\GetSignalTrans.cs" />
      <Compile Include="Assets\FSM\GoToSignalState.cs" />
@@ -91,6 +92,7 @@
      <Compile Include="Assets\FSM\PatrollState.cs" />
      <Compile Include="Assets\FSM\PursuerWaypointState.cs" />
      <Compile Include="Assets\FSM\PursueState.cs" />
+     <Compile Include="Assets\FSM\PushedTrans.cs" />
      <Compile Include="Assets\FSM\PushState.cs" />
      <Compile Include="Assets\FSM\ReachTrans.cs" />
      <Compile Include="Assets\FSM\Sadness_SM.cs" />

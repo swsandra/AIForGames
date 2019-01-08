@@ -5,6 +5,9 @@ public class Separation : GeneralBehaviour
 {
 	public Agent[] targets;
 	public float threshold=6f, decayCoefficient=10f;
+
+	public bool pushed;
+
 	// Use this for initialization
 	new void Start()
 	{
@@ -13,6 +16,7 @@ public class Separation : GeneralBehaviour
 		if(gameObject.name=="Monster_Fear"){
 			threshold=10f;
 		}
+		pushed=false;
 	}
 
 	// Update is called once per frame

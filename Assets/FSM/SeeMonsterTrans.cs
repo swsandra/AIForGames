@@ -20,8 +20,10 @@ public class SeeMonsterTrans : Transition {
 		//Check sight script to know if any monster gets in sight line
 		if(sight.inSightCharacters.Count!=0){
 			//Check if it is the target for each monster
-			if (invocant.name=="Monster_Disgust") {
-				
+			if (invocant.name=="Monster_Fear") {
+				if (sight.inSightCharacters.Contains("Monster_Anger")){
+					return true;
+				}
 			}
 			else if (invocant.name=="Monster_Anger") {
 				if (sight.inSightCharacters.Contains("Monster_Fear")){
@@ -37,8 +39,10 @@ public class SeeMonsterTrans : Transition {
 		//Check if there is any monster inside min radius in hearing
 		if(hearing.heardCharacters.Count!=0){
 			//Check if it is the target for each monster
-			if (invocant.name=="Monster_Disgust") {
-				
+			if (invocant.name=="Monster_Fear") {
+				if (sight.inSightCharacters.Contains("Monster_Anger")){
+					return true;
+				}
 			}
 			else if (invocant.name=="Monster_Anger") {
 				if (hearing.heardCharacters.Contains("Monster_Fear")){
