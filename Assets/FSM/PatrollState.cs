@@ -32,7 +32,7 @@ public class PatrollState : State{
 			patrollRegion[1] = new Vector3(127f, 65f, 0f);
 		}//If it is the kitchen, between 
 		else if (invocant.name=="Monster_Fear"){
-			patrollRegion[0] = new Vector3(96f, -9f, 0f);
+			patrollRegion[0] = new Vector3(96f, -3f, 0f);
 			patrollRegion[1] = new Vector3(148f, 64f, 0f);
 		}
 		//Store path following script from gameobject

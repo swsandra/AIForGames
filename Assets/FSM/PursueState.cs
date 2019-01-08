@@ -6,7 +6,7 @@ public class PursueState : State {
 
     GraphPathFollowing pathFollowing;
 
-    float speed, reachRadius=9f;
+    float speed, reachRadius=8f;
 
     GameObject invocant;
 

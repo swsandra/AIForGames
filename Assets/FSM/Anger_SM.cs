@@ -29,7 +29,7 @@ public class Anger_SM : MonoBehaviour{
 		searchnoisetrans.Add(new SeeMonsterTrans(gameObject));
 		searchnoisetrans.Add(new GetSignalTrans(gameObject));
 		searchnoisetrans.Add(new StopAndTimePassTrans(gameObject,3f,"patroll"));
-		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,10f);
+		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,9f);
 		states.Add(search);
 
 		//Search Disgust (go to signal state)

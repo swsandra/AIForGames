@@ -26,15 +26,20 @@ public class Fear_SM : MonoBehaviour{
 		
 		//Patroll once state
 		List<Transition> patrolloncetrans = new List<Transition>();
-		//patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
-		//patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
+		patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
+		patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		patrolloncetrans.Add(new SeeDisgustTrans(gameObject));
-		//patrolloncetrans.Add(new TimePassTrans(gameObject,10f,"patroll"));
+		patrolloncetrans.Add(new TimePassTrans(gameObject,10f,"patroll"));
 		PatrollOnceState patrollonce = new PatrollOnceState(gameObject, patrolloncetrans);
 		states.Add(patrollonce);
 
 		//Flee state
-		
+		List<Transition> fleetrans = new List<Transition>();
+		fleetrans.Add(new SeeMonsterTrans(gameObject));
+		fleetrans.Add(new PushedTrans(gameObject)); //is being pushed
+		fleetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
+		FleeState flee = new FleeState(gameObject, patrolloncetrans, 8f);
+		states.Add(flee);
 
 		//Waypoint decision state
 		
@@ -47,7 +52,7 @@ public class Fear_SM : MonoBehaviour{
 		initialState = patroll;
 		currentState = patroll;
 		//TEST
-		currentState = patrollonce;
+		currentState = flee;
 		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
@@ -83,13 +88,13 @@ public class Fear_SM : MonoBehaviour{
 
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
-				Debug.Log("Transition triggered");
+				//Debug.Log("Transition triggered");
 				triggeredTransition = transition;
 				break;
 			}   
 		}
 
-		//currentState.GetAction();
+		currentState.GetAction();
 
 	}
 

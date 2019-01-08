@@ -84,6 +84,7 @@
      <Compile Include="Assets\DebugDrawingExtension\DebugExtension.cs" />
      <Compile Include="Assets\FSM\Anger_SM.cs" />
      <Compile Include="Assets\FSM\Fear_SM.cs" />
+     <Compile Include="Assets\FSM\FleeState.cs" />
      <Compile Include="Assets\FSM\FoodDisappearsTrans.cs" />
      <Compile Include="Assets\FSM\GetSignalTrans.cs" />
      <Compile Include="Assets\FSM\GoToSignalState.cs" />
