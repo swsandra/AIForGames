@@ -33,7 +33,7 @@ public class WaypointState : State {
 
         //Calculate best pursuer waypoint
         int target = waypoint.BestWaypoint(invocant.transform.position);
-        Debug.Log("Best waypoint at "+target);
+        //Debug.Log("Best waypoint at "+target);
 		pathFollowing.ChangeEndNode(target);
 		
 	}

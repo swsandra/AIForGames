@@ -29,7 +29,7 @@ public class Fear_SM : MonoBehaviour{
 		patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
 		patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		patrolloncetrans.Add(new SeeDisgustTrans(gameObject));
-		patrolloncetrans.Add(new TimePassTrans(gameObject,10f,"patroll"));
+		patrolloncetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
 		PatrollOnceState patrollonce = new PatrollOnceState(gameObject, patrolloncetrans);
 		states.Add(patrollonce);
 
@@ -38,30 +38,24 @@ public class Fear_SM : MonoBehaviour{
 		fleetrans.Add(new SeeMonsterTrans(gameObject));
 		fleetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		fleetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
-		FleeState flee = new FleeState(gameObject, fleetrans, 8f);
+		FleeState flee = new FleeState(gameObject, fleetrans, 9f);
 		states.Add(flee);
 
 		//Waypoint decision state
 		List<Transition> waypointtrans = new List<Transition>();
 		waypointtrans.Add(new PushedTrans(gameObject));
 		waypointtrans.Add(new StopAndTimePassTrans(gameObject,7f,"patroll"));
-		WaypointState waypoint = new WaypointState(gameObject, waypointtrans, 8f);
+		WaypointState waypoint = new WaypointState(gameObject, waypointtrans, 12f);
 		states.Add(waypoint);
 
 		//Dizzy state
 		List<Transition> dizzytrans = new List<Transition>();
-		dizzytrans.Add(new StopAndTimePassTrans(gameObject,7f,"waypoint"));
-		//DizzyState dizzy = new DizzyState(gameObject, dizzytrans, 8f);
-		//states.Add(dizzy);
-
-		
-
+		dizzytrans.Add(new TimePassTrans(gameObject,2f,"waypoint"));
+		DizzyState dizzy = new DizzyState(gameObject, dizzytrans, 4f);
+		states.Add(dizzy);
 
 		initialState = patroll;
 		currentState = patroll;
-		//TEST
-		currentState = waypoint;
-		//
 		triggeredTransition = null;
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
@@ -71,7 +65,7 @@ public class Fear_SM : MonoBehaviour{
 	void Update()
 	{
 		//Book algorithm
-		/*triggeredTransition = null;
+		triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -84,25 +78,25 @@ public class Fear_SM : MonoBehaviour{
 			Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
-				gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
-				gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				if(targetState.Equals(state.name)){
 					currentState = state;
+					gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
+					gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				}
 			}
 		}
 
-		currentState.GetAction(); */
-
-		foreach (Transition transition in currentState.GetTransitions()){
-			if (transition.IsTriggered()){
-				//Debug.Log("Transition triggered");
-				triggeredTransition = transition;
-				break;
-			}   
-		}
-
 		currentState.GetAction();
+
+		//foreach (Transition transition in currentState.GetTransitions()){
+		//	if (transition.IsTriggered()){
+				//Debug.Log("Transition triggered");
+		//		triggeredTransition = transition;
+		//		break;
+		//	}   
+		//}
+
+		//currentState.GetAction();
 
 	}
 

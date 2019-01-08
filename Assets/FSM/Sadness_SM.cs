@@ -65,13 +65,13 @@ public class Sadness_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
-			Debug.Log("Next state: "+targetState);
+			//Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
-				gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
-        		gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				if(targetState.Equals(state.name)){
 					currentState = state;
+					gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
+        			gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				}
 			}
 		}

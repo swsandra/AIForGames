@@ -51,7 +51,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> pursuetrans = new List<Transition>();
 		pursuetrans.Add(new StopSeeMonsterTrans(gameObject));
 		pursuetrans.Add(new ReachTrans(gameObject));
-		PursueState pursue = new PursueState(gameObject, pursuetrans, 12f);
+		PursueState pursue = new PursueState(gameObject, pursuetrans, 11f);
 		states.Add(pursue);
 
 		//Look for state
@@ -71,7 +71,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> waypointtrans = new List<Transition>();
 		waypointtrans.Add(new SeeMonsterTrans(gameObject));
 		waypointtrans.Add(new StopAndTimePassTrans(gameObject,2f,"patroll"));
-		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,12f);
+		PursuerWaypointState pursuerwaypoint = new PursuerWaypointState(gameObject,waypointtrans,11f);
 		states.Add(pursuerwaypoint);
 
 		initialState = patroll;
@@ -98,13 +98,12 @@ public class Anger_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
-			Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
-				gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
-				gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				if(targetState.Equals(state.name)){
 					currentState = state;
+					gameObject.GetComponent<Agent>().maxSpeed = initialSpeed;
+					gameObject.GetComponent<Agent>().maxAcc = (initialSpeed*2)+10;
 				}
 			}
 		}
