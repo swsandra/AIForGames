@@ -75,7 +75,7 @@ public class Fear_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
-			Debug.Log("Next state: "+targetState);
+			//Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
 				if(targetState.Equals(state.name)){

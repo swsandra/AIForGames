@@ -23,6 +23,11 @@ public class Disgust_SM : MonoBehaviour{
 		states.Add(patroll);
 		
 		//Scream  state
+        List<Transition> screamtrans = new List<Transition>();
+        screamtrans.Add(new SeeAngerTrans(gameObject));
+		screamtrans.Add(new TimePassTrans(gameObject,25f,"sleep"));
+		ScreamState scream = new ScreamState(gameObject, screamtrans,9f);
+		states.Add(scream);
 
 		//Sleep state
 
@@ -30,7 +35,7 @@ public class Disgust_SM : MonoBehaviour{
 		currentState = patroll;
 		triggeredTransition = null;
         //TEST
-        //currentState = ;
+        currentState = scream;
         //
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
@@ -71,7 +76,7 @@ public class Disgust_SM : MonoBehaviour{
 			}   
 		}
 
-		currentState.GetAction();
+		//currentState.GetAction();
 
 	}
 

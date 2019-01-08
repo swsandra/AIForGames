@@ -30,6 +30,12 @@ public class SeeMonsterTrans : Transition {
 					return true;
 				}
 			}
+			else if (invocant.name=="Monster_Disgust") {
+				if (sight.inSightCharacters.Contains("Monster_Fear")){
+					GameObject.Find("Monster_Disgust").GetComponent<Talk>().target=GameObject.Find("Monster_Fear").transform.position;
+					return true;
+				}
+			}
 			else if (invocant.name=="Monster_Sadness"){
 				if (sight.inSightCharacters.Contains("Monster_Happiness")){
 					return true;
@@ -51,6 +57,7 @@ public class SeeMonsterTrans : Transition {
 			}
 			else if (invocant.name=="Monster_Disgust") {
 				if (hearing.heardCloseCharacters.Contains("Monster_Fear")){
+					GameObject.Find("Monster_Disgust").GetComponent<Talk>().target=GameObject.Find("Monster_Fear").transform.position;
 					return true;
 				}
 			}

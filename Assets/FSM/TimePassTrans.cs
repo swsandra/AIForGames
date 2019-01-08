@@ -23,7 +23,6 @@ public class TimePassTrans : Transition{
     }
 
     public override bool IsTriggered(){
-        //For now it cheks if n sec have passed
         if (changeCreationTime){
             creationTime = System.DateTime.Now;
             changeCreationTime=false;
@@ -39,6 +38,9 @@ public class TimePassTrans : Transition{
         invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
         invocant.GetComponent<GraphPathFollowing>().path=new List<Node>();
         changeCreationTime=true;
+        if(invocant.name=="Monster_Disgust"){
+            invocant.GetComponent<Talk>().talk=false;
+        }
         return nextTransition;
 
     }
