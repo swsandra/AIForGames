@@ -30,13 +30,14 @@ public class Disgust_SM : MonoBehaviour{
 		states.Add(scream);
 
 		//Sleep state
+        List<Transition> sleeptrans = new List<Transition>();
+		sleeptrans.Add(new TimePassTrans(gameObject,50f,"patroll"));
+		SleepState sleep = new SleepState(gameObject, sleeptrans);
+		states.Add(sleep);
 
 		initialState = patroll;
 		currentState = patroll;
 		triggeredTransition = null;
-        //TEST
-        currentState = scream;
-        //
 		gameObject.GetComponent<GraphPathFollowing>().astar_target=null; //Set to null just in case
 		initialSpeed = gameObject.GetComponent<Agent>().maxSpeed;
 	}
@@ -45,7 +46,7 @@ public class Disgust_SM : MonoBehaviour{
 	void Update()
 	{
 		//Book algorithm
-		/*triggeredTransition = null;
+		triggeredTransition = null;
 		foreach (Transition transition in currentState.GetTransitions()){
 			if (transition.IsTriggered()){
 				triggeredTransition = transition;
@@ -66,17 +67,7 @@ public class Disgust_SM : MonoBehaviour{
 			}
 		}
 
-		currentState.GetAction(); */
-
-		foreach (Transition transition in currentState.GetTransitions()){
-			if (transition.IsTriggered()){
-				//Debug.Log("Transition triggered");
-				triggeredTransition = transition;
-				break;
-			}   
-		}
-
-		//currentState.GetAction();
+		currentState.GetAction();
 
 	}
 

@@ -106,6 +106,7 @@
      <Compile Include="Assets\FSM\SeeAngerTrans.cs" />
      <Compile Include="Assets\FSM\SeeDisgustTrans.cs" />
      <Compile Include="Assets\FSM\SeeMonsterTrans.cs" />
+     <Compile Include="Assets\FSM\SleepState.cs" />
      <Compile Include="Assets\FSM\State.cs" />
      <Compile Include="Assets\FSM\StopAndTimePassTrans.cs" />
      <Compile Include="Assets\FSM\StopSeeMonsterTrans.cs" />

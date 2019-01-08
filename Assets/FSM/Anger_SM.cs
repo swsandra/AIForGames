@@ -20,7 +20,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> patrolltrans = new List<Transition>();
 		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		patrolltrans.Add(new GetSignalTrans(gameObject));
-		patrolltrans.Add(new HearNoiseTrans(gameObject));
+		//patrolltrans.Add(new HearNoiseTrans(gameObject));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
@@ -36,7 +36,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> searchdisgusttrans = new List<Transition>();
 		searchdisgusttrans.Add(new SeeMonsterTrans(gameObject));
 		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,4f,"searchlocation"));
-		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans,7f);
+		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans,8f);
 		states.Add(gotosignal);
 
 		//Search location state

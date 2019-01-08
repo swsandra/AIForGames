@@ -23,7 +23,6 @@ public class ScreamState : State {
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
 		pathFollowing.astar_target=null; //Set to null just in case
 		speed = pursueSpeed;
-        //targetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(-115.9f,-40.3f,0f)); //SLEEP
         //targetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(4f,-59f,0f));
 	}
 

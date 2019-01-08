@@ -31,7 +31,7 @@ public class Talk : MonoBehaviour{
 			message.transform.position=new Vector3(transform.position.x,transform.position.y+15f,transform.position.z);
 			message.GetComponent<Renderer>().enabled=true;
 			//talk=false;//Scream until anger is near
-			Debug.Log("Vector is "+target);
+			//Debug.Log("Vector is "+target);
 		}else{
 			message.GetComponent<Renderer>().enabled=false;
 		}

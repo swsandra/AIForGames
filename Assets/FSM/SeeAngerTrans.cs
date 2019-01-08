@@ -21,8 +21,10 @@ public class SeeAngerTrans : Transition {
 
 	public override bool IsTriggered(){
         //If Anger is within radius
-        if(Vector3.Distance(invocant.transform.position,anger.transform.position)<6f){
+        if(Vector3.Distance(invocant.transform.position,anger.transform.position)<10f){
             invocant.GetComponent<Talk>().talk=false;
+        }
+        if(Vector3.Distance(invocant.transform.position,anger.transform.position)<4f){
             if (changeCreationTime){
                 creationTime = System.DateTime.Now;
                 changeCreationTime=false;
