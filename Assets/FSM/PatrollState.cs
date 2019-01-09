@@ -20,7 +20,7 @@ public class PatrollState : State{
 		patrollRegion = new Vector3[2];
 		//If it is north, between izq arriba (-84,65), der arriba (76, 64), izq abajo (-84,-10), der abajo (76, 31)
 		if (invocant.name=="Monster_Disgust") {
-			patrollRegion[0] = new Vector3(-84f, -10f, 0f);
+			patrollRegion[0] = new Vector3(-84f, 0f, 0f);
 			patrollRegion[1] = new Vector3(76f, 64f, 0f);
 		}//If it is south, between izq arriba (-123,-18), izq abajo (-123,-88), der abajo (127, -69), der arr (127, -23)
 		else if (invocant.name=="Monster_Anger") {

@@ -31,7 +31,7 @@ public class Disgust_SM : MonoBehaviour{
 
 		//Sleep state
         List<Transition> sleeptrans = new List<Transition>();
-		sleeptrans.Add(new TimePassTrans(gameObject,50f,"patroll"));
+		sleeptrans.Add(new TimePassTrans(gameObject,45f,"patroll"));
 		SleepState sleep = new SleepState(gameObject, sleeptrans);
 		states.Add(sleep);
 
@@ -56,7 +56,7 @@ public class Disgust_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
-			Debug.Log("Next state: "+targetState);
+			//Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
 				if(targetState.Equals(state.name)){

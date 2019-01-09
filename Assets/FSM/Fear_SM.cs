@@ -20,6 +20,7 @@ public class Fear_SM : MonoBehaviour{
 		List<Transition> patrolltrans = new List<Transition>();
 		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		patrolltrans.Add(new PushedTrans(gameObject)); //is being pushed
+		patrolltrans.Add(new SeeDisgustTrans(gameObject));
 		patrolltrans.Add(new TimePassTrans(gameObject,20f,"patrollonce"));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
@@ -29,7 +30,7 @@ public class Fear_SM : MonoBehaviour{
 		patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
 		patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		patrolloncetrans.Add(new SeeDisgustTrans(gameObject));
-		patrolloncetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
+		patrolloncetrans.Add(new TimePassTrans(gameObject,30f,"patroll"));
 		PatrollOnceState patrollonce = new PatrollOnceState(gameObject, patrolloncetrans);
 		states.Add(patrollonce);
 

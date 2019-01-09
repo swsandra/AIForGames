@@ -32,7 +32,7 @@ public class Hearing : MonoBehaviour{
 
     public void DrawHearingArea()
     {
-        DebugExtension.DebugCircle(gameObject.transform.position,Vector3.forward,Color.magenta,maxRadius);
+        //DebugExtension.DebugCircle(gameObject.transform.position,Vector3.forward,Color.magenta,maxRadius);
         DebugExtension.DebugCircle(gameObject.transform.position,Vector3.forward,Color.magenta,minRadius);
     }
 

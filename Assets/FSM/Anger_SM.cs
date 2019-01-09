@@ -24,19 +24,19 @@ public class Anger_SM : MonoBehaviour{
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
-		//Search noise state
-		List<Transition> searchnoisetrans = new List<Transition>();
-		searchnoisetrans.Add(new SeeMonsterTrans(gameObject));
-		searchnoisetrans.Add(new GetSignalTrans(gameObject));
-		searchnoisetrans.Add(new StopAndTimePassTrans(gameObject,3f,"patroll"));
-		SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,9f);
-		states.Add(search);
+		//Search noise state (not active)
+		//List<Transition> searchnoisetrans = new List<Transition>();
+		//searchnoisetrans.Add(new SeeMonsterTrans(gameObject));
+		//searchnoisetrans.Add(new GetSignalTrans(gameObject));
+		//searchnoisetrans.Add(new StopAndTimePassTrans(gameObject,3f,"patroll"));
+		//SearchNoiseState search = new SearchNoiseState(gameObject, searchnoisetrans,9f);
+		//states.Add(search);
 
 		//Search Disgust (go to signal state)
 		List<Transition> searchdisgusttrans = new List<Transition>();
 		searchdisgusttrans.Add(new SeeMonsterTrans(gameObject));
 		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,4f,"searchlocation"));
-		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans,8f);
+		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans,9f);
 		states.Add(gotosignal);
 
 		//Search location state
@@ -44,7 +44,7 @@ public class Anger_SM : MonoBehaviour{
 		searchlocationtrans.Add(new SeeMonsterTrans(gameObject));
 		searchlocationtrans.Add(new GetSignalTrans(gameObject));
 		searchlocationtrans.Add(new StopAndTimePassTrans(gameObject,2f,"patroll")); //No hay nadie en el punto
-		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,8f);
+		SearchLocationState searchLocation = new SearchLocationState(gameObject, searchlocationtrans,10f);
 		states.Add(searchLocation);
 
 		//Pursue state

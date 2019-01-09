@@ -28,7 +28,7 @@ public class FoodDisappearsTrans : Transition{
             }
             DateTime currentTime = System.DateTime.Now;
             if (Mathf.Abs((float)((currentTime - creationTime).TotalSeconds))>2f){
-                Debug.Log("Two seconds passed.");
+                //Debug.Log("Two seconds passed.");
                 return true;
             }
         }
