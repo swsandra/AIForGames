@@ -57,7 +57,7 @@ public class Anger_SM : MonoBehaviour{
 		//Look for state
 		List<Transition> looktrans = new List<Transition>();
 		looktrans.Add(new SeeMonsterTrans(gameObject));
-		looktrans.Add(new TimePassTrans(gameObject,4f,"pursuerwaypoint"));
+		looktrans.Add(new TimePassTrans(gameObject,7f,"pursuerwaypoint"));
 		LookForState look = new LookForState(gameObject,looktrans,11f);
 		states.Add(look);
 

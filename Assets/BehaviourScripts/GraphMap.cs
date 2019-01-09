@@ -24,7 +24,7 @@ public class GraphMap : MonoBehaviour{
 		DeleteOccupiedTriangles();
 		//SetWalls();
 		GetConnections();
-		drawConnections=true;
+		drawConnections=false;
 		drawTriangles=false;
 	}
 

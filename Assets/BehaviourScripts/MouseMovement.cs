@@ -6,7 +6,7 @@ public class MouseMovement : MonoBehaviour{
 
     public float _speed = 5f;
     public bool _move;
-    public GameObject _point;
+    //public GameObject _point;
     public Vector3 _target;
 
     // Use this for initialization
@@ -29,7 +29,7 @@ public class MouseMovement : MonoBehaviour{
             if (_move == false)
             {
                 _move = true;
-                Instantiate(_point, _target, Quaternion.identity);
+                //Instantiate(_point, _target, Quaternion.identity);
             }
         }
 
