@@ -30,7 +30,8 @@ public class ScreamState : State {
 		//Changes speed of character
 		invocant.GetComponent<Agent>().maxSpeed = speed;
 		invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
-        targetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(4f,-59f,0f));
+        //targetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(4f,-59f,0f));
+		targetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(16f,-49f,0f));
         pathFollowing.ChangeEndNode(targetNode);
         if(pathFollowing.path.Count==0){
             //Activate talk behaviour
