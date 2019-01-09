@@ -30,7 +30,7 @@ public class SeeAngerTrans : Transition {
                 changeCreationTime=false;
             }
             DateTime currentTime = System.DateTime.Now;
-            if (Mathf.Abs((float)((currentTime - creationTime).TotalSeconds))>7f){ //7 seconds
+            if (Mathf.Abs((float)((currentTime - creationTime).TotalSeconds))>5f){ //7 seconds
                 return true;
             }
         }

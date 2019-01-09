@@ -22,7 +22,7 @@ public class Disgust_SM : MonoBehaviour{
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
-		//Scream  state
+		//Scream state
         List<Transition> screamtrans = new List<Transition>();
         screamtrans.Add(new SeeAngerTrans(gameObject));
 		screamtrans.Add(new TimePassTrans(gameObject,25f,"sleep"));

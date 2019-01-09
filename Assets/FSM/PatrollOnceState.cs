@@ -17,10 +17,10 @@ public class PatrollOnceState : State{
 		invocant=inv;
 		transitions = trans;
 		name="patrollonce";
-        //Patrolling north
+        //Patrolling all regions
 		patrollRegion = new Vector3[2];
-        patrollRegion[0] = new Vector3(-60f, -10f, 0f);
-		patrollRegion[1] = new Vector3(85f, 41f, 0f);
+		patrollRegion[0] = new Vector3(15f, -66f, 0f);
+		patrollRegion[1] = new Vector3(124f, -19f, 0f);
 		//Store path following script from gameobject
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
 		pathFollowing.astar_target=null; //Set to null just in case

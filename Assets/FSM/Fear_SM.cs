@@ -21,7 +21,7 @@ public class Fear_SM : MonoBehaviour{
 		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		patrolltrans.Add(new PushedTrans(gameObject)); //is being pushed
 		patrolltrans.Add(new SeeDisgustTrans(gameObject));
-		patrolltrans.Add(new TimePassTrans(gameObject,20f,"patrollonce"));
+		patrolltrans.Add(new TimePassTrans(gameObject,30f,"patrollonce"));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
 		
@@ -30,7 +30,7 @@ public class Fear_SM : MonoBehaviour{
 		patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
 		patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		patrolloncetrans.Add(new SeeDisgustTrans(gameObject));
-		patrolloncetrans.Add(new TimePassTrans(gameObject,30f,"patroll"));
+		patrolloncetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
 		PatrollOnceState patrollonce = new PatrollOnceState(gameObject, patrolloncetrans);
 		states.Add(patrollonce);
 
@@ -45,14 +45,14 @@ public class Fear_SM : MonoBehaviour{
 		//Waypoint decision state
 		List<Transition> waypointtrans = new List<Transition>();
 		waypointtrans.Add(new PushedTrans(gameObject));
-		waypointtrans.Add(new StopAndTimePassTrans(gameObject,7f,"patroll"));
+		waypointtrans.Add(new StopAndTimePassTrans(gameObject,7f,"flee"));
 		WaypointState waypoint = new WaypointState(gameObject, waypointtrans, 12f);
 		states.Add(waypoint);
 
 		//Dizzy state
 		List<Transition> dizzytrans = new List<Transition>();
-		dizzytrans.Add(new TimePassTrans(gameObject,2f,"waypoint"));
-		DizzyState dizzy = new DizzyState(gameObject, dizzytrans, 4f);
+		dizzytrans.Add(new StopAndTimePassTrans(gameObject,1f,"waypoint"));
+		DizzyState dizzy = new DizzyState(gameObject, dizzytrans, 3f);
 		states.Add(dizzy);
 
 		initialState = patroll;
@@ -76,7 +76,7 @@ public class Fear_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
-			//Debug.Log("Next state: "+targetState);
+			Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
 				if(targetState.Equals(state.name)){
@@ -88,16 +88,6 @@ public class Fear_SM : MonoBehaviour{
 		}
 
 		currentState.GetAction();
-
-		//foreach (Transition transition in currentState.GetTransitions()){
-		//	if (transition.IsTriggered()){
-				//Debug.Log("Transition triggered");
-		//		triggeredTransition = transition;
-		//		break;
-		//	}   
-		//}
-
-		//currentState.GetAction();
 
 	}
 

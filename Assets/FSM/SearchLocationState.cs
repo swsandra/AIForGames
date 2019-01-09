@@ -27,12 +27,10 @@ public class SearchLocationState : State {
 		//Changes speed of character
 		invocant.GetComponent<Agent>().maxSpeed = speed;
 		invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
-
-        //Take message from talk script from disgust
-        Vector3 target = GameObject.Find("Monster_Disgust").GetComponent<Talk>().target;
-        int targetNode = pathFollowing.graph.GetNearestNodeByCenter(target);
-        pathFollowing.ChangeEndNode(targetNode);
 		
+		Vector3 target = GameObject.Find("Monster_Disgust").GetComponent<Talk>().target;
+		int targetNode = pathFollowing.graph.GetNearestNodeByCenter(target);
+		pathFollowing.ChangeEndNode(targetNode);
 	}
 	
 	public override List<Transition> GetTransitions(){

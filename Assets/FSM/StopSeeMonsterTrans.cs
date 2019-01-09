@@ -21,10 +21,7 @@ public class StopSeeMonsterTrans : Transition {
         //Check sight script to know if any monster gets in sight line
 		if(sight.inSightCharacters.Count!=0){
 			//Check if it is the target for each monster
-			if (invocant.name=="Monster_Disgust") {
-				
-			}
-			else if (invocant.name=="Monster_Anger") {
+			if (invocant.name=="Monster_Anger") {
 				if (!sight.inSightCharacters.Contains("Monster_Fear")){
 					return true;
 				}
@@ -38,10 +35,7 @@ public class StopSeeMonsterTrans : Transition {
 		//Check if there is any monster inside min radius in hearing
 		if(hearing.heardCloseCharacters.Count!=0){
 			//Check if it is the target for each monster
-			if (invocant.name=="Monster_Disgust") {
-				
-			}
-			else if (invocant.name=="Monster_Anger") {
+			if (invocant.name=="Monster_Anger") {
 				if (!hearing.heardCloseCharacters.Contains("Monster_Fear")){
 					return true;
 				}
@@ -58,7 +52,11 @@ public class StopSeeMonsterTrans : Transition {
 	}
 
 	public override string GetTargetState(){
-
+		
+		if(invocant.name=="Monster_Anger"){
+			GameObject.Find("Evil Laugh").GetComponent<Renderer>().enabled=false;
+		}
+		
 		invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
 		invocant.GetComponent<GraphPathFollowing>().path=new List<Node>();
 		return "look";

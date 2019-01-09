@@ -18,21 +18,22 @@ public class PatrollState : State{
 		transitions = trans;
 		name="patroll";
 		patrollRegion = new Vector3[2];
-		//If it is north, between izq arriba (-84,65), der arriba (76, 64), izq abajo (-84,-10), der abajo (76, 31)
+		//North
 		if (invocant.name=="Monster_Disgust") {
 			patrollRegion[0] = new Vector3(-84f, 0f, 0f);
 			patrollRegion[1] = new Vector3(76f, 64f, 0f);
-		}//If it is south, between izq arriba (-123,-18), izq abajo (-123,-88), der abajo (127, -69), der arr (127, -23)
+		}//South
 		else if (invocant.name=="Monster_Anger") {
 			patrollRegion[0] = new Vector3(-123f, -88f, 0f);
 			patrollRegion[1] = new Vector3(127f, -18f, 0f);
-		}//If it is all regions, between izq arriba (-84,65), izq abajo (-123,-88), der abajo (127, -69), der arriba (145, 62)
+		}//All regions
 		else if (invocant.name=="Monster_Sadness"){
-			patrollRegion[0] = new Vector3(-84f, -88f, 0f);
+			patrollRegion[0] = new Vector3(-104f, -88f, 0f);
 			patrollRegion[1] = new Vector3(127f, 65f, 0f);
-		}//If it is the kitchen, between 
+		}//If it is the kitchen and north
 		else if (invocant.name=="Monster_Fear"){
-			patrollRegion[0] = new Vector3(96f, -3f, 0f);
+			//patrollRegion[0] = new Vector3(96f, -3f, 0f); //Only the kitchen
+			patrollRegion[0] = new Vector3(-64f, 13f, 0f); //Part of north
 			patrollRegion[1] = new Vector3(148f, 64f, 0f);
 		}
 		//Store path following script from gameobject

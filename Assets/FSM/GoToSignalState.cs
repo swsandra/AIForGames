@@ -8,8 +8,6 @@ public class GoToSignalState : State {
 
 	GameObject invocant;
 
-	GraphMap graph;
-
 	List<Transition> transitions;
 
 	float speed;
@@ -20,7 +18,6 @@ public class GoToSignalState : State {
 		transitions= trans;
 		name="goto";
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
-		graph = GameObject.Find("Map Graph").GetComponent<GraphMap>();
 		pathFollowing.astar_target=null; //Set to null just in case
 		speed = pursueSpeed;
 	}

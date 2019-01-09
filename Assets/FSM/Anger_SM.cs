@@ -63,7 +63,8 @@ public class Anger_SM : MonoBehaviour{
 
 		//Push Fear state
 		List<Transition> pushtrans = new List<Transition>();
-		pushtrans.Add(new TimePassTrans(gameObject,4f,"patroll"));
+		pushtrans.Add(new StopSeeMonsterTrans(gameObject));
+		//pushtrans.Add(new TimePassTrans(gameObject,3f,"patroll"));
 		PushState push = new PushState(gameObject,pushtrans);
 		states.Add(push);
 
@@ -98,6 +99,7 @@ public class Anger_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
+			Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
 				if(targetState.Equals(state.name)){

@@ -32,9 +32,10 @@ public class PursuerWaypointState : State {
 		invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
 
         //Calculate best pursuer waypoint
-        int target = waypoint.BestPursuerWaypoint(invocant.transform.position);
-		pathFollowing.ChangeEndNode(target);
-		
+		if(pathFollowing.path.Count==0){
+			int target = waypoint.BestPursuerWaypoint(invocant.transform.position);
+			pathFollowing.ChangeEndNode(target);
+		}		
 	}
 	
 	public override List<Transition> GetTransitions(){

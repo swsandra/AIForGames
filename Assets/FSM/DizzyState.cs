@@ -29,7 +29,6 @@ public class DizzyState : State {
 		invocant.GetComponent<Agent>().maxAcc = (speed*2)+10;
 
 		int targetNode = pathFollowing.graph.GetNearestNodeByCenter(invocant.transform.position);
-		//Debug.Log("Nodo "+targetNode);
 		pathFollowing.ChangeEndNode(targetNode);
 		
 	}
