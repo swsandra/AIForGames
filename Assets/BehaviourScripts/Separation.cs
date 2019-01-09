@@ -45,7 +45,7 @@ public class Separation : GeneralBehaviour
 				direction.Normalize();
 				steering.linear += strength * direction;
 				if(gameObject.name=="Monster_Fear"){
-					steering.linear += 100 * direction;
+					steering.linear += 130 * direction;
 				}
 			}
 			else

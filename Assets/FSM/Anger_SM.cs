@@ -35,8 +35,8 @@ public class Anger_SM : MonoBehaviour{
 		//Search Disgust (go to signal state)
 		List<Transition> searchdisgusttrans = new List<Transition>();
 		searchdisgusttrans.Add(new SeeMonsterTrans(gameObject));
-		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,4f,"searchlocation"));
-		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans,9f);
+		searchdisgusttrans.Add(new StopAndTimePassTrans(gameObject,1f,"searchlocation"));
+		GoToSignalState gotosignal = new GoToSignalState(gameObject, searchdisgusttrans,10f);
 		states.Add(gotosignal);
 
 		//Search location state
@@ -58,7 +58,7 @@ public class Anger_SM : MonoBehaviour{
 		List<Transition> looktrans = new List<Transition>();
 		looktrans.Add(new SeeMonsterTrans(gameObject));
 		looktrans.Add(new TimePassTrans(gameObject,4f,"pursuerwaypoint"));
-		LookForState look = new LookForState(gameObject,looktrans,10f);
+		LookForState look = new LookForState(gameObject,looktrans,11f);
 		states.Add(look);
 
 		//Push Fear state
@@ -99,7 +99,7 @@ public class Anger_SM : MonoBehaviour{
 
 		if (triggeredTransition!=null){
 			string targetState = triggeredTransition.GetTargetState();
-			Debug.Log("Next state: "+targetState);
+			//Debug.Log("Next state: "+targetState);
 			//Get state from states list
 			foreach (State state in states){
 				if(targetState.Equals(state.name)){

@@ -36,7 +36,6 @@ public class SeeDisgustTrans : Transition {
 	public override string GetTargetState(){
 
 		invocant.GetComponent<GraphPathFollowing>().astar_target=null; //Just in case
-		invocant.GetComponent<GraphPathFollowing>().path=new List<Node>();
 		return "patroll";
 
 	}

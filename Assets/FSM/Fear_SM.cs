@@ -20,7 +20,6 @@ public class Fear_SM : MonoBehaviour{
 		List<Transition> patrolltrans = new List<Transition>();
 		patrolltrans.Add(new SeeMonsterTrans(gameObject));
 		patrolltrans.Add(new PushedTrans(gameObject)); //is being pushed
-		patrolltrans.Add(new SeeDisgustTrans(gameObject));
 		patrolltrans.Add(new TimePassTrans(gameObject,30f,"patrollonce"));
 		PatrollState patroll = new PatrollState(gameObject, patrolltrans);
 		states.Add(patroll);
@@ -29,7 +28,6 @@ public class Fear_SM : MonoBehaviour{
 		List<Transition> patrolloncetrans = new List<Transition>();
 		patrolloncetrans.Add(new SeeMonsterTrans(gameObject));
 		patrolloncetrans.Add(new PushedTrans(gameObject)); //is being pushed
-		patrolloncetrans.Add(new SeeDisgustTrans(gameObject));
 		patrolloncetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
 		PatrollOnceState patrollonce = new PatrollOnceState(gameObject, patrolloncetrans);
 		states.Add(patrollonce);
@@ -39,7 +37,7 @@ public class Fear_SM : MonoBehaviour{
 		fleetrans.Add(new SeeMonsterTrans(gameObject));
 		fleetrans.Add(new PushedTrans(gameObject)); //is being pushed
 		fleetrans.Add(new TimePassTrans(gameObject,15f,"patroll"));
-		FleeState flee = new FleeState(gameObject, fleetrans, 9f);
+		FleeState flee = new FleeState(gameObject, fleetrans, 10f);
 		states.Add(flee);
 
 		//Waypoint decision state

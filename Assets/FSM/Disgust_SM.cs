@@ -24,14 +24,15 @@ public class Disgust_SM : MonoBehaviour{
 		
 		//Scream state
         List<Transition> screamtrans = new List<Transition>();
+		screamtrans.Add(new SeeMonsterTrans(gameObject));
         screamtrans.Add(new SeeAngerTrans(gameObject));
 		screamtrans.Add(new TimePassTrans(gameObject,25f,"sleep"));
-		ScreamState scream = new ScreamState(gameObject, screamtrans,9f);
+		ScreamState scream = new ScreamState(gameObject, screamtrans,10f);
 		states.Add(scream);
 
 		//Sleep state
         List<Transition> sleeptrans = new List<Transition>();
-		sleeptrans.Add(new TimePassTrans(gameObject,45f,"patroll"));
+		sleeptrans.Add(new TimePassTrans(gameObject,40f,"patroll"));
 		SleepState sleep = new SleepState(gameObject, sleeptrans);
 		states.Add(sleep);
 

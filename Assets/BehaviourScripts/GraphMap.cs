@@ -360,4 +360,21 @@ public class GraphMap : MonoBehaviour{
 		return nodeAdyacents;
 	}
 
+	
+	public int GetNearestAdyacentNodeByCenter(Vector3 position, List<int> adyacents){
+		//int nearestNode=-1;
+		int nearestNode = nodes[adyacents[0]].id;
+		float smallestLine = (position - nodes[adyacents[0]].center).magnitude;
+
+		for(int i = 1; i<adyacents.Count ; i++){
+			Vector3 nodeCenter = nodes[adyacents[i]].center;
+			float distance = (position - nodeCenter).magnitude;
+			if (distance <= smallestLine){
+				nearestNode=adyacents[i];
+				smallestLine = distance;
+			}
+		}
+		return nearestNode;
+	}
+
 }
