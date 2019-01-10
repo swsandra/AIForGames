@@ -32,9 +32,10 @@ public class PatrollState : State{
 			patrollRegion[1] = new Vector3(127f, 65f, 0f);
 		}//If it is the kitchen and north
 		else if (invocant.name=="Monster_Fear"){
-			//patrollRegion[0] = new Vector3(96f, -3f, 0f); //Only the kitchen
-			patrollRegion[0] = new Vector3(-64f, 13f, 0f); //Part of north
-			patrollRegion[1] = new Vector3(148f, 64f, 0f);
+			//patrollRegion[0] = new Vector3(-64f, 13f, 0f); //Part of north
+			//patrollRegion[1] = new Vector3(148f, 64f, 0f);
+			patrollRegion[0] = new Vector3(-104f, -88f, 0f);
+			patrollRegion[1] = new Vector3(127f, 65f, 0f);
 		}
 		//Store path following script from gameobject
 		pathFollowing = invocant.GetComponent<GraphPathFollowing>();
