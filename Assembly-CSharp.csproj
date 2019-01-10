@@ -85,6 +85,7 @@
      <Compile Include="Assets\FSM\Anger_SM.cs" />
      <Compile Include="Assets\FSM\Disgust_SM.cs" />
      <Compile Include="Assets\FSM\DizzyState.cs" />
+     <Compile Include="Assets\FSM\DropNote.cs" />
      <Compile Include="Assets\FSM\Fear_SM.cs" />
      <Compile Include="Assets\FSM\FleeState.cs" />
      <Compile Include="Assets\FSM\FoodDisappearsTrans.cs" />

@@ -26,7 +26,7 @@ public class SleepState : State {
 	public override void GetAction(){
 		//Changes speed of character
         targetNode = pathFollowing.graph.GetNearestNodeByCenter(new Vector3(-115.9f,-40.3f,0f));
-        pathFollowing.ChangeEndNode(targetNode);		
+        pathFollowing.ChangeEndNode(targetNode);
 	}
 	
 	public override List<Transition> GetTransitions(){

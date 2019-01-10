@@ -23,11 +23,7 @@ public class Sensor : MonoBehaviour{
 	{
 		character = gameObject.GetComponent<Agent>();
         modalities = new List<string>();
-        if (gameObject.name=="Monster_Disgust") {
-            //modalities.Add("hearing");
-            //threshold = 4f;
-        }
-        else if (gameObject.name=="Monster_Anger") {
+        if (gameObject.name=="Monster_Anger") {
             modalities.Add("hearing");//When disgust talks
             threshold = 4f;
         }
@@ -52,7 +48,6 @@ public class Sensor : MonoBehaviour{
             //Change astar target
             //pathFollowing.ChangeEndNode(targetNode);
             //newSignal=false;
-            //Debug.Log("New signal");
         }
 	}
 

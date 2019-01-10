@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class RegionalSenseManager : MonoBehaviour{
 
     //Notification struct
-    struct Notification{
+    public struct Notification{
         public DateTime time;
         public string sensorName;
         public Signal signal;
@@ -21,7 +21,7 @@ public class RegionalSenseManager : MonoBehaviour{
 
     List<GameObject> sensors;
 
-    Queue<Notification> notifications;
+    public Queue<Notification> notifications;
 
     public Queue<Signal> newSignals;
 	
@@ -91,10 +91,8 @@ public class RegionalSenseManager : MonoBehaviour{
         while (notifications.Count!=0){
             Notification notification = notifications.Peek();
             //Check if notification is due
-            if (DateTime.Compare(notification.time,currentTime)<0){ //notification.time<currentTime
-                //
+            if (DateTime.Compare(notification.time,currentTime)<0){
                 GameObject sensor = GameObject.Find(notification.sensorName);
-                //Debug.Log("Notification is due for "+notification.sensorName);
                 sensor.GetComponent<Sensor>().Notify(notification.signal);
                 notifications.Dequeue();
 

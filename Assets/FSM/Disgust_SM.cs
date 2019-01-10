@@ -6,7 +6,9 @@ public class Disgust_SM : MonoBehaviour{
 
 	List<State> states;
 
-	State initialState, currentState;
+	public State currentState;
+
+	State initialState;
 
 	Transition triggeredTransition;
 

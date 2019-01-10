@@ -34,7 +34,7 @@ public class StopAndTimePassTrans : Transition{
             }
             DateTime currentTime = System.DateTime.Now;
             if (Mathf.Abs((float)((currentTime - creationTime).TotalSeconds))>delay){
-                Debug.Log(delay+" seconds have passed.");
+                //Debug.Log(delay+" seconds have passed.");
                 return true;
             }
         }
