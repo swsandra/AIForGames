@@ -25,11 +25,11 @@ public class WaypointDecision : MonoBehaviour{
 		GameObject map = GameObject.Find("Map Graph");
 		graph = map.GetComponent<GraphMap>();
 		waypoints[0]=graph.GetNearestNodeByCenter(new Vector3(-116f,62f,0f));
-		waypoints[1]=graph.GetNearestNodeByCenter(new Vector3(-3f,-30f,0f));
+		waypoints[1]=graph.GetNearestNodeByCenter(new Vector3(-3f,-7f,0f));
 		waypoints[2]=graph.GetNearestNodeByCenter(new Vector3(141f,-90f,0f));
 
 		pursuerWaypoints[0]=graph.GetNearestNodeByCenter(new Vector3(-114f,46f,0f));
-		pursuerWaypoints[1]=graph.GetNearestNodeByCenter(new Vector3(6f,-19f,0f));
+		pursuerWaypoints[1]=graph.GetNearestNodeByCenter(new Vector3(5f,3f,0f));
 		pursuerWaypoints[2]=graph.GetNearestNodeByCenter(new Vector3(137f,-77f,0f));
 
 		pursuer=GameObject.Find("Monster_Anger");
@@ -140,8 +140,7 @@ public class WaypointDecision : MonoBehaviour{
 	
 		//Calculate if waypoints are in pursuers line of sight
 		foreach(int waypoint in nearestWaypoints){
-			//Debug.Log("Working waypoint at node "+waypoint);
-			bool takeWaypoint = false;		
+			bool takeWaypoint = false;
 			//Ray between pursuer and waypoint
 			Vector3 lineStart = pursuer.transform.position;
 			Vector3 lineEnd = graph.nodes[waypoint].center;
@@ -154,9 +153,11 @@ public class WaypointDecision : MonoBehaviour{
 				float spriteSize = Vector3.Distance(wall.position,wall.position+spriteSizeVector);
 				if (HandleUtility.DistancePointLine(wall.position,lineStart,lineEnd)<=spriteSize){
 					//Then this waypoint is good because there is a wall between pursuer and it
-					//Debug.Log("Wall "+wall.gameObject.name+" is in sight line.");
-					takeWaypoint = true;
-					break;
+					//But first check if pursuer is out of range for waypoint
+					if(Vector3.Distance(pursuer.transform.position,lineEnd)>45f){
+						takeWaypoint = true;
+						break;
+					}
 				}
 			}
 			//If there is no wall in sight line, check obstacles
@@ -169,12 +170,15 @@ public class WaypointDecision : MonoBehaviour{
 					float spriteSize = Vector3.Distance(obstacle.transform.position,obstacle.transform.position+spriteSizeVector);
 					if (HandleUtility.DistancePointLine(obstacle.transform.position,lineStart,lineEnd)<=spriteSize){
 						//Then this waypoint is good because there is a wall between pursuer and it
-						//Debug.Log("Wall "+obstacle.gameObject.name+" is in sight line.");
-						takeWaypoint = true;
-						break;
+						//But first check if pursuer is out of range for waypoint
+						if(Vector3.Distance(pursuer.transform.position,lineEnd)>45f){
+							takeWaypoint = true;
+							break;
+						}
 					}
 				}
-			}else{
+			}
+			if (takeWaypoint){
 				bestWaypoint=waypoint;
 				break;
 			}
